@@ -20,7 +20,7 @@ derived(int n):base(n)
 
 #/*=============
 #Overriding the function members
-# =============*/
+#=============*/
 Supppose We have two public same name member functions in the base and derived class.
 now derived class is inherited publicly from the base class.
 we use that member function in the object of derived class.So ,which member function can be callled?
