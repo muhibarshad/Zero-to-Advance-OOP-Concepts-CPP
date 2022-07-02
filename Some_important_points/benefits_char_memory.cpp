@@ -6,7 +6,9 @@ using namespace std;
 int main()
 {
     // un signed
-   unsigned char ch1=0,ch2=30,ch3=150,ch4=255,ch5=-34,ch6=-120,ch7=-127,ch8=-129;
+    signed char ch1=0,ch2=30,ch3=150,ch4=257,ch5=-34,ch6=-120,ch7=-127,ch8=-129;
+    //To get the values as : range more than the 127 and less than 255 than minus the digit from the
+    //
     cout<<ch1<<endl;
     cout<<ch2<<endl;
     cout<<ch3<<endl;
