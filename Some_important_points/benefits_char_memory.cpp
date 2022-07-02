@@ -5,8 +5,8 @@ so to reduce memeory use the character dataTye if we have any number in the rang
 using namespace std;
 int main()
 {
-    // un signed
-    signed char ch1=0,ch2=30,ch3=150,ch4=257,ch5=-34,ch6=-120,ch7=-127,ch8=-129;
+    // unsigned
+    unsigned char ch1=0,ch2=30,ch3=150,ch4=257,ch5=-34,ch6=-120,ch7=-127,ch8=-129;
     //To get the values as : range more than the 127 and less than 255 than minus the digit from the
     //
     cout<<ch1<<endl;
@@ -26,6 +26,9 @@ int main()
     cout<<int(ch7)<<endl;
     cout<<int(ch8)<<endl;
     cout<<int(ch1+ch2+ch3+ch4+ch5+ch6+ch7+ch8)<<endl; 
+    char ch10=int(20);
+    cout<<ch10<<endl;
+    cout<<int(ch10)<<endl;
 
     // //signed
     // char ch1=0,ch2=30,ch3=150,ch4=255,ch5=-34,ch6=-120,ch7=-127,ch8=-129;
@@ -45,7 +48,7 @@ int main()
     // cout<<int(ch6)<<endl;
     // cout<<int(ch7)<<endl;
     // cout<<int(ch8)<<endl;
-    // cout<<int(ch1+ch2+ch3+ch4+ch5+ch6+ch7+ch8)<<endl;    
+    // cout<<int(ch1+ch2+ch3+ch4+ch5+ch6+ch7+ch8)<<endl;
 
 
 
