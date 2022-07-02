@@ -1,0 +1,21 @@
+Medium Blog
+https://soubhihadri.medium.com/image-processing-best-practices-c-280caadacb82
+
+Assignment 
+https://maryash.github.io/135/labs/lab_08.html
+
+C files I/O
+https://www.ibm.com/docs/en/i/7.4?topic=functions-fopen-open-files
+
+****************Knowlege must learn before the Image Processing********************8888
+How actually the unsigned and signed character arrays work?
+Character pointer arrays fully grip.
+What is the PGM format?
+What is the OPenCV ? and its libraries.
+How the file in written in the pgm format as
+p2
+height width
+maximum color range
+2D matrix  etc.
+
+See some youtube contants also 
