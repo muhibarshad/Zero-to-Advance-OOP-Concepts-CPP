@@ -65,9 +65,8 @@
    >The address of a class is same as the address of the first dataMemeber of the class
 
  ## Summary:
-  * To see examples [classe and object examples](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/)
-   <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/slide.jpeg" style="height: 40vh; padding-left: 50vh;">
+  * To see examples [class and object examples](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/)
+  * To go through slides [Class and object slides](/Some%20extra%20concepts/Slides/classes.pdf) 
 
 
 
