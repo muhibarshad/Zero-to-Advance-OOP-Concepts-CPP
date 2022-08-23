@@ -4,12 +4,10 @@
 
 # Zero to Advance OOP Course in C++
 >This course helps you to cover all `OBJECT-ORIENTED-PROGRAMMING` concepts .By providing proper documentation of example codes with testing portions, attached slides with every topic, external links thats help to get benefit from them without straggling on internet a lot of hours 🤔.The one plus point for you is that every thing is in the complete `road-map` means you go through step by step without jumping to mixed topics.✨
-
 # Contents
  1.[Dynamic Arrays](#dynamic-arrays)
  2.[Core Concepts](#core-concepts)
  2.[Classes and Objects](#classes-and-objects)
-
 # Dynamic Arrays
 
 # Core Concepts
@@ -31,5 +29,7 @@
 
 # Classes and Objects
   ## Basic Syntx:
-  ![class_syntx](/Some%20extra%20concepts/codeSnaps/class.png)
+  <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/class.png" style="height: 40vh; padding-left: 50vh;">
+</p>
  
