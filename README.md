@@ -30,7 +30,7 @@
 
 
 # Classes and Objects
-  [What are classes 👀 ❓](#classes-and-object)
+  [What are classes  👀 ❓](#classes-and-object)
   ## Basic Syntx of class:
   <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/class1.png" style="height: 40vh; padding-left: 50vh;">
