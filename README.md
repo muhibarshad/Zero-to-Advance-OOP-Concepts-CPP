@@ -5,11 +5,9 @@
 # Zero to Advance OOP Course in C++
 >This course helps you to cover all `OBJECT-ORIENTED-PROGRAMMING` concepts .By providing proper documentation of example codes with testing portions, attached slides with every topic, external links thats help to get benefit from them without straggling on internet a lot of hours 🤔.The one plus point for you is that every thing is in the complete `road-map` means you go through step by step without jumping to mixed topics.✨
 # Contents
- 1.[Dynamic Arrays](#dynamic-arrays)
-
- 2.[Core Concepts](#core-concepts)
-
- 2.[Classes and Objects](#classes-and-objects)
+1.[Dynamic Arrays](#dynamic-arrays)
+2.[Core Concepts](#core-concepts)
+3.[Classes and Objects](#classes-and-objects)
 # Dynamic Arrays
 
 # Core Concepts
@@ -50,11 +48,11 @@
 
  ## Access-Identifiers
   There are there Access specifiers.
-  ### * Public
+* ###  Public
      Members declerad as private are only accessible within the class.
- ### * Private
+* ### Private
      Memebers of public are accessible from anywhere(accissble through the object).
- ### * Protected
+* ### Protected
      Members are only accessible in child class.
 
  Result:
