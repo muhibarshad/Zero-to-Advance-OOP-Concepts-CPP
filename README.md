@@ -8,7 +8,7 @@
  1.[Dynamic Arrays](#dynamic-arrays)
 
  2.[Core Concepts](#core-concepts)
- 
+
  2.[Classes and Objects](#classes-and-objects)
 # Dynamic Arrays
 
@@ -59,7 +59,7 @@
 
  Result:
     <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/result_class.png" style="height: 40vh; padding-left: 50vh;">
+    <img src="/Some%20extra%20concepts/codeSnaps/result_class.png" style="height: 60vh; padding-left: 50vh;">
 
    ### Note:
    >The address of a class is same as the address of the first dataMemeber of the class
