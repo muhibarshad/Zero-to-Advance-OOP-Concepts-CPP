@@ -65,7 +65,7 @@
  ## Summary:
   * To see examples [classe and object examples](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/)
    <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/slide.png" style="height: 40vh; padding-left: 50vh;">
+    <img src="/Some%20extra%20concepts/codeSnaps/slide.jpeg" style="height: 40vh; padding-left: 50vh;">
 
 
 
