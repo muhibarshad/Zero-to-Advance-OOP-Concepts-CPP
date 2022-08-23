@@ -66,7 +66,8 @@
 
  ## Summary:
   * To see examples [class and object examples](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/)
-  * To go through slides [Class and object slides](/Some%20extra%20concepts/Slides/classes.pdf) 
+  * To go through slides [Class and object slides](/Some%20extra%20concepts/Slides/classes.pdf)
+  * For reading more concepts explore this page [Deep learn class and objects](https://www.learncpp.com/cpp-tutorial/classes-and-class-members/) 
 
 
 
