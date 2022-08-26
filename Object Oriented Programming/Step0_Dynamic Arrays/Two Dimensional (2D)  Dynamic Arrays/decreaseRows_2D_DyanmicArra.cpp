@@ -1,4 +1,4 @@
-/*Write a C++ program to increase rows of 2D-Arrays during runTime*/
+/*Write a C++ program to decrease rows of 2D-Arrays during runTime*/
 #include <iostream>
 #include <iomanip>
 
@@ -32,20 +32,25 @@ void outputDynamicArray(int **&matrix, int row, int col)
     }
 }
 
-void increaseRows(int **&matrix, int &row, int col)
+void decreaseRows(int **&matrix, int &row, int col)
 {
 
     int num;
-    cout << "Enter the number of rows that you want to increase:" << endl;
+    cout << "Enter the number of rows that you want to decrease:" << endl;
     cin >> num;
-
-    //increase the size of the rows
-    int **temp = new int *[row + num];
-    for (int i = 0; i < row + num; i++)
+    while (num > row)
+    {
+        cout << "Your number " << num << " is greater than the " << row << endl;
+        cout << "Please : Enter the number less than the number of the rows :" << endl;
+        cin >> num;
+    }
+    // decrease the size of the rows
+    int **temp = new int *[row - num];
+    for (int i = 0; i < row - num; i++)
     {
         temp[i] = new int[col];
     }
-    for (int i = 0; i < row; i++)
+    for (int i = 0; i < row - num; i++)
     {
         for (int j = 0; j < col; j++)
         {
@@ -58,25 +63,11 @@ void increaseRows(int **&matrix, int &row, int col)
     }
     delete[] matrix;
     matrix = temp;
-
-
-    //entering elemenst in the increased rows
-    for (int i = row; i < row + num; i++)
-    {
-        // cout<<"Enter the row "<<row+1<<" :"<<endl;
-        for (int j = 0; j < col; j++)
-        {
-            matrix[i][j] = (rand() % (100 - 90)) + 1 + 90;
-            // cin>>matrix[i][j];
-        }
-    }
-    row += num;
+    row -= num;
 }
 int main()
 {
-    int row;
-    int col;
-
+    int row, col;
     cout << "Enter the number of rows : " << endl;
     cin >> row;
     cout << "Enter the number of columns : " << endl;
@@ -91,7 +82,7 @@ int main()
     inputDynamicArray(matrix, row, col);
     outputDynamicArray(matrix, row, col);
 
-    increaseRows(matrix, row, col);
+    decreaseRows(matrix, row, col);
     cout << "The dynamic array after the increase size of the rows:" << endl;
     outputDynamicArray(matrix, row, col);
 
