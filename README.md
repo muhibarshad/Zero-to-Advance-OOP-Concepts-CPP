@@ -35,7 +35,13 @@
   make the pointer of our array `nullptr` so its pointing to nothing.
   
   ### How to change the size of our arrays at run-time ? or at execution time? How to increase or decrease the size of our arrays dynamically ? or at execution time? 
-  
+  **Firstly**, we made our array whose size we want to change dynamically.
+  **Secondly**, we create an temp dyanmic 1D-Array.Whose size is the size thats we want after changing meanns `size+increaseNum` or `size+decreaseNum` .
+  **Thirdly**, copy the array to tempArray.
+  **At Last**, delete the array values from heap and mutate the array-pointer to the tempArray-pointer.And now you can mutate the size as `size+=num` (for-increaing) or `size-=num`(for-decreaing) 
+  >Both our array and tempArray pointers in the stack pointing to the same changed tempArray values in the heap.
+  **Now**,You can perform tasks, to the changed sized array ,after performing methods deallocate the aray and program happily finishes😊.(Problem-Solved,Hurray🥳)
+
 # Core Concepts
   A langugae which containes these four segments is referrred as ***Object-Oriented-Programming*** language.
  * ## Classes and object :
