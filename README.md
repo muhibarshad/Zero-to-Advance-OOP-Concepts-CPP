@@ -17,14 +17,16 @@
 # Dynamic Arrays
 >Dynamic memory allocation is the process of changing the size of the memory space during the run-time.
  ## Why we need it ?
- Suppose you have building an facebook like accounts creating application.Users can create or delete accounts.In your database all the accounts can be stored in an array of **Users**.Suppose 
- at morning the users of your application are **5** `{'Hamza','Abbas','Ali','Ayesha','Fatima','Mujeeb'}`.At evening a boy named ***Ali*** want to delete its account due to some reasons.When he deletes its account then at position of ali `index` becomes empty . like this `{'Hamza','Abbas','','Ayesha','Fatima','Mujeeb'}`.Till the size of array is **5**.Now **Ali** again wants to creates its ,so we wants to add it on `run-time` **How we can increase the size of arrays?🤔**.
- Main problem is ,when we deletes the account the in our memory size of array is till **5** means our memory is wasting . And when we adding an account then how how we increase the size of array ?. To resolve such problems we need such a way to increase or decrease `dynamiclly` change the size of our arrays during `run-time`.It is not possible with the `static` arrays which size are always constant.Thats way,`DYNAMIC MEMORY ALLOCATION (DMA)` is introduced.
+ Suppose you have building a facebook like accounts creating application.Users can create or delete accounts.In your database all the accounts can be stored in an array of **Users**.Suppose 
+ at morning the users of your application are **5** `{'Hamza','Abbas','Ali','Ayesha','Fatima','Mujeeb'}`.At evening a boy named ***Ali*** want to delete its account due to some reasons.When he deletes its account then at position of ali `index` becomes empty . like this `{'Hamza','Abbas','','Ayesha','Fatima','Mujeeb'}`.Till the size of array is **5**.Now **Ali** again wants to creates its account, so we wants to add it on `run-time` **How can we increase the size of arrays?🤔**.
+
+ Main problem here is that ,when we deletes the account the in our memory, the size of array is till **5** means our memory is wasting . And when we adding an account then how we increase the size of array ?. To resolve such problems we need such a way to increase or decrease `dynamiclly` change the size of our arrays during `run-time`.It is not possible with the `static` arrays which size are always constant.Thats way,`DYNAMIC MEMORY ALLOCATION (DMA)` is introduced.
 
  ## Before Starting Something better to know (Heap or Stack):
-  There are two types of memory in our computers ***Heap and Stack***.During Dynamic Memory Allocation, When we make a pointer of our variable its can be developed at the stack.(storing the address of our varible only) and its value can be stored at the heap.
+  There are two types of memory in our computers ***Heap and Stack***.During Dynamic Memory Allocation, When we make a pointer of our variable its can be formed at the stack.(storing the address of our varible only) and its value can be stored at the heap.
+
   In `static memory`, all the varibles and arrays are formed in the memory (stack) at the `compile-time` so after exection all the variables and arrays are destroyed from the memory (stack) by the compiler itself. 
-  But in `Dynamic memory`, all the varibles and arrays `values` are formed in the memory (heap) at the run-time, so compiler does'nt made them we `developers` made it during the execuation time. So its our responsibilty to destroyed them from the memory after the completition of their tasks.Otherwise a problem named `memory-leakage` can be created and our program `crashes`.
+  But in `Dynamic memory`, all the variables and arrays `values` are formed in the memory (heap) at the run-time, so compiler doesn't made them we `developers` made it during the execuation time. So its our responsibilty to destroyed them from the memory after the completition of their tasks.Otherwise a problem named `memory-leakage` can be created and our program `crashes`.
   >Making a dynamic memory is called allocating the memory. 
   >Deleting a dynamic memory is called dellocating the memory. 
  ## One Dimensional Dynamic Arrays 
