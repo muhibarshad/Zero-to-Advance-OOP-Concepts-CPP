@@ -84,71 +84,28 @@
  ## Two Dimensional Dynamic arrays
   **Firtsly**, In Two Dimensional Dynamic arrays ,make an array of pointers (every element of array contaning the address of first element of each row of matrix) which is stored to the pointer in stack ,beacuse this pointer storing the address first pointer of array, so this pointer is the double pointer.
 
-```cpp
-    int row=3;
-    int col=3;
-
-    int **matrix=new int*[row];
-```
+   <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/2d-1.png" style="height: 40vh; padding-left: 50vh;">
+ </p>
   **Secondly**, Make a new array on the heap (column) from the every element(single-pointer) of the pointers array,that conatain the address of the first element of it column on the stack.
 
-```cpp
-    int row = 3;
-    int col = 3;
+   <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/2d-2.png" style="height: 50vh; padding-left: 50vh;">
+ </p>
 
-    int **matrix = new int *[row];
-    for (int i = 0; i < row; i++)
-    {
-        matrix[i] = new int[col];
-    }
-```
   **Thirdly**, Now our 2D-array is allocated.Now perform the all tasks on it.
 
-```cpp
-    int row = 3;
-    int col = 3;
+   <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/2d-3.png" style="height: 70vh; padding-left: 50vh;">
+ </p>
 
-    int **matrix = new int *[row];
-    for (int i = 0; i < row; i++)
-    {
-        matrix[i] = new int[col];
-    }
-
-    for (int i = 0; i < row; i++)
-    {
-        for (int j = 0; j < col; j++)
-        {
-            matrix[i][j] = (rand() % 10) + 1;
-        }
-    }
-```
   **At Last**,Deallocate the firstly all the columns on the heap. Then delete the pointers array.
   Then make the matrix pointer to null pointing to the nothing.
 
-```cpp
-    int row = 3;
-    int col = 3;
+   <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/2d-4.png" style="height: 100vh; padding-left: 50vh;">
+ </p>
 
-    int **matrix = new int *[row];
-    for (int i = 0; i < row; i++)
-    {
-        matrix[i] = new int[col];
-    }
-
-    for (int i = 0; i < row; i++)
-    {
-        for (int j = 0; j < col; j++)
-        {
-            matrix[i][j] = (rand() % 10) + 1;
-        }
-    }
-
-    for(int i=0;i<row;i++){
-        delete[] matrix[i];
-    }
-    delete[] matrix;
-    matrix=nullptr;
-```
  ## Boosted Material:
   * To Practice Questions Like ,insert,delete,shrink,add elements to the arrays dynamically 
   see [1D-Arrays-Examples](/Object%20Oriented%20Programming/Step0_Dynamic%20Arrays/One%20Dimensional%20(1D)%20%20Dynamic%20Arrays/)
