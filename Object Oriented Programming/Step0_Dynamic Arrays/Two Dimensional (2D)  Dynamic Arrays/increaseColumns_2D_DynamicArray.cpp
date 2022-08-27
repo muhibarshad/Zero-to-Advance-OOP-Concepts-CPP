@@ -1,4 +1,6 @@
-/*Write a C++ program to decrease rows of 2D-Arrays during runTime*/
+/*Write a C++ program to increase the size of the columns by using Two dimensional (2D) dynamic arrays .
+ */
+
 #include <iostream>
 #include <iomanip>
 
@@ -32,29 +34,23 @@ void outputDynamicArray(int **&matrix, int row, int col)
     }
 }
 
-void decreaseRows(int **&matrix, int &row, int col)
+void increaseColumns(int **&matrix, int row, int &col)
 {
-
     int num;
-    cout << "Enter the number of rows that you want to decrease:" << endl;
+    cout << "Enter the number how much you want to increase to number of columns :" << endl;
     cin >> num;
-    while (num > row)
+
+    //changing the size of columns dynamically
+    int **tempCol = new int *[row];
+    for (int i = 0; i < row; i++)
     {
-        cout << "Your number " << num << " is greater than the " << row << endl;
-        cout << "Please : Enter the number less than the number of the rows :" << endl;
-        cin >> num;
+        tempCol[i] = new int[col + num];
     }
-    // decrease the size of the rows
-    int **temp = new int *[row - num];
-    for (int i = 0; i < row - num; i++)
-    {
-        temp[i] = new int[col];
-    }
-    for (int i = 0; i < row - num; i++)
+    for (int i = 0; i < row; i++)
     {
         for (int j = 0; j < col; j++)
         {
-            temp[i][j] = matrix[i][j];
+            tempCol[i][j] = matrix[i][j];
         }
     }
     for (int i = 0; i < row; i++)
@@ -62,15 +58,26 @@ void decreaseRows(int **&matrix, int &row, int col)
         delete[] matrix[i];
     }
     delete[] matrix;
-    matrix = temp;
-    row -= num;
+    matrix = tempCol;
+
+    //adding additional columns values
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = col; j < col + num; j++)
+        {
+            matrix[i][j] = (rand() % 10) + 1;
+            // cin>>matrix[i][j];
+        }
+    }
+    col += num;
 }
+
 int main()
 {
     int row, col;
-    cout << "Enter the number of rows : " << endl;
+    cout << "Enter the number of rows:" << endl;
     cin >> row;
-    cout << "Enter the number of columns : " << endl;
+    cout << "Enter the number of the columns :" << endl;
     cin >> col;
 
     int **matrix = new int *[row];
@@ -82,8 +89,8 @@ int main()
     inputDynamicArray(matrix, row, col);
     outputDynamicArray(matrix, row, col);
 
-    decreaseRows(matrix, row, col);
-    cout << "The dynamic array after the decrease size of the rows:" << endl;
+    increaseColumns(matrix, row, col);
+    cout << "The dynamic array after the increase size of the columns:" << endl;
     outputDynamicArray(matrix, row, col);
 
     for (int i = 0; i < row; i++)
