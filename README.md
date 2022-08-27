@@ -13,7 +13,9 @@
 # Contents
 
 1. [Dynamic Arrays](#dynamic-arrays)
-2. [Core Concepts](#core-concepts)
+1. [One Dimensional Dynamic Arrays](#one-dimensional-dynamic-arrays)
+1. [Two Dimensional Dynamic Arrays](#two-dimensional-dynamic-arrays)
+2. [Object Oriented Programming Core Concepts](#core-concepts)
 3. [Classes and Objects](#classes-and-objects)
 
 # Dynamic Arrays
