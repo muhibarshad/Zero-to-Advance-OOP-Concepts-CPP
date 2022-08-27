@@ -35,6 +35,8 @@ int main()
 {
     int row = 4;
     int col = 3;
+
+    //allocating the dynamic memory
     int **matrix = new int *[row];
     for (int i = 0; i < row; i++)
     {
@@ -45,6 +47,7 @@ int main()
     outputDynamicArray(matrix,row,col);
     
 
+    //dellocating the dynamic memory
     for (int i = 0; i < row; i++)
     {
         delete[] matrix[i];
