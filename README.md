@@ -78,6 +78,12 @@
     <img src="/Some%20extra%20concepts/codeSnaps/final-1d.png" style="height: 70vh; padding-left: 50vh;">
  </p>
 
+ ## Boosted Material:
+  * To Practice Questions Like ,insert,delete,shrink,add elements to the arrays dynamically 
+  see [1D-Arrays-Examples](/Object%20Oriented%20Programming/Step0_Dynamic%20Arrays/One%20Dimensional%20(1D)%20%20Dynamic%20Arrays/)
+  * To Read more complexities about the dyanmic arrays read book pages from
+  [LearnCpp](https://www.learncpp.com/cpp-tutorial/dynamic-memory-allocation-with-new-and-delete/)
+  * To get slides of dynamic memory [Dynamic Memory Allocation](/Some%20extra%20concepts/Slides/dynamicMemory.pdf)
 
 # Core Concepts
   A langugae which containes these four segments is referrred as ***Object-Oriented-Programming*** language.
