@@ -4,8 +4,7 @@
 
 <!-- Place this tag where you want the button to render. -->
 <a class="github-button" href="https://github.com/muhib7353" data-color-scheme="no-preference: light; light: light; dark: dark;" aria-label="Follow @muhib7353 on GitHub">Follow @muhib7353</a>
-<!-- Place this tag in your head or just before your close body tag. -->
-<script async defer src="https://buttons.github.io/buttons.js"></script>
+
 
 # Zero to Advance OOP Course in C++
 >This course helps you to cover all `OBJECT-ORIENTED-PROGRAMMING` concepts .By providing proper documentation of example codes with testing portions, attached slides with every topic, external links thats help to get benefit from them without straggling on internet a lot of hours 🤔.The one plus point for you is that every thing is in the complete `road-map` means you go through step by step without jumping to mixed topics.✨
@@ -82,6 +81,74 @@
     <img src="/Some%20extra%20concepts/codeSnaps/final-1d.png" style="height: 120vh; padding-left: 50vh;">
  </p>
 
+ ## Two Dimensional Dynamic arrays
+  **Firtsly**, In Two Dimensional Dynamic arrays ,make an array of pointers (every element of array contaning the address of first element of each row of matrix) which is stored to the pointer in stack ,beacuse this pointer storing the address first pointer of array, so this pointer is the double pointer.
+
+```cpp
+    int row=3;
+    int col=3;
+
+    int **matrix=new int*[row];
+```
+  **Secondly**, Make a new array on the heap (column) from the every element(single-pointer) of the pointers array,that conatain the address of the first element of it column on the stack.
+
+```cpp
+    int row = 3;
+    int col = 3;
+
+    int **matrix = new int *[row];
+    for (int i = 0; i < row; i++)
+    {
+        matrix[i] = new int[col];
+    }
+```
+  **Thirdly**, Now our 2D-array is allocated.Now perform the all tasks on it.
+
+```cpp
+    int row = 3;
+    int col = 3;
+
+    int **matrix = new int *[row];
+    for (int i = 0; i < row; i++)
+    {
+        matrix[i] = new int[col];
+    }
+
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            matrix[i][j] = (rand() % 10) + 1;
+        }
+    }
+```
+  **At Last**,Deallocate the firstly all the columns on the heap. Then delete the pointers array.
+  Then make the matrix pointer to null pointing to the nothing.
+
+```cpp
+    int row = 3;
+    int col = 3;
+
+    int **matrix = new int *[row];
+    for (int i = 0; i < row; i++)
+    {
+        matrix[i] = new int[col];
+    }
+
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            matrix[i][j] = (rand() % 10) + 1;
+        }
+    }
+
+    for(int i=0;i<row;i++){
+        delete[] matrix[i];
+    }
+    delete[] matrix;
+    matrix=nullptr;
+```
  ## Boosted Material:
   * To Practice Questions Like ,insert,delete,shrink,add elements to the arrays dynamically 
   see [1D-Arrays-Examples](/Object%20Oriented%20Programming/Step0_Dynamic%20Arrays/One%20Dimensional%20(1D)%20%20Dynamic%20Arrays/)
