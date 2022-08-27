@@ -40,13 +40,13 @@
 
   **Thirdly**,perform your tasks.
     <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/tasks.png" style="height: 40vh; padding-left: 50vh;">
+    <img src="/Some%20extra%20concepts/codeSnaps/tasks.png" style="height: 50vh; padding-left: 50vh;">
  </p>
 
   **At last**, `dellocating`, delete the array values at the heap by the `delete` keyword.And 
   make the pointer of our array `nullptr` so its pointing to nothing.
     <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/deallocate.png" style="height: 40vh; padding-left: 50vh;">
+    <img src="/Some%20extra%20concepts/codeSnaps/deallocate.png" style="height: 60vh; padding-left: 50vh;">
  </p>
 
   
@@ -63,19 +63,19 @@
 
   **Thirdly**, copy the array to tempArray.
     <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/temp3.png" style="height: 40vh; padding-left: 50vh;">
+    <img src="/Some%20extra%20concepts/codeSnaps/temp3.png" style="height: 50vh; padding-left: 50vh;">
  </p>
 
   **At Last**, delete the array values from heap and mutate the array-pointer to the tempArray-pointer.And now you can mutate the size as `size+=num` (for-increaing) or `size-=num`(for-decreaing) 
   >Both our array and tempArray pointers in the stack pointing to the same changed tempArray values in the heap.
 
    <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/temp4.png" style="height: 40vh; padding-left: 50vh;">
+    <img src="/Some%20extra%20concepts/codeSnaps/temp4.png" style="height: 60vh; padding-left: 50vh;">
     </p>
 
   **Now**,You can perform tasks, to the changed sized array ,after performing methods deallocate the aray and program happily finishes😊.(Problem-Solved,Hurray🥳)
     <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/final-1d.png" style="height: 40vh; padding-left: 50vh;">
+    <img src="/Some%20extra%20concepts/codeSnaps/final-1d.png" style="height: 70vh; padding-left: 50vh;">
  </p>
 
 
