@@ -88,15 +88,70 @@ make the pointer of our array `nullptr` so its pointing to nothing.
 
 > Both our array and tempArray pointers in the stack pointing to the same changed tempArray values in the heap.
 
-   <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/temp4.png" style="height: 60vh; padding-left: 50vh;">
-    </p>
+```cpp
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int size = 5;
+    int sum=0;
+    
+    //Allocating the memory
+    int *arr = new int[size]{1,2,3,4,5};
+
+    //sum of array
+    for(int i=0;i<size;i++){
+        sum+=arr[i];
+    }
+    cout<<"The sum of all the elements in the array is = "<<sum<<endl;
+    
+    //Delloacting the memory
+    delete[] arr;
+    arr = nullptr;
+
+    return 0;
+}
+```
 
 **Now**,You can perform tasks, to the changed sized array ,after performing methods deallocate the aray and program happily finishes😊.(Problem-Solved,Hurray🥳)
 
-   <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/final-1d.png" style="height: 120vh; padding-left: 50vh;">
- </p>
+```cpp
+#include <iostream>
+using namespace std;
+int main()
+{
+
+    int size = 5;
+    int *arr = new int[size]{1, 2, 3, 4, 5};
+
+    int num;
+    cout << "Enter the number how much size of array you wnat to cahnge :" << endl;
+    cin >> num;
+
+    int *temp = new int[size + num];
+    for (int i = 0; i < size; i++)
+    {
+        temp[i] = arr[i];
+    }
+
+    //deleting the previous array
+    delete[] arr;
+    arr=temp;
+    
+    //giving values to increased indexs
+    for(int i=size;i<size+num;i++){
+        cin>>arr[i];
+    }
+    size+=num;
+
+    delete[] arr;
+    arr=nullptr;
+
+    return 0;
+}
+```
 
 ## Boosted Material:
 
@@ -128,20 +183,51 @@ make the pointer of our array `nullptr` so its pointing to nothing.
 **At Last**,Deallocate the firstly all the columns on the heap. Then delete the pointers array.
 Then make the matrix pointer to null pointing to the nothing.
 
-   <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/2d-4.png" style="height: 100vh; padding-left: 50vh;">
- </p>
+```cpp
+#include <iostream>
+using namespace std;
+int main()
+{
+    int row = 3;
+    int col = 3;
 
-## How to change the size of rows or columns our arrays at run-time ? or at execution time? How to increase or decrease the size of 2D-arrays dynamically ? or at execution time?
+    int **matrix = new int *[row];
+    for (int i = 0; i < row; i++)
+    {
+        matrix[i] = new int[col];
+    }
+
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            matrix[i][j] = (rand() % 10) + 1;
+        }
+    }
+
+    for(int i=0;i<row;i++){
+        delete[] matrix[i];
+    }
+    delete[] matrix;
+    matrix=nullptr;
+
+    return 0;
+}
+```
+
+## How to change the size of rows or columns of 2D-arrays at run-time ?  How to increase or decrease the size of 2D-arrays dynamically ? 
 
 You can understand the one example of how to increase the size of columns and then do others operations by following it.
 
 ### Steps:(To increase the rows dynamically)
 
-1.**Firstly**: Make the new 2D-Dynamic array .   
-2.**Secondly**: Make the `temp`2D-Dyanmic array.    
-3.**Thirdly**: Copy the pervious 2d-array to temp array.Delete the previous 2D-Array.Give pointer of temp array to previous array.     
-4.**At Last**: Add the new elements in the array .And finally dellocate the array.
+**Firstly**: Make the new 2D-Dynamic array . 
+
+**Secondly**: Make the `temp`2D-Dyanmic array.
+
+**Thirdly**: Copy the pervious 2d-array to temp array.Delete the previous 2D-Array.Give pointer of temp array to previous array.     
+
+**At Last**: Add the new elements in the array .And finally dellocate the array.
 
 ```cpp
 #include <iostream>
@@ -153,7 +239,8 @@ int main()
 {
     int row=3;
     int col=3;
-
+    
+    //Allocating the memory
     int **matrix = new int *[row];
     for (int i = 0; i < row; i++)
     {
@@ -171,7 +258,7 @@ int main()
         }
     }
 
-     int num;
+   int num;
     cout << "Enter the number of rows that you want to increase:" << endl;
     cin >> num;
 
@@ -196,7 +283,7 @@ int main()
     matrix = temp;
 
 
-    //entering elemenst in the increased rows
+    //Entering elemenst in the increased rows
     for (int i = row; i < row + num; i++)
     {
         // cout<<"Enter the row "<<row+1<<" :"<<endl;
@@ -218,7 +305,8 @@ int main()
         }
         cout << endl;
     }
-
+    
+    //dellocating the memory
     for (int i = 0; i < row; i++)
     {
         delete[] matrix[i];
@@ -231,10 +319,9 @@ int main()
 
 ```
 
-
  ## Boosted Material:
-  * To Practice Questions Like ,insert,delete,shrink,add elements to the arrays dynamically
-  see [1D-Arrays-Examples](/Object%20Oriented%20Programming/Step0_Dynamic%20Arrays/One%20Dimensional%20(1D)%20%20Dynamic%20Arrays/)
+  * To Practice Questions Like inrease and decrease rows or columns of the 2D-arrays dynamically
+  see [1D-Arrays-Examples](/Object%20Oriented%20Programming/Step0_Dynamic%20Arrays/Two%20Dimensional%20(2D)%20%20Dynamic%20Arrays/)
   * To Read more complexities about the dyanmic arrays read book pages from
   [LearnCpp](https://www.learncpp.com/cpp-tutorial/dynamic-memory-allocation-with-new-and-delete/)
   * To get slides of dynamic memory [Dynamic Memory Allocation](/Some%20extra%20concepts/Slides/dynamicMemory.pdf)
