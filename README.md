@@ -29,18 +29,55 @@
   >Deleting a dynamic memory is called dellocating the memory. 
  ## One Dimensional Dynamic Arrays 
   **Firstly**, `allocating`, we make a pointer of our array at the stack that containes the address of the first element of our array.
+    <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/ptr.png" style="height: 40vh; padding-left: 50vh;">
+ </p>
+
   **Secondly**,we make a array at the heap by the `new` keyword.
+    <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/heap.png" style="height: 40vh; padding-left: 50vh;">
+ </p>
+
   **Thirdly**,perform your tasks.
+    <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/tasks.png" style="height: 40vh; padding-left: 50vh;">
+ </p>
+
   **At last**, `dellocating`, delete the array values at the heap by the `delete` keyword.And 
   make the pointer of our array `nullptr` so its pointing to nothing.
+    <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/deallocate.png" style="height: 40vh; padding-left: 50vh;">
+ </p>
+
   
   ### How to change the size of our arrays at run-time ? or at execution time? How to increase or decrease the size of our arrays dynamically ? or at execution time? 
   **Firstly**, we made our array whose size we want to change dynamically.
+    <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/temp1.png" style="height: 40vh; padding-left: 50vh;">
+ </p>
+
   **Secondly**, we create an temp dyanmic 1D-Array.Whose size is the size thats we want after changing meanns `size+increaseNum` or `size+decreaseNum` .
+    <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/temp2.png" style="height: 40vh; padding-left: 50vh;">
+ </p>
+
   **Thirdly**, copy the array to tempArray.
+    <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/temp3.png" style="height: 40vh; padding-left: 50vh;">
+ </p>
+
   **At Last**, delete the array values from heap and mutate the array-pointer to the tempArray-pointer.And now you can mutate the size as `size+=num` (for-increaing) or `size-=num`(for-decreaing) 
   >Both our array and tempArray pointers in the stack pointing to the same changed tempArray values in the heap.
+
+   <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/temp4.png" style="height: 40vh; padding-left: 50vh;">
+    </p>
+
   **Now**,You can perform tasks, to the changed sized array ,after performing methods deallocate the aray and program happily finishes😊.(Problem-Solved,Hurray🥳)
+    <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/final-1d.png" style="height: 40vh; padding-left: 50vh;">
+ </p>
+
 
 # Core Concepts
   A langugae which containes these four segments is referrred as ***Object-Oriented-Programming*** language.
