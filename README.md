@@ -223,10 +223,19 @@ You can understand the one example of how to increase the size of columns and th
 ### Steps:(To increase the rows dynamically)
 
 **Firstly**: Make the new 2D-Dynamic array . 
+   <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/temp2-1.png" style="height: 50vh; padding-left: 50vh;">
+ </p>
 
 **Secondly**: Make the `temp`2D-Dyanmic array.
+   <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/temp2-2.png" style="height: 70vh; padding-left: 50vh;">
+ </p>
 
 **Thirdly**: Copy the pervious 2d-array to temp array.Delete the previous 2D-Array.Give pointer of temp array to previous array.     
+   <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/temp2-3.png" style="height: 100vh; padding-left: 50vh;">
+ </p>
 
 **At Last**: Add the new elements in the array .And finally dellocate the array.
 
