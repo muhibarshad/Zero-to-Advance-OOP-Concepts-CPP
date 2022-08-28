@@ -1,4 +1,4 @@
-/*Can we compare the reational operaters (==,!=,<=,>=) to compare two object data members ? 
+/*Can we compare the use the arithematic operaters (+,-,*,/,%) to perform arithematic calculations between two object data members ? 
 */
 
 #include<iostream>
@@ -33,18 +33,21 @@ int main()
     algebra *obj2=new algebra;
 
     obj1.setData(5,6);
-    obj2->setData(6,5);
+    obj2->setData(1,2);
      
     //  //Test:01
-    // cout<<obj1.getX()!=obj2->getX();
-    // /*error: no match for 'operator!=' (operand types are 'std::basic_ostream<char>' and 'int')
-    // cout<<obj1.getX()!=obj2->getX();*/
+    // //Member Wise
+    // cout<<obj1.getX()+obj2->getX()<<endl;
+    // cout<<obj1.getY()+obj2->getY()<<endl;
     
     //  //Test:02
-    // cout<<*(obj2)==obj1;
+    // //Agremeent Wise
+    // cout<<*(obj2)+obj1<<endl;
     // //Compile time error Operation not defined
 
-    // Results:So its mean we will never compare the data member wise or agrement wise
+
+   //Results:We can perform the matematical opaertions on the object adat memebers only member wise not agremnet wise.
+
     delete obj2;
     obj2=nullptr;
 
