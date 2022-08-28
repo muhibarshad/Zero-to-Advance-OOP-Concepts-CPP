@@ -14,27 +14,34 @@ private:
     char userPassword[20];
 
 public:
+    // setters and setData
+    void setBrightnessValue(int bright)
+    {
+        brightnessValue = bright;
+    }
+    void setScreenWallper(string wallpaper)
+    {
+        screenWallper = wallpaper;
+    }
+    void setTodaysTemp(float temp)
+    {
+        todaysTemp = temp;
+    }
+    void setUserPassword(char pass[])
+    {
+        for (int i = 0; i < 20; i++)
+            userPassword[i] = pass[i];
+    }
+    void setData(int bright, string wallPa, float temp, char password[])
+    {
+        brightnessValue = bright;
+        screenWallper = wallPa;
+        todaysTemp = temp;
+        for (int i = 0; i < 20; i++)
+            userPassword[i] = password[i];
+    }
 
-    // setters
-    void setBrightnessValue()
-    {
-        cin >> brightnessValue;
-    }
-    void setScreenWallper()
-    {
-        cin >> screenWallper;
-    }
-    void setTodaysTemp()
-    {
-        cin >> todaysTemp;
-    }
-    void setUserPassword()
-    {
-        cin.getline(userPassword, 20);
-        cin.ignore();
-    }
-
-    // getters
+    // getters and getData
     int getBrightnessValue()
     {
         return brightnessValue;
@@ -51,16 +58,6 @@ public:
     {
         return userPassword;
     }
-    
-    //setData and getData
-    void setData(int bright, string wallPa, float temp, char password[])
-    {
-        brightnessValue = bright;
-        screenWallper = wallPa;
-        todaysTemp = temp;
-        for (int i = 0; i < 20; i++)
-            userPassword[i] = password[i];
-    }
     void getData()
     {
         cout << "The brightness value  of the mobile = " << brightnessValue << endl;
@@ -68,7 +65,7 @@ public:
         cout << "The todays temperature = " << todaysTemp << endl;
         cout << "The user password = " << userPassword << endl;
     }
-
+    
 };
 int main()
 {
@@ -76,15 +73,14 @@ int main()
 
     oppo.setData(78, "floating river", 34.7, "hubco123");
     oppo.getData();
-   
-    oppo.setTodaysTemp();
+
+    oppo.setTodaysTemp(40);
     oppo.getData();
 
-    cout<<oppo.getUserPassword();
-    oppo.setBrightnessValue();
+    cout << oppo.getUserPassword();
+    oppo.setBrightnessValue(90);
 
     oppo.getData();
-
 
     return 0;
 }
