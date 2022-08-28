@@ -1,6 +1,11 @@
 {
     "files.associations": {
         "xstring": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "initializer_list": "cpp",
+        "iterator": "cpp",
+        "memory": "cpp",
+        "xmemory": "cpp",
+        "xutility": "cpp"
     }
 }

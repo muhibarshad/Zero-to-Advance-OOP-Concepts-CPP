@@ -46,14 +46,15 @@ bool passByValue(algebra *A, algebra *B)
 // 2:Pass by refernce
 void update(algebra *A, algebra *B)
 {
-  B->setX(B->getX()+100);
-  B->setY(B->gety()+100);
+    B->setX(B->getX() + 100);
+    B->setY(B->gety() + 100);
 }
 
 // 3:Return value
-algebra createCopy(const algebra *A)
+algebra *createCopy(algebra *A)
 {
-    algebra *copy=new algebra;
+    algebra *copy = new algebra;
+
     copy->setX(A->getX());
     copy->setY(A->gety());
 
@@ -67,27 +68,24 @@ int main()
     obj1->setData(1, 2);
     obj2->setData(3, 4);
 
-    // Test:01
-    cout << passByValue(obj1, obj2);
+    // // Test:01
+    // cout << passByValue(obj1, obj2);
 
-    //Test:02
-    cout << "Before passing obj2 as a pointer to update function : " << endl;
-    obj2->getData();
-    update(obj1, obj2);
-    cout << "After passing obj2 as a pointer to update function : " << endl;
-    obj2->getData();
+    // //Test:02
+    // cout << "Before passing obj2 as a pointer to update function : " << endl;
+    // obj2->getData();
+    // update(obj1, obj2);
+    // cout << "After passing obj2 as a pointer to update function : " << endl;
+    // obj2->getData();
 
+    // //Test:03
+    // cout << "The object members :" << endl;
+    // algebra *copy=createCopy(obj1);
+    // copy->getData();
 
-    //Test:03
-    cout << "The object members :" << endl;
-    algebra *copy1 =new algebra;
-
-    copy1=createCopy(obj1);
-    copy1->getData();
-
-    delete obj1;
-    delete obj2;
-    delete copy;
-
+    /*Results:Object’s data is always
+    pass by reference through
+    pointers*/
+    
     return 0;
 }
