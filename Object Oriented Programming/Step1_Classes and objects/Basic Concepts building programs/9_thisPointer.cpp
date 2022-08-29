@@ -70,6 +70,8 @@ int main()
     obj1.value(100).incrementValue(200);
     obj1.getData();//101,200--->chaining is sequential and the changes made to the object’s data members retains for further chaining calls.
 
+    // obj1.setX(90).setY(900);// error: invalid use of 'void'
+
 
     return 0;
 }
