@@ -6,10 +6,6 @@ using namespace std;
 
 class algebra
 {
-private:
-    int x;
-    int y;
-
 public:
     // setters
     void setX(int);
@@ -26,6 +22,10 @@ public:
     // memberFunctions
     float calculateDistance(algebra);
     algebra closestPoint(algebra , algebra );
+
+private:
+    int x;
+    int y;
 };
 
 // SETTERS_scope_resolutions
