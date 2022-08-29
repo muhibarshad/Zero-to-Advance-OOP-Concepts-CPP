@@ -55,7 +55,7 @@ algebra algebra::getAlgebra() const
     return *this;
 }
 
-// Member Functions
+// Member_Functions
 float algebra::calculateDistance(algebra point)
 {
     int d1 = point.x - x;
