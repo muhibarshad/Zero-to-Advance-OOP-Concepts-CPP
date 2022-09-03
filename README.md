@@ -19,8 +19,14 @@
 5. [Classes and Static Objects](#classes-and-static-objects)
 6. [Dynamic Objects and Access operator(->)](#dynamic-objects-and-access-operator)
 7. [Static and Dynamic Object Function Types](#static-and-dynamic-object-function-types)
-1. [Setters and Getters](#setters-and-getters)
-1. [This keyword](#this-pointer-or-this-keyword-in-c)
+8. [Object Operators](#object-operators)
+    - [Object Assigment operator (=)](#object-assignment-operater)
+    - [Object relational operators ( ==, !=, <=, >=, <, > )](#object-relational-operaters)
+    - [Object Arithematic operators (+, -, /, \*, %)](#object-arithematic-operator)
+9. [Setters and Getters](#setters-and-getters)
+10. [This keyword](#this-pointer-or-this-keyword-in-c)
+12. [Scope Resolution operator (::)](#scope-resolution-operator)
+11. [Member Functions](#member-functions)
 
 # Dynamic Arrays
 
@@ -370,7 +376,7 @@ A langugae which containes these four segments is referrred as **_Object-Oriente
   - Dynamic
     Function overriding is done in the dynamic polymorphism.It has be achieved on the run time also called the **_Run_Time_binding_**.
 
-# Classes and  Static Objects
+# Classes and Static Objects
 
 [What are classes 👀 ❓](#classes-and-object)
 
@@ -594,6 +600,12 @@ int main()
 }
 ```
 
+# Object Operators
+  These are object opertors: 
+- [Object Assigment operator (=)](#object-assignment-operater)
+- [Object relational operators ( ==, !=, <=, >=, <, > )](#object-relational-operaters)
+- [Object Arithematic operators (+, -, /, \*, %)](#object-arithematic-operator)
+
 # Object Assignment operater (=):
 
 In generally, the assignment operator can be used to copy one thing into another. The data memebers of one object can be copied to another data members in two ways
@@ -733,7 +745,7 @@ int main()
 }
 ````
 
-# Object Arithematic Operator (+, -, /, \*, %)
+# Object Arithematic Operators (+, -, /, \*, %)
 
 Arithematic operators (+, -, /, \*, %) will be applicable only in member wise
 
@@ -1000,6 +1012,7 @@ But the error should become :
 ```diff
 - error: invalid use of 'this' in non-member function void setX(int x) { this->x = x; }
 ```
+
 Beacuse, we know that all the data members and function members are developed public,private and protected only inside the class only accessible to them is protected or publc. And how can we refer that this function is a member function of that specific class.
 
 How to resolve this error :
@@ -1007,10 +1020,11 @@ How to resolve this error :
 ```diff
 + Use the Scope resolutioon opertor `::`  with the name of the class
 ```
- *Means that this function has scope to that class*
+
+_Means that this function has scope to that class_
 
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/s-2.png" style="height: 70vh; padding-left: 50vh;">
+    <img src="/Some%20extra%20concepts/codeSnaps/s-2.png" style="height: 50vh; padding-left: 50vh;">
 </p>
 
 ### Understand by complete [Scope-Resolution(::) Example](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/10_scopeResolutionOperter.cpp) 😎:
@@ -1091,11 +1105,11 @@ int main()
 
 You already know that we had already discussed the member functions, then what they are 🤔 ? Every class has such type of member functions :
 
-- Getters
-- Setters
-- Mutators
-- Accessers
-- Functionaliters
+- [Getters](#getters)
+- [Setters](#setters)
+- [Mutators](#setters)
+- [Accessers](#getters)
+- [Functionaliters](#functionaliters)
 - Constructors
 - Destructors
 - Iterators
@@ -1105,10 +1119,11 @@ You already know that we had already discussed the member functions, then what t
 
 ## Functionaliters :
 
->Main functions that perform some operations on the data are called fucntionaliters.
-Functions that perform some mathematical and other operations on the data memebers and show some output or help in other functions to perform functionalities.
+> Main functions that perform some operations on the data are called fucntionaliters.
+> Functions that perform some mathematical and other operations on the data memebers and show some output or help in other functions to perform functionalities.
 
 ### Let understand by example 🙂 :
+
 [Write a c++ program in to find distance between two points and take third point and find from where the distance from third point is closest](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/11_MemberFunctions.cpp)
 
 ```cpp

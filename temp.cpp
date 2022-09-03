@@ -1,11 +1,13 @@
-/*Write a c++ program in to find distance between two points and take third point and find from where the distance from third point is closest*/
 #include <iostream>
-#include <cmath>
 
 using namespace std;
 
 class algebra
 {
+private:
+    int x;
+    int y;
+
 public:
     // setters
     void setX(int);
@@ -19,13 +21,8 @@ public:
     void getData() const;
     algebra getAlgebra() const;
 
-    // memberFunctions
-    float calculateDistance(algebra);
-    algebra closestPoint(algebra , algebra );
-
-private:
-    int x;
-    int y;
+    // memberFunctions are here
+    //.........
 };
 
 // SETTERS_scope_resolutions
@@ -55,35 +52,18 @@ algebra algebra::getAlgebra() const
     return *this;
 }
 
-// Member_Functions
-float algebra::calculateDistance(algebra point)
-{
-    int d1 = point.x - x;
-    int d2 = point.y - y;
-
-    int temp = ((d1 * d1) + (d2 * d2));
-
-    return sqrt(temp);
-}
-
-algebra algebra ::closestPoint(algebra p1, algebra p2)
-{
-    float d1 = calculateDistance(p1);
-    float d2 = calculateDistance(p2);
-
-    return d1 <= d2 ? p1 : p2;
-}
-
 int main()
 {
-    algebra point1, point2, point3;
+    algebra obj1;
+    obj1.setData(1, 2);
+    obj1.getData();
 
-    point1.setData(6, 9);
-    point2.setData(12, 3);
-    point3.setData(1, 15);
+    algebra obj2;
+    obj2.setAlgebra(obj1);
+    obj2.getData();
 
-    cout << point1.calculateDistance(point2)<<endl;
-    point1.closestPoint(point2,point3).getData();
+    obj1.getAlgebra().setX(8);
+    obj1.getData();
 
     return 0;
 }
