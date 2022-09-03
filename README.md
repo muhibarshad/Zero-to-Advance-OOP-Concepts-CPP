@@ -172,7 +172,7 @@ int main()
 }
 ```
 
-## Boosted Material:
+# Boosted Material 1
 
 - To Practice Questions Like ,insert,delete,shrink,add elements to the arrays dynamically
   see [1D-Arrays-Examples](</Object%20Oriented%20Programming/Step0_Dynamic%20Arrays/One%20Dimensional%20(1D)%20%20Dynamic%20Arrays/>)
@@ -419,8 +419,7 @@ Result:
 
 > The address of a class is same as the address of the first dataMemeber of the class
 
-## Helping Material 🤫:
-
+# Boosted Material 2
 - To practice real-world examples [class and object examples](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/)
 - To go through slides [Class and object slides](/Some%20extra%20concepts/Slides/classes.pdf)
 - For reading more concepts explore this page [Deep learn class and objects](https://www.learncpp.com/cpp-tutorial/classes-and-class-members/)
@@ -1221,6 +1220,6 @@ int main()
 ```
 # Now its Time for Boosted Material 3
   ## Go deep 🧐, learn deep 😎
- - See basic concept based questions on `setters`, `getters`, 'this->pointer', 'object operators' and 'object functions' click [here](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/)
+ - See basic concept based questions on `setters`, `getters`, `this->pointer`, `object operators` and `object functions` click [here](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/)
  - To get slides on these topics click [here](/Some%20extra%20concepts/Slides/memberFunctions.pdf)
- - To read about them briefy more visit [here](https://learncpp.com)
+ - To read about them more briefy visit [here](https://learncpp.com)
