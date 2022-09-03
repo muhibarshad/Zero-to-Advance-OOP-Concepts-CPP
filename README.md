@@ -395,8 +395,28 @@ int main()
   * To go through slides [Class and object slides](/Some%20extra%20concepts/Slides/classes.pdf)
   * For reading more concepts explore this page [Deep learn class and objects](https://www.learncpp.com/cpp-tutorial/classes-and-class-members/)
 
+# Setters and Getters
+ ***Why we need setters and getters*** ? What is the importance of getters and setters in real world? 
+ Understand by exapmle ,in mobile phones when we want to increase the brightness of our mobile then can we go to the whole stting of the mobile and change it here ***NO**** .We only set the value of brightness same when we want to get the phone number of any person , we just search ang get it.
+ Getters and setters are the same as ,
+ ## Setters
+  >Used to set or update values of individual data members or a complete object.
+  ### Basic Syntx:
+* ***Void setVariableName (varaibleDataType parameterName){ variableName = ParameterName;}***
+    <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/setters.png" style="height: 40vh; padding-left: 50vh;">
+ </p>
+
+ ## Getters 
+ >Used to get values of indiviual or complete object .
+ ### Basic Syntx:
+* ***returnType getVariableName (){ return variableName;}***
+    <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/getters.png" style="height: 40vh; padding-left: 50vh;">
+ </p>
 
 
 
 
-```
+
+
