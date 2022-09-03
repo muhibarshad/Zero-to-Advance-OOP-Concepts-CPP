@@ -13,10 +13,12 @@
 # Contents
 
 1. [Dynamic Arrays](#dynamic-arrays)
-1. [One Dimensional Dynamic Arrays](#one-dimensional-dynamic-arrays)
-1. [Two Dimensional Dynamic Arrays](#two-dimensional-dynamic-arrays)
-1. [Object Oriented Programming Core Concepts](#core-concepts)
-1. [Classes and Objects](#classes-and-objects)
+2. [One Dimensional Dynamic Arrays](#one-dimensional-dynamic-arrays)
+3. [Two Dimensional Dynamic Arrays](#two-dimensional-dynamic-arrays)
+4. [Object Oriented Programming Core Concepts](#core-concepts)
+5. [Classes and Static Objects](#classes-and-static-objects)
+6. [Dynamic Objects and Access operator(->)](#dynamic-objects-and-access-operator)
+7. [Static and Dynamic Object Function Types](#static-and-dynamic-object-function-types)
 1. [Setters and Getters](#setters-and-getters)
 1. [This keyword](#this-pointer-or-this-keyword-in-c)
 
@@ -368,7 +370,7 @@ A langugae which containes these four segments is referrred as **_Object-Oriente
   - Dynamic
     Function overriding is done in the dynamic polymorphism.It has be achieved on the run time also called the **_Run_Time_binding_**.
 
-# Classes and Objects
+# Classes and  Static Objects
 
 [What are classes 👀 ❓](#classes-and-object)
 
@@ -419,7 +421,7 @@ Result:
 
 # Dynamic Objects and Access Operator(->)
 
-Dynamic Objects means the pointer of that objects is on the stack and the whole object is on the heap. The name of the object is actually a pointer so means whenever we use the name of the class actually we refer the address of the object on the heap. So how we can access the data memebers and member functions of the object ,To refer the data memebers and the member functions of that class , we use the **access-operator** `->` instead of `(.)` **dot operator** .The access operator make a link between the heap and and stack .
+Dynamic Objects means the pointer of that objects is on the stack and the whole object is on the heap. The name of the object is actually a pointer so means whenever we use the name of the class actually we refer the address of the object on the heap. So how we can access the data members and member functions of the object ,To refer the data members and the member functions of that class , we use the **access-operator** `->` instead of `(.)` **dot operator** .The access operator make a link between the heap and and stack .
 
 ### Understand by excample:
 
@@ -459,28 +461,35 @@ int main()
 }
 ```
 
-# Object Function Types( static and dynamic ):
+# Static and Dynamic Object Function Types:
 
 Three type of functions can be implemented on the objects.
-1.By passing object as a value
-2.By passing object as a reference
-3.By return object as a object
 
-1.In `static` Pass objects into functions as an argument and use these parameters as a local object which has a complete access to the data members and member functions of the class sam as for the argumentative object.
+1. By passing object as a value
+2. By passing object as a reference
+3. By return object as a object
+
+## 1.By passing object as a value
+
+In `static` Pass objects into functions as an argument and use these parameters as a local object which has a complete access to the data members and member functions of the class same as for the argumentative object.
 In `Dyanmic` the copy of argumentative objects will not be made only the address of these objects will pass and dereferencing these adress and perform operations.
 
 <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/f-1.png" style="height: 50vh; padding-left: 50vh;">
  </p>
 
-2.In `static` When passing object as an argument to the function which recieveing it as a refernce parameter, then the copy of that object will not be produce.The address of this object will be use and its means any changing in data members or function members of the parameter object will aslo mutate the original argumentative object.
+## 2.By passing object as a reference
+
+In `static` When passing object as an argument to the function which recieveing it as a refernce parameter, then the copy of that object will not be produce.The address of this object will be use and its means any changing in data members or function members of the parameter object will aslo mutate the original argumentative object.
 In `Dyanmic` the copy of argumentative objects will not be made only the address of these objects will pass ,so we will not have to use the refernce operator `&` , beacause already we pass the address `refernce` of the objects on the heap to function parameters As a result ,dereferencing these adresses and mutating the data memebers and member functions will mutate the original argumentative objects data members and member functions respectively.
 
 <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/f-2.png" style="height: 70vh; padding-left: 50vh;">
  </p>
 
-3.In `static` Return type of the function is a class name. When you manipulate some data and return a object made inside the function.
+## 3.By return object as a object
+
+In `static` Return type of the function is a class name. When you manipulate some data and return a object made inside the function.
 In `Dyanmic`,the returing object returns the only address of the making object not the object on the heap. beacuse when the function executes the making pointer will automatically goes out from the execuation stack. but the object on the heap is exixts . So just return the address of the making pointer.
 
 <p align="center">
@@ -990,14 +999,15 @@ But the error should become :
 
 ```diff
 - error: invalid use of 'this' in non-member function void setX(int x) { this->x = x; }
-Beacuse, we know that all the data members and function members are developed public,private and protected only inside the class only accessible to them is protected or publc. And how can we refer that this function is a member function of that specific class.
 ```
+Beacuse, we know that all the data members and function members are developed public,private and protected only inside the class only accessible to them is protected or publc. And how can we refer that this function is a member function of that specific class.
 
 How to resolve this error :
 
 ```diff
-+ Use the Scope resolutioon opertor `::`  with the name of the class , its means that this function has scope to taht class
++ Use the Scope resolutioon opertor `::`  with the name of the class
 ```
+ *Means that this function has scope to that class*
 
 <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/s-2.png" style="height: 70vh; padding-left: 50vh;">
@@ -1095,8 +1105,8 @@ You already know that we had already discussed the member functions, then what t
 
 ## Functionaliters :
 
-    >Main functions that perform some operations on the data are called fucntionaliters.
-    Functions that perform some mathematical and other operations on the data memebers and show some output or help in other functions to perform functionalities.
+>Main functions that perform some operations on the data are called fucntionaliters.
+Functions that perform some mathematical and other operations on the data memebers and show some output or help in other functions to perform functionalities.
 
 ### Let understand by example 🙂 :
 [Write a c++ program in to find distance between two points and take third point and find from where the distance from third point is closest](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/11_MemberFunctions.cpp)
