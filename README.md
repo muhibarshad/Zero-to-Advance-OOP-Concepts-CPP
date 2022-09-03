@@ -22,9 +22,9 @@
 8. [Object Operators](#object-operators)
     - [Object Assigment operator (=)](#object-assignment-operater)
     - [Object relational operators ( ==, !=, <=, >=, <, > )](#object-relational-operaters)
-    - [Object Arithematic operators (+, -, /, \*, %)](#object-arithematic-operator)
+    - [Object Arithematic operators (+, -, /, \*, %)](#object-arithematic-operators)
 9. [Setters and Getters](#setters-and-getters)
-10. [This keyword](#this-pointer-or-this-keyword-in-c)
+10. [This keyword](#this-pointer-or-this-keyword-in-cpp)
 12. [Scope Resolution operator (::)](#scope-resolution-operator)
 11. [Member Functions](#member-functions)
 
@@ -425,7 +425,7 @@ Result:
 - To go through slides [Class and object slides](/Some%20extra%20concepts/Slides/classes.pdf)
 - For reading more concepts explore this page [Deep learn class and objects](https://www.learncpp.com/cpp-tutorial/classes-and-class-members/)
 
-# Dynamic Objects and Access Operator(->)
+# Dynamic Objects and Access Operator
 
 Dynamic Objects means the pointer of that objects is on the stack and the whole object is on the heap. The name of the object is actually a pointer so means whenever we use the name of the class actually we refer the address of the object on the heap. So how we can access the data members and member functions of the object ,To refer the data members and the member functions of that class , we use the **access-operator** `->` instead of `(.)` **dot operator** .The access operator make a link between the heap and and stack .
 
@@ -606,7 +606,7 @@ int main()
 - [Object relational operators ( ==, !=, <=, >=, <, > )](#object-relational-operaters)
 - [Object Arithematic operators (+, -, /, \*, %)](#object-arithematic-operator)
 
-# Object Assignment operater (=):
+# Object Assignment operater
 
 In generally, the assignment operator can be used to copy one thing into another. The data memebers of one object can be copied to another data members in two ways
 
@@ -626,6 +626,7 @@ In generally, the assignment operator can be used to copy one thing into another
  
   ### Lets now understand by example 😍:
   [In C++ how the class data members of one object to be copied to the another object data memebers](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/3_AssignmentOperater.cpp)
+
 ```cpp
 #include <iostream>
 
@@ -679,9 +680,9 @@ algebra \*obj2=new algebra;
 
 }
 
-````
+```
 
-# Object Relational Operaters( ==, !=, <=, >=, <, > )
+# Object Relational Operaters
  Relational operators can be applied only on the varaibles that are made in functions. In objects you cannot apply directly these operaters on the object data members. It cannot be possible by `Member-Wise` or `Agreement-Wise`.
 
 <p align="center">
@@ -743,9 +744,10 @@ int main()
 
     return 0;
 }
-````
 
-# Object Arithematic Operators (+, -, /, \*, %)
+```
+
+# Object Arithematic Operators
 
 Arithematic operators (+, -, /, \*, %) will be applicable only in member wise
 
@@ -834,7 +836,7 @@ Getters and setters are the same as , to retrieve the single dataMember or whole
 
 - **_Void setVariableName (varaibleDataType parameterName){ variableName = ParameterName;}_**
    <p align="center">
-   <img src="/Some%20extra%20concepts/codeSnaps/setters.png" style="height: 40vh; padding-left: 50vh;">
+   <img src="/Some%20extra%20concepts/codeSnaps/setters.png" style="height: 60vh; padding-left: 50vh;">
 </p>
 
 ## Getters
@@ -845,7 +847,7 @@ Getters and setters are the same as , to retrieve the single dataMember or whole
 
 - **_returnType getVariableName (){ return variableName;}_**
      <p align="center">
-     <img src="/Some%20extra%20concepts/codeSnaps/getters.png" style="height: 40vh; padding-left: 50vh;">
+     <img src="/Some%20extra%20concepts/codeSnaps/getters.png" style="height: 60vh; padding-left: 50vh;">
   </p>
 
   ## SetData and getData
@@ -897,7 +899,7 @@ int main()
 - [Getters and Setters in C++ ](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/2_gettersAndSetters.cpp)
 - [getData and setData in C++ ](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/1_getData_and_putData.cpp)
 
-# This Pointer or This KeyWord in C++) :
+# This Pointer or This KeyWord in Cpp
 
 IN C++ ,**This** is a pointer refer to the insatnce of the class. **This** is a pointer Single copy of this pointer is maintained at class level accessible in member functions only.
 **This** pointer has two main functionalities:
@@ -995,7 +997,7 @@ int main()
 }
 ```
 
-# Scope Resolution operator (::)
+# Scope Resolution operator
 
 ## Defination:
 
