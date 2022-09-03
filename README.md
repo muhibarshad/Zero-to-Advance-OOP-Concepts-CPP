@@ -464,7 +464,8 @@ int main()
 In generally, the assignment operator can be used to copy one thing into another. The data memebers of one object can be copied to another data members in two ways
 
 > Only if member access specifier is public.
-> 1.Member wise data Assignment
+
+1.Member wise data Assignment
 
 <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/assignment-1.png" style="height: 50vh; padding-left: 50vh;">
