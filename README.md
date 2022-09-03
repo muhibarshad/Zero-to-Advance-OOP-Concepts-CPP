@@ -403,6 +403,7 @@ There are there Access specifiers.
   Members are only accessible in child class.
 
 Result:
+
 <p align="center">
 <img src="/Some%20extra%20concepts/codeSnaps/result_class.png" style="height: 60vh; padding-left: 50vh;">
 
@@ -415,6 +416,261 @@ Result:
 - To practice real-world examples [class and object examples](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/)
 - To go through slides [Class and object slides](/Some%20extra%20concepts/Slides/classes.pdf)
 - For reading more concepts explore this page [Deep learn class and objects](https://www.learncpp.com/cpp-tutorial/classes-and-class-members/)
+
+# Dynamic Objects and Access Operator(->)
+
+Dynamic Objects means the pointer of that objects is on the stack and the whole object is on the heap. The name of the object is actually a pointer so means whenever we use the name of the class actually we refer the address of the object on the heap. So how we can access the data memebers and member functions of the object ,To refer the data memebers and the member functions of that class , we use the **access-operator** `->` instead of `(.)` **dot operator** .The access operator make a link between the heap and and stack .
+
+### Understand by excample:
+
+[How we make the dynamic objects of class and how to access their data members of taht dynamic object🙄❓](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/6_DyanmicObjects_and_acessOperaters.cpp)
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+class algebra
+{
+public:
+    int y;
+    int x;
+    int add;
+};
+
+int main()
+{
+    //Alloacting the memory
+    algebra *sum = new algebra;
+
+    //Arrow operaters pointing the members on the heap(->)
+    sum->x = 3;
+    sum->y = 4;
+    sum->add = sum->x + sum->y;
+
+    //Derefernce and userd the dot opearter(.)
+    cout << "The sum of " << (*sum).x << " and " << (*sum).y << " = " << (*sum).add << endl;
+
+    //delloacting the memory
+    delete sum;
+    sum=nullptr;
+
+    return 0;
+}
+```
+
+# Object Assignment operater (=):
+
+In generally, the assignment operator can be used to copy one thing into another. The data memebers of one object can be copied to another data members in two ways
+
+> Only if member access specifier is public.
+> 1.Member wise data Assignment
+
+        <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/assignment-1.png" style="height: 50vh; padding-left: 50vh;">
+
+ </p>
+ 
+ 2.Aggregate Wise data Assignment
+        <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/assignment-2.png" style="height: 50vh; padding-left: 50vh;">
+ </p>
+ 
+  ### Lets now understand by example 😍:
+  [In C++ how the class data members of one object to be copied to the another object data memebers](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/3_AssignmentOperater.cpp)
+```cpp
+#include <iostream>
+
+using namespace std;
+
+class algebra
+{
+public:
+int x;
+int y;
+
+    void getData()
+    {
+        cout<<"The value of x ="<<x<<endl;
+        cout<<"The value of y ="<<y<<endl;
+    }
+
+};
+
+int main()
+{
+algebra obj1;
+algebra \*obj2=new algebra;
+
+    obj1.x=1;
+    obj1.y=2;
+
+    //MEMEBER WISE COPYING
+    cout<<"\t\tMEMEBER WISE COPYING :"<<endl;
+    obj2->x=obj1.x;
+    obj2->y=obj1.y;
+
+    cout<<"The values in object 1 : "<<endl;
+    obj1.getData();
+    cout<<"The values in object 2 : "<<endl;
+    obj2->getData();
+
+    // Aggregate WISE COPYING
+    cout<<"\t\tAggregate WISE COPYING :"<<endl;
+    (*obj2)=obj1;
+
+    cout<<"The values in object 1 : "<<endl;
+    obj1.getData();
+    cout<<"The values in object 2 : "<<endl;
+    obj2->getData();
+
+    delete obj2;
+    obj2=nullptr;
+
+    return 0;
+
+}
+
+```
+
+# Object Relational Operaters( ==, !=, <=, >=, <, > )
+ Relational operators can be applied only on the varaibles that are made in functions. In objects you cannot apply directly these operaters on the object data members. It cannot be possible by `Member-Wise` or `Agreement-Wise`.
+
+<p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/relational.png" style="height: 50vh; padding-left: 50vh;">
+</p>
+
+ ### Example :
+ [Can we compare the reational operaters (==,!=,<=,>=) to compare two object data members ?](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/4_RelationalOpearter.cpp)
+
+```cpp
+#include<iostream>
+
+using namespace std;
+
+class algebra
+{
+public:
+    int x;
+    int y;
+public:
+
+    void setData(int xA,int yA)
+    {
+        x=xA;
+        y=yA;
+    }
+    void getData()
+    {
+        cout<<"The value of  x = "<<x<<endl;
+        cout<<"The value of  y = "<<y<<endl;
+    }
+
+    //getters
+    int getX(){ return x;}
+    int getY(){ return y;}
+};
+int main()
+{
+    algebra obj1;
+    algebra *obj2=new algebra;
+
+    obj1.setData(5,6);
+    obj2->setData(6,5);
+
+    //  //Test:01
+    // cout<<obj1.getX()!=obj2->getX();
+    // /*error: no match for 'operator!=' (operand types are 'std::basic_ostream<char>' and 'int')
+    // cout<<obj1.getX()!=obj2->getX();*/
+
+    //  //Test:02
+    // cout<<*(obj2)==obj1;
+    // //Compile time error Operation not defined
+
+    // Results:So its mean we will never compare the data member wise or agrement wise
+    delete obj2;
+    obj2=nullptr;
+
+
+
+    return 0;
+}
+```
+
+# Object Arithematic Operator (+, -, /, \*, %)
+
+Arithematic operators (+, -, /, \*, %) will be applicable only in member wise
+
+<p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/arithematic-1.png" style="height: 50vh; padding-left: 50vh;">
+</p>
+ 
+  Cannot be applicable directly on the objects agreement wise.
+<p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/arithematic-2.png" style="height: 60vh; padding-left: 50vh;">
+</p>
+
+> Use `Operator_Overloading` to apply these arithematic_operators on the objects directly.We will discuss this in later section [go_here](#).
+
+### Example :
+
+[Can we compare the use the arithematic operaters (+,-,\*,/,%) to perform arithematic calculations between two object data members ?](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/5_ArithematicOpearter.cpp)
+
+```cpp
+
+#include<iostream>
+
+using namespace std;
+
+class algebra
+{
+public:
+    int x;
+    int y;
+public:
+
+    void setData(int xA,int yA)
+    {
+        x=xA;
+        y=yA;
+    }
+    void getData()
+    {
+        cout<<"The value of  x = "<<x<<endl;
+        cout<<"The value of  y = "<<y<<endl;
+    }
+
+    //getters
+    int getX(){ return x;}
+    int getY(){ return y;}
+};
+int main()
+{
+    algebra obj1;
+    algebra *obj2=new algebra;
+
+    obj1.setData(5,6);
+    obj2->setData(1,2);
+
+    //  //Test:01
+    // //Member Wise
+    // cout<<obj1.getX()+obj2->getX()<<endl;
+    // cout<<obj1.getY()+obj2->getY()<<endl;
+
+    //  //Test:02
+    // //Agremeent Wise
+    // cout<<*(obj2)+obj1<<endl;
+    // //Compile time error Operation not defined
+
+
+   //Results:We can perform the matematical opaertions on the object adat memebers only member wise not agremnet wise.
+
+    delete obj2;
+    obj2=nullptr;
+
+    return 0;
+}
+```
 
 # Setters and Getters
 
@@ -499,6 +755,7 @@ IN C++ ,**This** is a pointer refer to the insatnce of the class. **This** is a 
 **This** pointer has two main functionalities:
 
 1.When in memeber functions of the class ,the local variables name same as the `data-members` name.
+
 <p align="center">
 <img src="/Some%20extra%20concepts/codeSnaps/this1.png" style="height: 50vh; padding-left: 50vh;">
 
@@ -510,8 +767,8 @@ In short,it can be used for the function calls chaining in which the local objec
     <img src="/Some%20extra%20concepts/codeSnaps/this2.png" style="height: 70vh; padding-left: 50vh;">
  </p>
  
-  ### Lets now understand by example Example 😍:
-  ***What is a this key Word in C++? Write a C++ program in which the setter function parameter name is same as the class data member name.What is the *this Pointer* in the C++ 😧?***
+  ### Lets now understand by example 😍:
+  [What is a this key Word in C++? Write a C++ program in which the setter function parameter name is same as the class data member name.What is the *this Pointer* in the C++ 😧?](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/9_thisPointer.cpp)
 
 ```cpp
 #include<iostream>
@@ -589,3 +846,9 @@ int main()
     return 0;
 }
 ```
+
+# Object Function Types:
+  Three type of functions can be implemented on the objects.
+  1.By passing object as a value
+  2.By passing object as a reference
+  3.By return object as a object

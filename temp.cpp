@@ -1,76 +1,35 @@
-/*What is a this key Word in C++? Write a C++ program in which the setter function parameter name is same as the class data member name.What is the *this Pointer* in the C++?*/
+/*How we make the dynamic objects of class and how to access their data members of taht dynamic object🙄❓*/
 
-#include<iostream>
+
+
+#include <iostream>
 
 using namespace std;
 
 class algebra
 {
-private:
-    int x;
-    int y;
 public:
-    //setters
-    void setX(int x)
-    {
-       this->x=x;
-    }
-    void setY(int y)
-    {
-        this->y=y;
-    }
-    void setData(int x,int y)
-    {
-        this->x=x;
-        this->y=y;
-    }
-
-    //getters
-    int getX()
-    {
-        return x;
-    }
-    int getY()
-    {
-        return y;
-    }
-    void getData()
-    {
-        cout<<"The value of x = "<<x<<endl;
-        cout<<"The value of y = "<<y<<endl;
-    }
-
-    //member functions
-    algebra &value(int x)
-    {
-        this->x=x;
-        return *this;
-    }
-    algebra &incrementValue(int y)
-    {
-        this->x++;
-        this->y=y;
-        return *this;
-    }
-
+    int y;
+    int x;
+    int add;
 };
 
 int main()
 {
-    algebra obj1;
-    algebra *obj2=new algebra;
+    //Alloacting the memory
+    algebra *sum = new algebra;
 
-    obj1.setData(1,2);
-    obj2->setData(3,4);
-
-    obj1.getData();
-    obj2->getData();    
-
-    obj1.value(100).incrementValue(200);
-    obj1.getData();//101,200--->chaining is sequential and the changes made to the object’s data members retains for further chaining calls.
-
-    // obj1.setX(90).setY(900);// error: invalid use of 'void'
-
+    //Arrow operaters pointing the members on the heap(->)
+    sum->x = 3;
+    sum->y = 4;
+    sum->add = sum->x + sum->y;
+    
+    //Derefernce and userd the dot opearter(.)
+    cout << "The sum of " << (*sum).x << " and " << (*sum).y << " = " << (*sum).add << endl;
+    
+    //delloacting the memory
+    delete sum;
+    sum=nullptr;
 
     return 0;
 }
