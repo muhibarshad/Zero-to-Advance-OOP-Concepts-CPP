@@ -34,7 +34,5 @@ int main()
     //Test 01:
     equation1.putData(1,2,3);
     equation1.getData();
-    
-
     return 0;
 }

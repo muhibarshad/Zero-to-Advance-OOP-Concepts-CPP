@@ -17,7 +17,8 @@
 1. [Two Dimensional Dynamic Arrays](#two-dimensional-dynamic-arrays)
 2. [Object Oriented Programming Core Concepts](#core-concepts)
 3. [Classes and Objects](#classes-and-objects)
-
+4. [Setters and Getters](#setters-and-getters)
+5. [This keyword](#this-pointer-or-this-keyword-in-c)
 # Dynamic Arrays
 
 > Dynamic memory allocation is the process of changing the size of the memory space during the run-time.
@@ -397,8 +398,8 @@ int main()
 
 # Setters and Getters
  ***Why we need setters and getters*** ? What is the importance of getters and setters in real world? 
- Understand by exapmle ,in mobile phones when we want to increase the brightness of our mobile then can we go to the whole stting of the mobile and change it here ***NO**** .We only set the value of brightness same when we want to get the phone number of any person , we just search ang get it.
- Getters and setters are the same as ,
+ Understand by exapmle ,in mobile phones when we want to increase the brightness of our mobile then can we go to the whole setting of the mobile and change it here ***NO**** .We only set the value of brightness same when we want to get the phone number of any person , we just search and get it.
+ Getters and setters are the same as , to retrieve the single dataMember or whole data member or to update them.
  ## Setters
   >Used to set or update values of individual data members or a complete object.
   ### Basic Syntx:
@@ -414,6 +415,58 @@ int main()
     <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/getters.png" style="height: 40vh; padding-left: 50vh;">
  </p>
+ 
+  ## SetData and getData
+  These are also the member functions of the class.They set the whole class data members and also get the data memebers of the whole class.
+```cpp
+/*Write a C++ program how to putData into dataMembers of a class that is private and getData from them
+ */
+#include <iostream>
+
+using namespace std;
+
+class algebra
+{
+private:
+    int x;
+    int y;
+    float z;
+
+public:
+    void putData(int xA, int yA, int zA)
+    {
+        x = xA;
+        y = yA;
+        z = zA;
+    }
+    void getData()
+    {
+        cout<<"The value of x = "<<x<<endl;
+        cout<<"The value of y = "<<y<<endl;
+        cout<<"The value of z = "<<z<<endl;
+    }
+};
+
+int main()
+{
+    algebra equation1;
+    
+    //Test 01:
+    equation1.putData(1,2,3);
+    equation1.getData();
+    return 0;
+}
+```
+ ### Practice exapmles:
+ * [Getters and Setters in C++ ](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/2_gettersAndSetters.cpp)
+ * [getData and setData in C++ ](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/1_getData_and_putData.cpp)
+
+# This Pointer (or This KeyWord in C++) :
+  **This** pointer has two main functionalities:
+1.**This** is a po
+
+  
+
 
 
 
