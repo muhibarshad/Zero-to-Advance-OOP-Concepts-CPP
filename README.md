@@ -1219,3 +1219,8 @@ int main()
     return 0;
 }
 ```
+# Now its Time for Boosted Material 3
+  ## Go deep 🧐, learn deep 😎
+ - See basic concept based questions on `setters`, `getters`, 'this->pointer', 'object operators' and 'object functions' click [here](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/)
+ - To get slides on these topics click [here](/Some%20extra%20concepts/Slides/memberFunctions.pdf)
+ - To read about them briefy more visit [here](https://learncpp.com)
