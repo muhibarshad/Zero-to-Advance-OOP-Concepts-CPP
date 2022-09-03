@@ -1,35 +1,89 @@
-/*How we make the dynamic objects of class and how to access their data members of taht dynamic object🙄❓*/
-
-
-
+/*Write a c++ program in to find distance between two points and take third point and find from where the distance from third point is closest*/
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
 class algebra
 {
 public:
-    int y;
+    // setters
+    void setX(int);
+    void setY(int);
+    void setData(int, int);
+    void setAlgebra(algebra);
+
+    // getters
+    int getX() const;
+    int getY() const;
+    void getData() const;
+    algebra getAlgebra() const;
+
+    // memberFunctions
+    float calculateDistance(algebra);
+    algebra closestPoint(algebra , algebra );
+
+private:
     int x;
-    int add;
+    int y;
 };
+
+// SETTERS_scope_resolutions
+void algebra::setX(int x) { this->x = x; }
+void algebra::setY(int y) { this->y = y; }
+void algebra::setData(int x, int y)
+{
+    this->x = x;
+    this->y = y;
+}
+void algebra::setAlgebra(algebra obj)
+{
+    x = obj.x;
+    y = obj.y;
+}
+
+// GETTERS_scope_resolutions
+int algebra::getX() const { return x; }
+int algebra::getY() const { return y; }
+void algebra::getData() const
+{
+    cout << "The value of x = " << x << endl;
+    cout << "The value of y = " << y << endl;
+}
+algebra algebra::getAlgebra() const
+{
+    return *this;
+}
+
+// Member_Functions
+float algebra::calculateDistance(algebra point)
+{
+    int d1 = point.x - x;
+    int d2 = point.y - y;
+
+    int temp = ((d1 * d1) + (d2 * d2));
+
+    return sqrt(temp);
+}
+
+algebra algebra ::closestPoint(algebra p1, algebra p2)
+{
+    float d1 = calculateDistance(p1);
+    float d2 = calculateDistance(p2);
+
+    return d1 <= d2 ? p1 : p2;
+}
 
 int main()
 {
-    //Alloacting the memory
-    algebra *sum = new algebra;
+    algebra point1, point2, point3;
 
-    //Arrow operaters pointing the members on the heap(->)
-    sum->x = 3;
-    sum->y = 4;
-    sum->add = sum->x + sum->y;
-    
-    //Derefernce and userd the dot opearter(.)
-    cout << "The sum of " << (*sum).x << " and " << (*sum).y << " = " << (*sum).add << endl;
-    
-    //delloacting the memory
-    delete sum;
-    sum=nullptr;
+    point1.setData(6, 9);
+    point2.setData(12, 3);
+    point3.setData(1, 15);
+
+    cout << point1.calculateDistance(point2)<<endl;
+    point1.closestPoint(point2,point3).getData();
 
     return 0;
 }

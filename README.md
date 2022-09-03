@@ -459,6 +459,132 @@ int main()
 }
 ```
 
+# Object Function Types( static and dynamic ):
+
+Three type of functions can be implemented on the objects.
+1.By passing object as a value
+2.By passing object as a reference
+3.By return object as a object
+
+1.In `static` Pass objects into functions as an argument and use these parameters as a local object which has a complete access to the data members and member functions of the class sam as for the argumentative object.
+In `Dyanmic` the copy of argumentative objects will not be made only the address of these objects will pass and dereferencing these adress and perform operations.
+
+<p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/f-1.png" style="height: 50vh; padding-left: 50vh;">
+ </p>
+
+2.In `static` When passing object as an argument to the function which recieveing it as a refernce parameter, then the copy of that object will not be produce.The address of this object will be use and its means any changing in data members or function members of the parameter object will aslo mutate the original argumentative object.
+In `Dyanmic` the copy of argumentative objects will not be made only the address of these objects will pass ,so we will not have to use the refernce operator `&` , beacause already we pass the address `refernce` of the objects on the heap to function parameters As a result ,dereferencing these adresses and mutating the data memebers and member functions will mutate the original argumentative objects data members and member functions respectively.
+
+<p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/f-2.png" style="height: 70vh; padding-left: 50vh;">
+ </p>
+
+3.In `static` Return type of the function is a class name. When you manipulate some data and return a object made inside the function.
+In `Dyanmic`,the returing object returns the only address of the making object not the object on the heap. beacuse when the function executes the making pointer will automatically goes out from the execuation stack. but the object on the heap is exixts . So just return the address of the making pointer.
+
+<p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/f-3.png" style="height: 70vh; padding-left: 50vh;">
+ </p>
+
+### Let understand by 😮 [dynamic-example](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/6_DyanmicObjects_and_acessOperaters.cpp):
+
+For static click [here](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/7_staticObjectAndFunctions.cpp)
+
+```cpp
+/*Dynamic Objects when we pass to functions they always should be pass as by refernce
+/*This code has three parts by three tests so you can uncommenntg the every test and check the outputs to understand
+1:Pass by value  for dynamic objects
+2:Pass by refernce for dynamic objects
+3:Return value for dynamic objects
+*/
+
+#include <iostream>
+
+using namespace std;
+
+class algebra
+{
+private:
+    int x;
+    int y;
+
+public:
+    // setters
+    void setX(int X) { x = X; }
+    void setY(int Y) { y = Y; }
+    void setData(int X, int Y)
+    {
+        x = X;
+        y = Y;
+    }
+
+    // getters
+    int getX() { return x; }
+    int gety() { return y; }
+    void getData()
+    {
+        cout << "x=" << x << endl;
+        cout << "y=" << y << endl;
+    }
+};
+
+// Functions
+
+// 1:Pass by value
+bool passByValue(algebra *A, algebra *B)
+{
+    return A->getX() != B->getX() ? true : false;
+}
+
+// 2:Pass by refernce
+void update(algebra *A, algebra *B)
+{
+    B->setX(B->getX() + 100);
+    B->setY(B->gety() + 100);
+}
+
+// 3:Return value
+algebra *createCopy(algebra *A)
+{
+    algebra *copy = new algebra;
+
+    copy->setX(A->getX());
+    copy->setY(A->gety());
+
+    return copy;
+}
+int main()
+{
+    algebra *obj1 = new algebra;
+    algebra *obj2 = new algebra;
+
+    obj1->setData(1, 2);
+    obj2->setData(3, 4);
+
+    // // Test:01
+    // cout << passByValue(obj1, obj2);
+
+    // //Test:02
+    // cout << "Before passing obj2 as a pointer to update function : " << endl;
+    // obj2->getData();
+    // update(obj1, obj2);
+    // cout << "After passing obj2 as a pointer to update function : " << endl;
+    // obj2->getData();
+
+    // //Test:03
+    // cout << "The object members :" << endl;
+    // algebra *copy=createCopy(obj1);
+    // copy->getData();
+
+    /*Results:Object’s data is always
+    pass by reference through
+    pointers*/
+
+    return 0;
+}
+```
+
 # Object Assignment operater (=):
 
 In generally, the assignment operator can be used to copy one thing into another. The data memebers of one object can be copied to another data members in two ways
@@ -532,7 +658,7 @@ algebra \*obj2=new algebra;
 
 }
 
-```
+````
 
 # Object Relational Operaters( ==, !=, <=, >=, <, > )
  Relational operators can be applied only on the varaibles that are made in functions. In objects you cannot apply directly these operaters on the object data members. It cannot be possible by `Member-Wise` or `Agreement-Wise`.
@@ -596,7 +722,7 @@ int main()
 
     return 0;
 }
-```
+````
 
 # Object Arithematic Operator (+, -, /, \*, %)
 
@@ -764,7 +890,7 @@ IN C++ ,**This** is a pointer refer to the insatnce of the class. **This** is a 
  
 2.Used to return the whole object from the member function. When you want to use the function chaining in objects.
 In short,it can be used for the function calls chaining in which the local object returns the refernce of the single object and in function chaining it updates the every previous function value also.
-   <p align="center">
+<p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/this2.png" style="height: 70vh; padding-left: 50vh;">
  </p>
  
@@ -848,8 +974,221 @@ int main()
 }
 ```
 
-# Object Function Types:
-  Three type of functions can be implemented on the objects.
-  1.By passing object as a value
-  2.By passing object as a reference
-  3.By return object as a object
+# Scope Resolution operator (::)
+
+## Defination:
+
+> Scope Resolution operater (::) define the scope of anything at any place .Used to access the gloabal varables with the same name ,access the class memeber functions outside the the class ,usedin namespaces and in the inheritance
+
+Suppose we have a class having 1000+ member functions our class size will become too springable 🥴 . And other problem is that suppose in your company your team fellow want to see your code he does't want to see your logics and how you write the code he/she just wnat to see what functionalities your class can do and think that your class has 2000+ member functions of different functionalities.In ecah member function you write the 1000+ lines of code.So showing every functionality name takes too much time🤧 and may be its a chance your team member beacome frustated 😡. As a result, **How to resolve these problems ?** The first answer involed in your brain is to make prototypes inside the class and make functions outside the class. Okay ! Thats good, lets try it
+
+<p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/s-1.png" style="height: 70vh; padding-left: 50vh;">
+ </p>
+
+But the error should become :
+
+```diff
+- error: invalid use of 'this' in non-member function void setX(int x) { this->x = x; }
+Beacuse, we know that all the data members and function members are developed public,private and protected only inside the class only accessible to them is protected or publc. And how can we refer that this function is a member function of that specific class.
+```
+
+How to resolve this error :
+
+```diff
++ Use the Scope resolutioon opertor `::`  with the name of the class , its means that this function has scope to taht class
+```
+
+<p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/s-2.png" style="height: 70vh; padding-left: 50vh;">
+</p>
+
+### Understand by complete [Scope-Resolution(::) Example](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/10_scopeResolutionOperter.cpp) 😎:
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+class algebra
+{
+private:
+   int x;
+   int y;
+
+public:
+   // setters
+   void setX(int);
+   void setY(int);
+   void setData(int, int);
+   void setAlgebra(algebra);
+
+   // getters
+   int getX() const;
+   int getY() const;
+   void getData() const;
+   algebra getAlgebra() const;
+
+   // memberFunctions are here
+   //.........
+};
+
+// SETTERS_scope_resolutions
+void algebra::setX(int x) { this->x = x; }
+void algebra::setY(int y) { this->y = y; }
+void algebra::setData(int x, int y)
+{
+   this->x = x;
+   this->y = y;
+}
+void algebra::setAlgebra(algebra obj)
+{
+   x = obj.x;
+   y = obj.y;
+}
+
+// GETTERS_scope_resolutions
+int algebra::getX() const { return x; }
+int algebra::getY() const { return y; }
+void algebra::getData() const
+{
+   cout << "The value of x = " << x << endl;
+   cout << "The value of y = " << y << endl;
+}
+algebra algebra::getAlgebra() const
+{
+   return *this;
+}
+
+int main()
+{
+   algebra obj1;
+   obj1.setData(1, 2);
+   obj1.getData();
+
+   algebra obj2;
+   obj2.setAlgebra(obj1);
+   obj2.getData();
+
+   obj1.getAlgebra().setX(8);
+   obj1.getData();
+
+   return 0;
+}
+```
+
+# Member Functions
+
+You already know that we had already discussed the member functions, then what they are 🤔 ? Every class has such type of member functions :
+
+- Getters
+- Setters
+- Mutators
+- Accessers
+- Functionaliters
+- Constructors
+- Destructors
+- Iterators
+- Operators
+  In all of above we have done `getters` and `setters`. `Mutators` and `Accessors` are same as `getters` and `setters` beacuse by using the `setters` we can have full access to the data memebers of the class to mutate them directly and sam for the `getters` we can have directly access to retrieve them.
+  **NOW**,we will discuss about the **_Functionaliters_**( I think thats not make sense 😅, but according to me its very straightForward to understand).Others will be discuss in the coming points.
+
+## Functionaliters :
+
+    >Main functions that perform some operations on the data are called fucntionaliters.
+    Functions that perform some mathematical and other operations on the data memebers and show some output or help in other functions to perform functionalities.
+
+### Let understand by example 🙂 :
+[Write a c++ program in to find distance between two points and take third point and find from where the distance from third point is closest](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/11_MemberFunctions.cpp)
+
+```cpp
+/*Write a c++ program in to find distance between two points and take third point and find from where the distance from third point is closest*/
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+class algebra
+{
+public:
+    // setters
+    void setX(int);
+    void setY(int);
+    void setData(int, int);
+    void setAlgebra(algebra);
+
+    // getters
+    int getX() const;
+    int getY() const;
+    void getData() const;
+    algebra getAlgebra() const;
+
+    // memberFunctions
+    float calculateDistance(algebra);
+    algebra closestPoint(algebra , algebra );
+
+private:
+    int x;
+    int y;
+};
+
+// SETTERS_scope_resolutions
+void algebra::setX(int x) { this->x = x; }
+void algebra::setY(int y) { this->y = y; }
+void algebra::setData(int x, int y)
+{
+    this->x = x;
+    this->y = y;
+}
+void algebra::setAlgebra(algebra obj)
+{
+    x = obj.x;
+    y = obj.y;
+}
+
+// GETTERS_scope_resolutions
+int algebra::getX() const { return x; }
+int algebra::getY() const { return y; }
+void algebra::getData() const
+{
+    cout << "The value of x = " << x << endl;
+    cout << "The value of y = " << y << endl;
+}
+algebra algebra::getAlgebra() const
+{
+    return *this;
+}
+
+// Member_Functions
+float algebra::calculateDistance(algebra point)
+{
+    int d1 = point.x - x;
+    int d2 = point.y - y;
+
+    int temp = ((d1 * d1) + (d2 * d2));
+
+    return sqrt(temp);
+}
+
+algebra algebra ::closestPoint(algebra p1, algebra p2)
+{
+    float d1 = calculateDistance(p1);
+    float d2 = calculateDistance(p2);
+
+    return d1 <= d2 ? p1 : p2;
+}
+
+int main()
+{
+    algebra point1, point2, point3;
+
+    point1.setData(6, 9);
+    point2.setData(12, 3);
+    point3.setData(1, 15);
+
+    cout << point1.calculateDistance(point2)<<endl;
+    point1.closestPoint(point2,point3).getData();
+
+    return 0;
+}
+```
