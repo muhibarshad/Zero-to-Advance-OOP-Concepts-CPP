@@ -15,7 +15,7 @@ public:
 2-Paramterized Constructor
 */
 //==============================================
-
+//overloaded Constructor
 phoneDetails(string Name="NULL",int ram=0,float process=0.0,char batt=' ')
 {
    name=Name;
