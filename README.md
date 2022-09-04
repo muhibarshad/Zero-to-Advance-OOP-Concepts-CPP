@@ -1542,7 +1542,7 @@ int main()
 
 ### Defination:
 
-> To destroy the object and free the memory.Same syntax as a constructors.Destructors cannot be overloaded since it is destroying the object and no parameter is required.It destroys the every object when the main function is executed. Executes when teh object goes out of scope.Just use the `tilda(~)` sign with the destructo to distinguish it between the deafult constructor and the destructor.
+> To destroy the object and free the memory.Same syntax as a constructors.Destructors cannot be overloaded since it is destroying the object and no parameter is required.It destroys the every object when the main function is executed. Executes when teh object goes out of scope.Just use the `telda(~)` sign with the destructo to distinguish it between the deafult constructor and the destructor.
 
 ### Synatx:
 
@@ -1624,3 +1624,8 @@ int main()
 
 }
 ```
+# Boosted Material 4 
+ ## Go deep 🧐 ,learn Deep 🤓
+- To get the briefly explained and good UI slides on the constructors and destructors get [here](/Some%20extra%20concepts/Slides/constructorsAndDestructors.pdf)
+- To get the practice programs step by step for constructors and destructors get [here](/Object%20Oriented%20Programming/Step2_Constructors%20and%20destructors/)
+- To study more abou t the constructors and destructors go [here](https://www.learncpp.com/cpp-tutorial/constructors/)
