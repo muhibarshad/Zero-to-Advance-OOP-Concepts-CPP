@@ -52,12 +52,15 @@ There are two types of memory in our computers **_Heap and Stack_**.During Dynam
 In `static memory`, all the varibles and arrays are formed in the memory (stack) at the `compile-time` so after exection all the variables and arrays are destroyed from the memory (stack) by the compiler itself.
 But in `Dynamic memory`, all the variables and arrays `values` are formed in the memory (heap) at the run-time, so compiler doesn't made them we `developers` made it during the execuation time. So its our responsibilty to destroyed them from the memory after the completition of their tasks.Otherwise a problem named `memory-leakage` can be created and our program `crashes`.
 
+One more important concept about the dynamic memory allocation.
+In local functions we make a varaible and it goes out from the execuation stack after the calling .So we cannot use its value further more to to store its value we make a varaible on heap and ist pointer on the stack and return the pointer from the function and store its in to the main stack pointer varaible.Now your memory cannot be leakage.The main point is your pointer would never be became the dangling pointer. And your heap value can never be became without its pointer.
+
 > Making a dynamic memory is called allocating the memory.
 > Deleting a dynamic memory is called dellocating the memory.
 
 ## Dangling Pointer
    A pointer whose is pointing to such memory  in the haep which is not exist .
-    
+
 ## One Dimensional Dynamic Arrays
 
 **Firstly**, `allocating`, we make a pointer of our array at the stack that containes the address of the first element of our array.
