@@ -55,6 +55,9 @@ But in `Dynamic memory`, all the variables and arrays `values` are formed in the
 > Making a dynamic memory is called allocating the memory.
 > Deleting a dynamic memory is called dellocating the memory.
 
+## Dangling Pointer
+   A pointer whose is pointing to such memory  in the haep which is not exist .
+    
 ## One Dimensional Dynamic Arrays
 
 **Firstly**, `allocating`, we make a pointer of our array at the stack that containes the address of the first element of our array.
