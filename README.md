@@ -20,13 +20,13 @@
 6. [Dynamic Objects and Access operator(->)](#dynamic-objects-and-access-operator)
 7. [Static and Dynamic Object Function Types](#static-and-dynamic-object-function-types)
 8. [Object Operators](#object-operators)
-    - [Object Assigment operator (=)](#object-assignment-operater)
-    - [Object relational operators ( ==, !=, <=, >=, <, > )](#object-relational-operaters)
-    - [Object Arithematic operators (+, -, /, \*, %)](#object-arithematic-operators)
+   - [Object Assigment operator (=)](#object-assignment-operater)
+   - [Object relational operators ( ==, !=, <=, >=, <, > )](#object-relational-operaters)
+   - [Object Arithematic operators (+, -, /, \*, %)](#object-arithematic-operators)
 9. [Setters and Getters](#setters-and-getters)
 10. [This keyword](#this-pointer-or-this-keyword-in-cpp)
-12. [Scope Resolution operator (::)](#scope-resolution-operator)
-11. [Member Functions](#member-functions)
+11. [Scope Resolution operator (::)](#scope-resolution-operator)
+12. [Member Functions](#member-functions)
 
 # Dynamic Arrays
 
@@ -420,6 +420,7 @@ Result:
 > The address of a class is same as the address of the first dataMemeber of the class
 
 # Boosted Material 2
+
 - To practice real-world examples [class and object examples](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/)
 - To go through slides [Class and object slides](/Some%20extra%20concepts/Slides/classes.pdf)
 - For reading more concepts explore this page [Deep learn class and objects](https://www.learncpp.com/cpp-tutorial/classes-and-class-members/)
@@ -600,7 +601,9 @@ int main()
 ```
 
 # Object Operators
-  These are object opertors: 
+
+These are object opertors:
+
 - [Object Assigment operator (=)](#object-assignment-operater)
 - [Object relational operators ( ==, !=, <=, >=, <, > )](#object-relational-operaters)
 - [Object Arithematic operators (+, -, /, \*, %)](#object-arithematic-operator)
@@ -682,14 +685,16 @@ algebra \*obj2=new algebra;
 ```
 
 # Object Relational Operaters
- Relational operators can be applied only on the varaibles that are made in functions. In objects you cannot apply directly these operaters on the object data members. It cannot be possible by `Member-Wise` or `Agreement-Wise`.
+
+Relational operators can be applied only on the varaibles that are made in functions. In objects you cannot apply directly these operaters on the object data members. It cannot be possible by `Member-Wise` or `Agreement-Wise`.
 
 <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/relational.png" style="height: 50vh; padding-left: 50vh;">
 </p>
 
- ### Example :
- [Can we compare the reational operaters (==,!=,<=,>=) to compare two object data members ?](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/4_RelationalOpearter.cpp)
+### Example :
+
+[Can we compare the reational operaters (==,!=,<=,>=) to compare two object data members ?](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/4_RelationalOpearter.cpp)
 
 ```cpp
 #include<iostream>
@@ -1218,8 +1223,310 @@ int main()
     return 0;
 }
 ```
+
 # Now its Time for Boosted Material 3
-  ## Go deep 🧐, learn deep 😎
- - See basic concept based questions on `setters`, `getters`, `this->pointer`, `object operators` and `object functions` click [here](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/)
- - To get slides on these topics click [here](/Some%20extra%20concepts/Slides/memberFunctions.pdf)
- - To read about them more briefy visit [here](https://learncpp.com)
+
+## Go deep 🧐, learn deep 😎
+
+- See basic concept based questions on `setters`, `getters`, `this->pointer`, `object operators` and `object functions` click [here](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/)
+- To get slides on these topics click [here](/Some%20extra%20concepts/Slides/memberFunctions.pdf)
+- To read about them more briefy visit [here](https://learncpp.com)
+
+# Constructors and Destructors
+
+### Defination:
+
+> It is a function.It does not have any `return type`(like int,void). It has same name as of its class.They can never be called instead(they can be more than two ) are called and executed automaticallu on the time of creation oof object.Their main purpose to initialze the data members of an object being created.
+
+Every object will be called only once in its life by the constructor till it is destroyed.Compiler give us default constructor but ity initliaze the data members with teh garbage values. If any one of the constructor should be written then the compiler does not gives its default constructor Constructor are of three types:
+
+- Deafult Constructor
+- Parameterized Constructor
+- Copy Constructor
+
+## Default Constructor
+
+Its parameters are empty and it can be called on the time of the object creation.
+
+### Syntax:
+
+ <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/cons-1.png" style="height: 50vh; padding-left: 50vh;">
+</p>
+ 
+ ### Example:
+ ```cpp
+ /*Write a C++ program how to write the default constructors*/
+#include <iostream>
+using namespace std;
+class algebra
+{
+private:
+	int x;
+	int y;
+public:
+	algebra();
+	void setData(int, int);
+	void getData();
+};
+//Default Constructor
+algebra::algebra()
+{
+	x = 0;
+	y = 0;
+	cout << "Deafult Constructor should be called:" << endl;
+}
+void algebra ::setData(int x, int y)
+{
+	this->x = x;
+	this->y = y;
+}
+void algebra ::getData()
+{
+	cout << "The value of x = " << x << endl;
+	cout << "The value of y = " << y << endl;
+}
+int main()
+{
+	algebra obj1;
+	obj1.setData(1, 2);
+	obj1.getData();
+	algebra obj2;
+	obj2.getData();
+
+    return 0;
+
+}
+
+```
+## Paramterized Constructor:
+  Constructors are `overloaded` like `function-overloading`. When there are more than one constructors in a class having different number of parameters are called overloaded or parameterized constructors.
+ ### VIP Note:
+  >When we call any constructor on an object.Then only that `one` constructor should be called the of constructors should be remain and not be called.
+
+  ### Syntax:
+
+<p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/cons-2.png" style="height: 50vh; padding-left: 50vh;">
+</p>
+
+  ### Example:
+
+```cpp
+/*Write a C++ program how to write the parameterized or overloaded constructors*/
+#include <iostream>
+using namespace std;
+class algebra
+{
+private:
+	int x;
+	int y;
+public:
+	algebra();
+    algebra(int,int);
+	void setData(int, int);
+	void getData();
+};
+//Default Constructor
+algebra::algebra()
+{
+	x = 0;
+	y = 0;
+	cout << "Deafult Constructor should be called:" << endl;
+}
+//paremterized constructor
+algebra::algebra(int x, int y)
+{
+    this->x = x;
+    this->y = y;
+    cout << "Parameterized Constructor should be called:" << endl;
+}
+void algebra ::setData(int x, int y)
+{
+	this->x = x;
+	this->y = y;
+}
+void algebra ::getData()
+{
+	cout << "The value of x = " << x << endl;
+	cout << "The value of y = " << y << endl;
+}
+int main()
+{
+	algebra obj1(1,2);
+	obj1.getData();
+	algebra obj2;
+	obj2.getData();
+
+    return 0;
+
+}
+```
+
+# Copy constructor
+
+Copy constructor can be used to copy the one object constructor to another object .In copy constructor the paremterized object should be called as a refernce. Otherwise it creates a problem of `recursion`. To undertsnad this ,suppose we equal the object_2 to object_1 then the copy constructor of object_2 should be called and it takes the object_1 as a parameter and this parameter object makes a copy of the object_1 so to make copy of object_1 again the `copy-constructor` should be called again and agin and this process comes into the `recusrion` (infinity) and our program crushes when the stack overflow. But there is another problem here if we pass the arguemtative object as a refence than there is a dangerous chance to mutate the data of this object beacuse we are passing it as reference to avoid these bugs we pass it as a `const` now its beacame impossible to mutate the original object.
+
+### Note:
+
+> Pass the copying object as a refernce `&`.
+> Pass the copying object as a constant `const`.
+> It uses copy data of an object `bit-by-bit`.
+
+### Syntax:
+
+### Example:
+
+```cpp
+/*Write a C++ program how to write the copy constructor constructors*/
+#include <iostream>
+using namespace std;
+class algebra
+{
+private:
+	int x;
+	int y;
+public:
+	algebra();
+    algebra(int,int);
+    algebra(const algebra&);
+	void setData(int, int);
+	void getData();
+};
+//Default Constructor
+algebra::algebra()
+{
+	x = 0;
+	y = 0;
+	cout << "Deafult Constructor should be called:" << endl;
+}
+//paremterized constructor
+algebra::algebra(int x, int y)
+{
+    this->x = x;
+    this->y = y;
+    cout << "Parameterized Constructor should be called:" << endl;
+}
+//copy constructor
+algebra::algebra(const algebra& temp)
+{
+    x=temp.x;
+    y=temp.y;
+    cout<<"Copy constructor should be called:"<<endl;
+}
+void algebra ::setData(int x, int y)
+{
+	this->x = x;
+	this->y = y;
+}
+void algebra ::getData()
+{
+	cout << "The value of x = " << x << endl;
+	cout << "The value of y = " << y << endl;
+}
+int main()
+{
+
+    //default
+	algebra obj2;
+	obj2.getData();
+    //parametrized
+	algebra obj1(1,2);
+	obj1.getData();
+    //copy
+    algebra obj3=obj1;
+    obj3.getData();
+    algebra obj4(obj2);
+    obj4.getData();
+
+    return 0;
+
+}
+```
+
+## Destructors:
+
+### Defination:
+
+> To destroy the object and free the memory.Same syntax as a constructors.Destructors cannot be overloaded since it is destroying the object and no parameter is required.It destroys the every object when the main function is executed. Executes when teh object goes out of scope.Just use the `tilda(~)` sign with the destructo to distinguish it between the deafult constructor and the destructor.
+
+### Synatx:
+
+   <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/des.png" style="height: 50vh; padding-left: 50vh;">
+</p>
+
+### Example:
+
+```cpp
+/*Write a C++ program how to write the destructors*/
+#include <iostream>
+using namespace std;
+class algebra
+{
+private:
+	int x;
+	int y;
+public:
+	algebra();
+    algebra(int,int);
+    algebra(const algebra&);
+	void setData(int, int);
+	void getData();
+    ~algebra();
+};
+//Default Constructor
+algebra::algebra()
+{
+	x = 0;
+	y = 0;
+	cout << "Deafult Constructor should be called:" << endl;
+}
+//paremterized constructor
+algebra::algebra(int x, int y)
+{
+    this->x = x;
+    this->y = y;
+    cout << "Parameterized Constructor should be called:" << endl;
+}
+//copy constructor
+algebra::algebra(const algebra& temp)
+{
+    x=temp.x;
+    y=temp.y;
+    cout<<"Copy constructor should be called:"<<endl;
+}
+void algebra ::setData(int x, int y)
+{
+	this->x = x;
+	this->y = y;
+}
+void algebra ::getData()
+{
+	cout << "The value of x = " << x << endl;
+	cout << "The value of y = " << y << endl;
+}
+//destructor
+algebra::~algebra()
+{
+    cout<<"Destructor should be called"<<endl;
+}
+int main()
+{
+
+    //default
+	algebra obj2;
+	obj2.getData();
+    //parametrized
+	algebra obj1(1,2);
+	obj1.getData();
+    //copy
+    algebra obj3=obj1;
+    obj3.getData();
+    algebra obj4(obj2);
+    obj4.getData();
+
+    return 0;
+
+}
+```

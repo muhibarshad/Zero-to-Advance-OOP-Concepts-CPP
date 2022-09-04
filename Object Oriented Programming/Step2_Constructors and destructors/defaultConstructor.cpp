@@ -1,3 +1,4 @@
+/*Write a C++ program how to write the default constructors*/
 #include <iostream>
 using namespace std;
 class algebra
@@ -19,7 +20,7 @@ algebra::algebra()
 {
 	x = 0;
 	y = 0;
-	cout << "Constructor should be called:" << endl;
+	cout << "Deafult Constructor should be called:" << endl;
 }
 void algebra::setX(int x) { this->x = x; };
 void algebra::setY(int y) { this->y = y; };
