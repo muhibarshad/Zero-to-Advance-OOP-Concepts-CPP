@@ -7,7 +7,6 @@
 using namespace std;
 
 #define interestRate 1.5
-#define noOfYears 3
 #define minmumBalanceForInterest 200
 class account
 {
@@ -76,7 +75,7 @@ public:
     void setOutcome(double outcome) { this->outcome = outcome; }
     void setInterest(double interest) { this->interest = interest; }
     void setSort(bool sort) { this->sort = sort; }
-    void setMovementsAddress() { this->movements = movements; }
+    void setMovementsAddress(double *movements) { this->movements = movements; }
     void setMovementsValue()
     {
         movements = new double[size];
@@ -86,7 +85,7 @@ public:
         }
     }
 
-    void setData(string name, string userName, int pin, int size, double totalBalance, double income, double outcome, double interest, bool sort, double *movements)
+    void setData(string name, string userName, int pin, int size, double *movements, double totalBalance, double income, double outcome, double interest, bool sort)
     {
         this->name = name;
         this->userName = userName;
@@ -144,7 +143,7 @@ public:
     // Member Functions
 
     // 1-Calculating UserName
-    string calculateUserName()
+    void calculateUserName()
     {
 
         userName = "";
@@ -162,24 +161,19 @@ public:
                 flag = false;
             }
         }
-        return userName;
     }
 
     // 2- Calculating Total Balance
-    void calculateTotalBalance()
+    double calculateTotalBalance()
     {
-        double total;
-        for (int i = 0; i < size; i++)
-        {
-            total += (*(movements + i));
-        }
-
-        totalBalance= total;
+        double total = calculateTotalIncome() - calculateTotalOutcome();
+        totalBalance = total;
+        return total;
     }
 
     // 3-Calculating Summary
     // a-Income
-    void calculateTotalIncome()
+    double calculateTotalIncome()
     {
         double totalIncome = 0.0;
         for (int i = 0; i < size; i++)
@@ -187,10 +181,11 @@ public:
             if (*(movements + i) >= 0)
                 totalIncome += (*(movements + i));
         }
-        income= totalIncome;
+        income = totalIncome;
+        return totalIncome;
     }
     // b-Outcome
-    void calculateTotalOutcome()
+    double calculateTotalOutcome()
     {
         double totalOutcome = 0.0;
         for (int i = 0; i < size; i++)
@@ -198,54 +193,103 @@ public:
             if (*(movements + i) < 0)
                 totalOutcome += (abs(*(movements + i)));
         }
-        outcome= totalOutcome;
+        outcome = totalOutcome;
+        return totalOutcome;
     }
     // c-InterestRate
-    void calculateTotalInterest()
+    double calculateTotalInterest()
     {
-        calculateTotalBalance();
-        int balance = totalBalance;
-        interest= balance > minmumBalanceForInterest ? balance * interestRate * noOfYears : 0.0;
+        double totalInterest = 0.0;
+        for (int i = 0; i < size; i++)
+        {
+            double deposit = 0.0;
+            if (*(movements + i) > 0)
+            {
+                deposit = *(movements + i) * (interestRate / 100);
+                if (deposit >= 1)
+                {
+                    totalInterest += deposit;
+                }
+            }
+        }
+        interest = totalInterest;
+        return totalInterest;
+    }
+
+    // 4-sortingAlgorithum
+    void sortMovements()
+    {
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                if (*(movements + j) > *(movements + j + 1))
+                {
+                    int temp;
+                    temp = *(movements + j);
+                    *(movements + j) = *(movements + j + 1);
+                    *(movements + j + 1) = temp;
+                }
+            }
+        }
     }
 };
 
 int main()
 {
-
-    ////test part 01;
-    // int totalAccounts=3;
-    // account acc1;
-    // account acc2;
-    // account acc3;
-    // account *accs=new account[totalAccounts]{acc1,acc2,acc3};
-    // for(int i=0;i<totalAccounts;i++)
-    // {
-    //     (accs+i)->getData();
-    // }
-
-    ////Test:pqrt -2
-    // account temp;
-    // double arr[]={1,2,3,4,5};
-    // temp.setData("Muhib Arshad","ma",1111,5,0,0,0,0,false,arr);
-    // temp.getData();
-
-    ////Test Part 03:
+    /*------------Deafult Data------------------*/
+    int noOfAccounts = 3;
+    int *defaultPins = new int[noOfAccounts]{111, 222, 333};
+    double *movementsAcc0 = new double[5]{2000, 1000, -500, 20000, -6000};
+    double *movementsAcc1 = new double[5]{5000, -2000, 10000, 5000, -8000};
+    double *movementsAcc2 = new double[5]{8000, 10000, 4000, -12000, -1000};
+    
+    /*------------ Deafult Accounts------------------*/
+    //account-1
     account acc1;
+    acc1.setName("Muhib Arshad");
+    acc1.calculateUserName();
+    acc1.setPin(defaultPins[0]);
     acc1.setSize(5);
-    cout << acc1.getSize() << endl;
-    cout << "Set values:" << endl;
-    acc1.setMovementsValue();
-    cout << "get values:" << endl;
-    acc1.getMovementsValue();
-    cout << "Total balance:" << endl;
+    acc1.setMovementsAddress(movementsAcc0);
     acc1.calculateTotalBalance();
-    acc1.calculateTotalIncome() ;
+    acc1.calculateTotalIncome();
     acc1.calculateTotalOutcome();
     acc1.calculateTotalInterest();
-    cout<<acc1.getTotalBalance()<<endl;
-    cout<<acc1.getIncome()<<endl;
-    cout<<acc1.getOutcome()<<endl;
-    cout<<acc1.getInterest()<<endl;
+    acc1.sortMovements();
+    acc1.getData();
+
+    //account-2
+    account acc2;
+    acc2.setName("Ali Abdullah");
+    acc2.calculateUserName();
+    acc2.setPin(defaultPins[1]);
+    acc2.setSize(5);
+    acc2.setMovementsAddress(movementsAcc1);
+    acc2.calculateTotalBalance();
+    acc2.calculateTotalIncome();
+    acc2.calculateTotalOutcome();
+    acc2.calculateTotalInterest();
+    acc2.sortMovements();
+    acc2.getData();
+
+    //account-3
+    account acc3;
+    acc3.setName("Muhib Arshad");
+    acc3.calculateUserName();
+    acc3.setPin(defaultPins[0]);
+    acc3.setSize(5);
+    acc3.setMovementsAddress(movementsAcc2);
+    acc3.calculateTotalBalance();
+    acc3.calculateTotalIncome();
+    acc3.calculateTotalOutcome();
+    acc3.calculateTotalInterest();
+    acc3.sortMovements();
+    acc3.getData();
+
+    /*------------RunTime Information------------------*/
+    account *accounts=new account[noOfAccounts]{acc1,acc2,acc3};
+    account currentUser;
 
     return 0;
 }
