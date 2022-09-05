@@ -6,6 +6,7 @@
         "iterator": "cpp",
         "memory": "cpp",
         "xmemory": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "ostream": "cpp"
     }
 }
