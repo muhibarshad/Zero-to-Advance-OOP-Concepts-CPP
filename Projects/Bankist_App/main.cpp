@@ -249,62 +249,54 @@ int main()
     double *movementsAcc0 = new double[5]{2000, 1000, -500, 20000, -6000};
     double *movementsAcc1 = new double[5]{5000, -2000, 10000, 5000, -8000};
     double *movementsAcc2 = new double[5]{8000, 10000, 4000, -12000, -1000};
+    /*------------RunTime Information------------------*/
+    account *accounts = new account[noOfAccounts];
+    account currentUser;
 
     /*------------ Deafult Accounts------------------*/
     // account-1
-    account acc1;
-    acc1.setName("Muhib Arshad");
-    acc1.calculateUserName();
-    acc1.setPin(defaultPins[0]);
-    acc1.setSize(5);
-    acc1.setMovementsAddress(movementsAcc0);
-    acc1.calculateTotalBalance();
-    acc1.calculateTotalIncome();
-    acc1.calculateTotalOutcome();
-    acc1.calculateTotalInterest();
-    acc1.sortMovements();
-    acc1.getData();
+    accounts[0].setName("Muhib Arshad");
+    accounts[0].calculateUserName();
+    accounts[0].setPin(defaultPins[0]);
+    accounts[0].setSize(5);
+    accounts[0].setMovementsAddress(movementsAcc0);
+    accounts[0].calculateTotalBalance();
+    accounts[0].calculateTotalIncome();
+    accounts[0].calculateTotalOutcome();
+    accounts[0].calculateTotalInterest();
+    accounts[0].sortMovements();
+    accounts[0].getData();
      
     // account-2
-    account acc2;
-    acc2.setName("Ali Abdullah");
-    acc2.calculateUserName();
-    acc2.setPin(defaultPins[1]);
-    acc2.setSize(5);
-    acc2.setMovementsAddress(movementsAcc1);
-    acc2.calculateTotalBalance();
-    acc2.calculateTotalIncome();
-    acc2.calculateTotalOutcome();
-    acc2.calculateTotalInterest();
-    acc2.sortMovements();
-    acc2.getData();
+    accounts[1].setName("Ali Abdullah");
+    accounts[1].calculateUserName();
+    accounts[1].setPin(defaultPins[1]);
+    accounts[1].setSize(5);
+    accounts[1].setMovementsAddress(movementsAcc1);
+    accounts[1].calculateTotalBalance();
+    accounts[1].calculateTotalIncome();
+    accounts[1].calculateTotalOutcome();
+    accounts[1].calculateTotalInterest();
+    accounts[1].sortMovements();
+    accounts[1].getData();
 
     // account-3
-    account acc3;
-    acc3.setName("Muhib Arshad");
-    acc3.calculateUserName();
-    acc3.setPin(defaultPins[0]);
-    acc3.setSize(5);
-    acc3.setMovementsAddress(movementsAcc2);
-    acc3.calculateTotalBalance();
-    acc3.calculateTotalIncome();
-    acc3.calculateTotalOutcome();
-    acc3.calculateTotalInterest();
-    acc3.sortMovements();
-    acc3.getData();
-
-    /*------------RunTime Information------------------*/
-    account *accounts = new account[noOfAccounts]{acc1, acc2, acc3};
-    account currentUser;
-
+    accounts[2].setName("Bilal Sharafat");
+    accounts[2].calculateUserName();
+    accounts[2].setPin(defaultPins[2]);
+    accounts[2].setSize(5);
+    accounts[2].setMovementsAddress(movementsAcc2);
+    accounts[2].calculateTotalBalance();
+    accounts[2].calculateTotalIncome();
+    accounts[2].calculateTotalOutcome();
+    accounts[2].calculateTotalInterest();
+    accounts[2].sortMovements();
+    accounts[2].getData();
 
     /*=============================LOGICAL PORTION STARTS HERE=========================*/
 
 
 
-    
-
-     
 
     //Deallocating memeory-To avoid memeory leakages 
     delete[] movementsAcc0;
