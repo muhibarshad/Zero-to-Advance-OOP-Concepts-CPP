@@ -2,9 +2,13 @@
 #include <cstring>
 #include <iomanip>
 #include <cstdlib>
+#include <cmath>
 
 using namespace std;
 
+#define interestRate 1.5
+#define noOfYears 3
+#define minmumBalanceForInterest 200
 class account
 {
 private:
@@ -12,7 +16,7 @@ private:
     string userName;
     int size;
     int pin;
-    double *movements = new double[size];
+    double *movements;
     double totalBalance;
     double income;
     double outcome;
@@ -72,7 +76,16 @@ public:
     void setOutcome(double outcome) { this->outcome = outcome; }
     void setInterest(double interest) { this->interest = interest; }
     void setSort(bool sort) { this->sort = sort; }
-    void setMovements(double *movements) { this->movements = movements; }
+    void setMovementsAddress() { this->movements = movements; }
+    void setMovementsValue()
+    {
+        movements = new double[size];
+        for (int i = 0; i < size; i++)
+        {
+            cin >> *(movements + i);
+        }
+    }
+
     void setData(string name, string userName, int pin, int size, double totalBalance, double income, double outcome, double interest, bool sort, double *movements)
     {
         this->name = name;
@@ -97,7 +110,14 @@ public:
     double getOutcome() { return outcome; }
     double getInterest() { return interest; }
     bool getSort() { return sort; }
-    double *getMovements() { return movements; }
+    double *getMovementsAddress() { return movements; }
+    void getMovementsValue()
+    {
+        for (int i = 0; i < size; i++)
+        {
+            cout << *(movements + i) << endl;
+        }
+    }
     void getData()
     {
         cout << "The name of the user = " << name << endl;
@@ -121,32 +141,76 @@ public:
         cout << "Destructor called:" << endl;
     }
 
-//Member Functions
-string calculateUserName(string name)
-{
+    // Member Functions
 
-    string userName = "";
-    userName.push_back(tolower(name[0]));
-    bool flag = false;
-    for (int i = 0; i < name.length(); i++)
+    // 1-Calculating UserName
+    string calculateUserName()
     {
-        if (name[i] == ' ')
+
+        userName = "";
+        userName.push_back(tolower(name[0]));
+        bool flag = false;
+        for (int i = 0; i < name.length(); i++)
         {
-            flag = true;
+            if (name[i] == ' ')
+            {
+                flag = true;
+            }
+            if (name[i] != ' ' && flag == true)
+            {
+                userName.push_back(tolower(name[i]));
+                flag = false;
+            }
         }
-        if (name[i] != ' ' && flag == true)
-        {
-            userName.push_back(tolower(name[i]));
-            flag = false;
-        }
+        return userName;
     }
-    return userName;
-}
+
+    // 2- Calculating Total Balance
+    void calculateTotalBalance()
+    {
+        double total;
+        for (int i = 0; i < size; i++)
+        {
+            total += (*(movements + i));
+        }
+
+        totalBalance= total;
+    }
+
+    // 3-Calculating Summary
+    // a-Income
+    void calculateTotalIncome()
+    {
+        double totalIncome = 0.0;
+        for (int i = 0; i < size; i++)
+        {
+            if (*(movements + i) >= 0)
+                totalIncome += (*(movements + i));
+        }
+        income= totalIncome;
+    }
+    // b-Outcome
+    void calculateTotalOutcome()
+    {
+        double totalOutcome = 0.0;
+        for (int i = 0; i < size; i++)
+        {
+            if (*(movements + i) < 0)
+                totalOutcome += (abs(*(movements + i)));
+        }
+        outcome= totalOutcome;
+    }
+    // c-InterestRate
+    void calculateTotalInterest()
+    {
+        calculateTotalBalance();
+        int balance = totalBalance;
+        interest= balance > minmumBalanceForInterest ? balance * interestRate * noOfYears : 0.0;
+    }
 };
 
 int main()
 {
-
 
     ////test part 01;
     // int totalAccounts=3;
@@ -165,8 +229,23 @@ int main()
     // temp.setData("Muhib Arshad","ma",1111,5,0,0,0,0,false,arr);
     // temp.getData();
 
-    ////Test part 03;
-    cout << calculateUserName("Ali Hbdullah Muhammad Shakir") << endl;
+    ////Test Part 03:
+    account acc1;
+    acc1.setSize(5);
+    cout << acc1.getSize() << endl;
+    cout << "Set values:" << endl;
+    acc1.setMovementsValue();
+    cout << "get values:" << endl;
+    acc1.getMovementsValue();
+    cout << "Total balance:" << endl;
+    acc1.calculateTotalBalance();
+    acc1.calculateTotalIncome() ;
+    acc1.calculateTotalOutcome();
+    acc1.calculateTotalInterest();
+    cout<<acc1.getTotalBalance()<<endl;
+    cout<<acc1.getIncome()<<endl;
+    cout<<acc1.getOutcome()<<endl;
+    cout<<acc1.getInterest()<<endl;
 
     return 0;
 }
