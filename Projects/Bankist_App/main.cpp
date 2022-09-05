@@ -240,6 +240,9 @@ public:
 
 int main()
 {
+
+    /*=============================Already DEFAULT ACCOUNTS IN BANKIST=========================*/
+
     /*------------Deafult Data------------------*/
     int noOfAccounts = 3;
     int *defaultPins = new int[noOfAccounts]{111, 222, 333};
@@ -261,7 +264,7 @@ int main()
     acc1.calculateTotalInterest();
     acc1.sortMovements();
     acc1.getData();
-
+     
     // account-2
     account acc2;
     acc2.setName("Ali Abdullah");
@@ -293,6 +296,25 @@ int main()
     /*------------RunTime Information------------------*/
     account *accounts = new account[noOfAccounts]{acc1, acc2, acc3};
     account currentUser;
+
+
+    /*=============================LOGICAL PORTION STARTS HERE=========================*/
+
+
+
+    
+
+     
+
+    //Deallocating memeory-To avoid memeory leakages 
+    delete[] movementsAcc0;
+    movementsAcc0=nullptr;
+    delete[] movementsAcc1;
+    movementsAcc0=nullptr;
+    delete[] movementsAcc2;
+    movementsAcc0=nullptr;
+    delete[] accounts;
+    accounts=nullptr;
 
     return 0;
 }
