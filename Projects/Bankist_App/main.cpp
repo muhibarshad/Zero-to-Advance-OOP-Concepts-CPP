@@ -216,21 +216,24 @@ public:
         return totalInterest;
     }
 
-    // 4-sortingAlgorithum
+    // 4-sortingAlgorithum(selection-sort)
     void sortMovements()
     {
-        for (int i = 0; i < size; i++)
+        int min_index;
+        for (int i = 0; i < size - 1; i++)
         {
-            for (int j = 0; j < size; j++)
+            min_index = i;
+            for (int j = i + 1; j < size; j++)
             {
-                if (*(movements + j) > *(movements + j + 1))
+                if (*(movements + j) < *(movements + min_index))
                 {
-                    int temp;
-                    temp = *(movements + j);
-                    *(movements + j) = *(movements + j + 1);
-                    *(movements + j + 1) = temp;
+                    min_index = j;
                 }
             }
+            int temp;
+            temp = *(movements + i);
+            *(movements + i) = *(movements + min_index);
+            *(movements + min_index) = temp;
         }
     }
 };
@@ -243,9 +246,9 @@ int main()
     double *movementsAcc0 = new double[5]{2000, 1000, -500, 20000, -6000};
     double *movementsAcc1 = new double[5]{5000, -2000, 10000, 5000, -8000};
     double *movementsAcc2 = new double[5]{8000, 10000, 4000, -12000, -1000};
-    
+
     /*------------ Deafult Accounts------------------*/
-    //account-1
+    // account-1
     account acc1;
     acc1.setName("Muhib Arshad");
     acc1.calculateUserName();
@@ -259,7 +262,7 @@ int main()
     acc1.sortMovements();
     acc1.getData();
 
-    //account-2
+    // account-2
     account acc2;
     acc2.setName("Ali Abdullah");
     acc2.calculateUserName();
@@ -273,7 +276,7 @@ int main()
     acc2.sortMovements();
     acc2.getData();
 
-    //account-3
+    // account-3
     account acc3;
     acc3.setName("Muhib Arshad");
     acc3.calculateUserName();
@@ -288,7 +291,7 @@ int main()
     acc3.getData();
 
     /*------------RunTime Information------------------*/
-    account *accounts=new account[noOfAccounts]{acc1,acc2,acc3};
+    account *accounts = new account[noOfAccounts]{acc1, acc2, acc3};
     account currentUser;
 
     return 0;
