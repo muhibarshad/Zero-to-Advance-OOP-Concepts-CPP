@@ -26,7 +26,7 @@ public:
         name = "";
         userName = "";
         pin = 0;
-        size=0;
+        size = 0;
         totalBalance = 0.0;
         income = 0.0;
         outcome = 0.0;
@@ -35,12 +35,12 @@ public:
         movements = nullptr;
     }
     // parameterized constructor
-    account(string name, string userName, int pin,int size, double totalBalance, double income, double outcome, double interest, bool sort, double *movements)
+    account(string name, string userName, int pin, int size, double totalBalance, double income, double outcome, double interest, bool sort, double *movements)
     {
         this->name = name;
         this->userName = userName;
         this->pin = pin;
-        this->size=size;
+        this->size = size;
         this->totalBalance = totalBalance;
         this->income = income;
         this->outcome = outcome;
@@ -54,7 +54,7 @@ public:
         name = temp.name;
         userName = temp.userName;
         pin = temp.pin;
-        size=temp.size;
+        size = temp.size;
         totalBalance = temp.totalBalance;
         income = temp.income;
         outcome = temp.outcome;
@@ -78,7 +78,7 @@ public:
         this->name = name;
         this->userName = userName;
         this->pin = pin;
-        this->size=size;
+        this->size = size;
         this->totalBalance = totalBalance;
         this->income = income;
         this->outcome = outcome;
@@ -100,19 +100,19 @@ public:
     double *getMovements() { return movements; }
     void getData()
     {
-        cout<<"The name of the user = "<<name<<endl;
-        cout<<"The userName of the user = "<<userName<<endl;
-        cout<<"The pin of the user = "<<pin<<endl;
-        cout<<"The total Balance of the user = "<<totalBalance<<endl;
-        cout<<"The income of the user = "<<income<<endl;
-        cout<<"The outcome of the user = "<<outcome<<endl;
-        cout<<"The interest of the user = "<<interest<<endl;
-        cout<<"The movements of the user = "<<endl;
-        for(int i=0;i<size;i++)
+        cout << "The name of the user = " << name << endl;
+        cout << "The userName of the user = " << userName << endl;
+        cout << "The pin of the user = " << pin << endl;
+        cout << "The total Balance of the user = " << totalBalance << endl;
+        cout << "The income of the user = " << income << endl;
+        cout << "The outcome of the user = " << outcome << endl;
+        cout << "The interest of the user = " << interest << endl;
+        cout << "The movements of the user = " << endl;
+        for (int i = 0; i < size; i++)
         {
-            cout<<*(movements+i)<<endl;
+            cout << *(movements + i) << endl;
         }
-        cout<<endl;
+        cout << endl;
     }
 
     // destructor
@@ -120,23 +120,30 @@ public:
     {
         cout << "Destructor called:" << endl;
     }
-};
+
+//Member Functions
 string calculateUserName(string name)
 {
-    char userName[]={tolower(name[0])};
-    int count=1;
-    for(int i=0;name[i]!='\0';i++)
+
+    string userName = "";
+    userName.push_back(tolower(name[0]));
+    bool flag = false;
+    for (int i = 0; i < name.length(); i++)
     {
-        if(name[i]==' ')
+        if (name[i] == ' ')
         {
-            userName[count]=tolower(name[i+1]);
-            count++;
+            flag = true;
+        }
+        if (name[i] != ' ' && flag == true)
+        {
+            userName.push_back(tolower(name[i]));
+            flag = false;
         }
     }
-    userName[sizeof(userName)/sizeof(char)+1]='\0';
-
     return userName;
 }
+};
+
 int main()
 {
 
@@ -157,9 +164,9 @@ int main()
     // double arr[]={1,2,3,4,5};
     // temp.setData("Muhib Arshad","ma",1111,5,0,0,0,0,false,arr);
     // temp.getData();
-    
+
     ////Test part 03;
-    cout<<calculateUserName("Muhib Arshad Khan")<<endl;
+    cout << calculateUserName("Ali Hbdullah Muhammad Shakir") << endl;
 
     return 0;
 }
