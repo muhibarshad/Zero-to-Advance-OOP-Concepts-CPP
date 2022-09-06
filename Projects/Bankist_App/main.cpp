@@ -275,9 +275,10 @@ void loginPage(char &login)
     spaces2();
     cout << "\t\t If you have already an account then press \'L\' for login your account : " << endl;
     cout << "\t\t If you don't have an account then press \'C\' for create your account : " << endl;
+    cout << "\t\t Enter \'E\ to exit....." << endl;
     login = getch();
     login = tolower(login);
-    while (login != 'l' && login != 'c')
+    while (login != 'l' && login != 'c' && login != 'e')
     {
         cout << "\t\tError->Invalid Input :" << endl;
         cout << "\t\tPlease enter the valid input as \'L\' or \'C\':" << endl;
@@ -291,31 +292,35 @@ account Login(string &username, int &pin, account *accs, const int noOfAccounts)
 {
     bool flag = false;
     account temp;
-    cout << endl;
-    cout << "\t\t ----------------------------" << endl;
-    cout << "\t\t Enter username:";
-    getline(cin, username);
-    cout << "\t\t Enter pin :";
-    cin >> pin;
-    cout << "\t\t ----------------------------" << endl;
-    // calculating-currentUSer
-    for (int i = 0; i < noOfAccounts && flag==false; i++)
+    do
     {
-        if ((accs + i)->getUserName() == username && (accs + i)->getPin() == pin)
+        cout << endl;
+        cout << "\t\t ----------------------------" << endl;
+        cout << "\t\t Enter username:";
+        getline(cin, username);
+        cout << "\t\t Enter pin :";
+        cin >> pin;
+        cout << "\t\t ----------------------------" << endl;
+        // calculating-currentUSer
+        for (int i = 0; i < noOfAccounts && flag == false; i++)
         {
-            flag =true;
-            temp=*(accs + i);
+            if ((accs + i)->getUserName() == username && (accs + i)->getPin() == pin)
+            {
+                flag = true;
+                temp = *(accs + i);
+            }
         }
-    }
-    if(flag==false)
-    {
-        
-    }
-    if(flag==true)
+        if (flag == false)
+        {
+            cout << "\t >>Error: Such Account does'nt exist. Enter valid Information again :" << endl;
+            cin.ignore();
+        }
+    } while (flag == false);
+
+    if (flag == true)
     {
         return temp;
     }
-
 }
 
 // AFTER-SUCCESFFULY-CREATED-ACCOUNT
@@ -328,13 +333,10 @@ void successfullyCreatedAccount(account &newAccount)
     newAccount.calculateTotalIncome();
     newAccount.calculateTotalOutcome();
     newAccount.calculateTotalInterest();
-    spaces2();
-    cout << "\t\t\t *YOUR ACCOUNT DETAILS* " << endl;
-    newAccount.getData();
 }
 
 // CREATE-NEW-ACCOUNT
-void createNewAccount(account *&accs, int &noOfAccounts)
+account createNewAccount(account *&accs, int &noOfAccounts)
 {
     system("cls");
     spaces1();
@@ -360,7 +362,6 @@ void createNewAccount(account *&accs, int &noOfAccounts)
             newAccount.setMovementsValue();
         }
         successfullyCreatedAccount(newAccount);
-
         break;
     }
     case 'n':
@@ -379,7 +380,65 @@ void createNewAccount(account *&accs, int &noOfAccounts)
     accs = tempAccounts;
     accs[noOfAccounts] = newAccount;
     noOfAccounts++;
+
+    return newAccount;
 }
+
+// second-page
+void secondPage(account &currentUser,char &login)
+{
+    // Second-Page-After-Login
+    char options;
+    system("cls");
+    spaces1();
+    spaces2();
+    cout << "\t\t WELCOME ! " << currentUser.getName() << endl;
+    spaces2();
+    cout << "Total Balance : " << currentUser.getTotalBalance() << endl;
+    spaces2();
+    cout << "\t\t\t\t *OPTIONS* " << endl;
+    cout << "\t\t ------------------------------------------" << endl;
+    cout << "\t\t|      Press \'R\' for request loan        |" << endl;
+    cout << "\t\t|      Press \'T\' for transfer money      |" << endl;
+    cout << "\t\t|      Press \'D\' for delete account      |" << endl;
+    cout << "\t\t|      Press \'E\' for log out             |" << endl;
+    cout << "\t\t ------------------------------------------" << endl;
+    spaces2();
+    cout << "\t\t\t\t *YOUR ACCOUNT DETAILS* " << endl;
+    spaces2();
+    currentUser.getData();
+    options = getch();
+    options = tolower(options);
+    switch (options)
+    {
+    case 'r':
+    {
+        break;
+    }
+    case 't':
+    {
+        break;
+    }
+    case 'd':
+    {
+        break;
+    }
+    case 'e':
+    {
+        system("cls");
+        loginPage(login);
+        break;
+    }
+    }
+}
+
+// SIGN-IN OR SIGN-UP
+void SIGN_IN_OR_SIGN_UP(account *accounts,int noOfAccounts)
+{
+
+}
+ 
+
 int main()
 {
 
@@ -444,17 +503,19 @@ int main()
     case 'l':
     {
         currentUser = Login(username, pin, accounts, noOfAccounts);
-        currentUser.getData();
-        // // Second-Page-After-Login
-        // system("cls");
-        // spaces1();
-        // spaces2();
-        // cout << "\t\t WELCOME ! " <<currentUser.getName()<< endl;
+        secondPage(currentUser,login);
+
         break;
     }
     case 'c':
     {
-        createNewAccount(accounts, noOfAccounts);
+        currentUser = createNewAccount(accounts, noOfAccounts);
+        secondPage(currentUser,login);
+        break;
+    }
+    case 'e':
+    {
+        cout << "Quiting..................." << endl;
         break;
     }
     }
