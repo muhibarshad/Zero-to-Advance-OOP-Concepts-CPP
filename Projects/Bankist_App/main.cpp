@@ -1,6 +1,8 @@
 #include <iostream>
 #include <cstring>
+#include <string>
 #include <iomanip>
+#include <conio.h>
 #include <cstdlib>
 #include <cmath>
 
@@ -64,6 +66,7 @@ public:
         interest = temp.interest;
         sort = temp.sort;
         movements = temp.movements;
+        cout << "Copy constructor called:" << endl;
     }
     // setters
     void setName(string name) { this->name = name; }
@@ -98,6 +101,15 @@ public:
         this->sort = sort;
         this->movements = movements;
     }
+    // Input Data
+    void createAccount()
+    {
+        cout << "\t\tEnter your full name = ";
+        getline(cin, name);
+        cout << "\t\tSet your pin code = ";
+        cin >> pin;
+        cout << "\t\t Are you want to deposit some balance now (y/n) :";
+    }
 
     // getters
     string getName() { return name; }
@@ -119,17 +131,20 @@ public:
     }
     void getData()
     {
-        cout << "The name of the user = " << name << endl;
-        cout << "The userName of the user = " << userName << endl;
-        cout << "The pin of the user = " << pin << endl;
-        cout << "The total Balance of the user = " << totalBalance << endl;
-        cout << "The income of the user = " << income << endl;
-        cout << "The outcome of the user = " << outcome << endl;
-        cout << "The interest of the user = " << interest << endl;
-        cout << "The movements of the user = " << endl;
+        cout << "\t\t Your name : " << name << endl;
+        cout << "\t\t Your userName : " << userName << endl;
+        cout << "\t\t Your pin code : " << pin << endl;
+        cout << "\t\t Your total Balance : " << totalBalance << endl;
+        cout << "\t\t Your total incomes : " << income << endl;
+        cout << "\t\t Your total outcomes : " << outcome << endl;
+        cout << "\t\t Your total interest amount : " << interest << endl;
+        cout << "\t\t Your movements : " << endl;
         for (int i = 0; i < size; i++)
         {
-            cout << *(movements + i) << endl;
+            if (*(movements + i) > 0)
+                cout << "\t\tDeposited : " << *(movements + i) << endl;
+            if (*(movements + i) < 0)
+                cout << "\t\tWithdrawl : " << *(movements + i) << endl;
         }
         cout << endl;
     }
@@ -238,6 +253,112 @@ public:
     }
 };
 
+// Supporting-Functions
+void spaces1()
+{
+    for (int i = 0; i < 4; i++)
+        cout << endl;
+    cout << "\t\t\t SALIK BANK LIMITED (SBL) " << endl;
+}
+void spaces2()
+{
+    for (int i = 0; i < 2; i++)
+        cout << endl;
+}
+
+// LOGIN-PAGE
+void loginPage(char &login)
+{
+    spaces1();
+    spaces2();
+    cout << "\t\t\t\t LOGIN " << endl;
+    spaces2();
+    cout << "\t\t If you have already an account then press \'L\' for login your account : " << endl;
+    cout << "\t\t If you don't have an account then press \'C\' for create your account : " << endl;
+    login = getch();
+    login = tolower(login);
+    while (login != 'l' && login != 'c')
+    {
+        cout << "\t\tError->Invalid Input :" << endl;
+        cout << "\t\tPlease enter the valid input as \'L\' or \'C\':" << endl;
+        login = getch();
+        login = tolower(login);
+    }
+}
+
+// Login
+void Login(string &username, int &pin)
+{
+    cout << endl;
+    cout << "\t\t ----------------------------" << endl;
+    cout << "\t\t Enter username:";
+    getline(cin, username);
+    cout << "\t\t Enter pin :";
+    cin >> pin;
+    cout << "\t\t ----------------------------" << endl;
+}
+
+// AFTER-SUCCESFFULY-CREATED-ACCOUNT
+void successfullyCreatedAccount(account &newAccount)
+{
+    spaces2();
+    cout << "\t\tCongratulations ! You have successfully created your first Account :" << endl;
+    newAccount.calculateUserName();
+    newAccount.calculateTotalBalance();
+    newAccount.calculateTotalIncome();
+    newAccount.calculateTotalOutcome();
+    newAccount.calculateTotalInterest();
+    spaces2();
+    cout << "\t\t\t *YOUR ACCOUNT DETAILS* " << endl;
+    newAccount.getData();
+}
+
+// CREATE-NEW-ACCOUNT
+void createNewAccount(account *&accs,int &noOfAccounts)
+{
+    system("cls");
+    spaces1();
+    spaces2();
+    cout << "\t\t Create an account : " << endl;
+    spaces2();
+    account newAccount;
+    char boolDeposit;
+    newAccount.createAccount();
+    boolDeposit = getch();
+    boolDeposit = tolower(boolDeposit);
+    switch (boolDeposit)
+    {
+    case 'y':
+    {
+        spaces2();
+        cout << "\t\t Do your first movement by depositing at least $200:";
+        newAccount.setSize(1);
+        newAccount.setMovementsValue();
+        while (*(newAccount.getMovementsAddress() + 0) < 200)
+        {
+            cout << "\t\t Error : Low balance you must have deposit at leat $200 :";
+            newAccount.setMovementsValue();
+        }
+        successfullyCreatedAccount(newAccount);
+        break;
+    }
+    case 'n':
+    {
+        successfullyCreatedAccount(newAccount);
+        break;
+    }
+    }
+        //Adding to accounts array
+    account *tempAccounts = new account[noOfAccounts+1];
+    for(int i=0;i<noOfAccounts;i++)
+    {
+        *(tempAccounts+i)=*(accs+i);
+    }
+    delete[] accs;
+    accs=tempAccounts;
+    accs[noOfAccounts]=newAccount;
+    noOfAccounts++;
+}
 int main()
 {
 
@@ -264,9 +385,8 @@ int main()
     accounts[0].calculateTotalIncome();
     accounts[0].calculateTotalOutcome();
     accounts[0].calculateTotalInterest();
-    accounts[0].sortMovements();
-    accounts[0].getData();
-     
+    // accounts[0].getData();
+
     // account-2
     accounts[1].setName("Ali Abdullah");
     accounts[1].calculateUserName();
@@ -277,8 +397,7 @@ int main()
     accounts[1].calculateTotalIncome();
     accounts[1].calculateTotalOutcome();
     accounts[1].calculateTotalInterest();
-    accounts[1].sortMovements();
-    accounts[1].getData();
+    // accounts[1].getData();
 
     // account-3
     accounts[2].setName("Bilal Sharafat");
@@ -290,23 +409,45 @@ int main()
     accounts[2].calculateTotalIncome();
     accounts[2].calculateTotalOutcome();
     accounts[2].calculateTotalInterest();
-    accounts[2].sortMovements();
-    accounts[2].getData();
+    // accounts[2].getData();
 
     /*=============================LOGICAL PORTION STARTS HERE=========================*/
 
+    // SIGN-IN OR SIGN-UP
+    string username;
+    int pin;
+    char login;
+    loginPage(login);
+    switch (login)
+    {
+    case 'l':
+    {
+        Login(username, pin);
+        break;
+    }
+    case 'c':
+    {
+        createNewAccount(accounts,noOfAccounts);
+        break;
+    }
+    }
 
+    //Testing ;
+    for(int i=0;i<noOfAccounts;i++)
+    {
+    accounts[i].getData();
+    }
+    
 
-
-    //Deallocating memeory-To avoid memeory leakages 
+    // Deallocating memeory-To avoid memeory leakages
     delete[] movementsAcc0;
-    movementsAcc0=nullptr;
+    movementsAcc0 = nullptr;
     delete[] movementsAcc1;
-    movementsAcc0=nullptr;
+    movementsAcc0 = nullptr;
     delete[] movementsAcc2;
-    movementsAcc0=nullptr;
+    movementsAcc0 = nullptr;
     delete[] accounts;
-    accounts=nullptr;
+    accounts = nullptr;
 
     return 0;
 }
