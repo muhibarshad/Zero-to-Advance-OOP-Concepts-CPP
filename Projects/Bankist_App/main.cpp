@@ -10,6 +10,20 @@ using namespace std;
 
 #define interestRate 1.5
 #define minmumBalanceForInterest 200
+
+// Supporting-Functions
+void spaces1()
+{
+    for (int i = 0; i < 4; i++)
+        cout << endl;
+    cout << "\t\t\t SALIK BANK LIMITED (SBL) " << endl;
+}
+void spaces2()
+{
+    for (int i = 0; i < 2; i++)
+        cout << endl;
+}
+
 class account
 {
 private:
@@ -138,7 +152,9 @@ public:
         cout << "\t\t Your total incomes : " << income << endl;
         cout << "\t\t Your total outcomes : " << outcome << endl;
         cout << "\t\t Your total interest amount : " << interest << endl;
-        cout << "\t\t Your movements : " << endl;
+        spaces2();
+        cout << "\t\t\t *YOUR MOVEMENTS * " << endl;
+        spaces2();
         for (int i = 0; i < size; i++)
         {
             if (*(movements + i) > 0)
@@ -252,18 +268,80 @@ public:
         }
     }
 };
+void loginPage(char &login);
+account Login(string &username, int &pin, account *accs, const int noOfAccounts);
+void successfullyCreatedAccount(account &newAccount);
+account createNewAccount(account *&accs, int &noOfAccounts);
+void secondPage(account &currentUser, char &login, account *accounts, int noOfAccounts);
+void SIGN_IN_OR_SIGN_UP(account *accounts, int noOfAccounts, account &currentUser);
+int main()
+{
 
-// Supporting-Functions
-void spaces1()
-{
-    for (int i = 0; i < 4; i++)
-        cout << endl;
-    cout << "\t\t\t SALIK BANK LIMITED (SBL) " << endl;
-}
-void spaces2()
-{
-    for (int i = 0; i < 2; i++)
-        cout << endl;
+    /*=============================Already DEFAULT ACCOUNTS IN BANKIST=========================*/
+
+    /*------------Deafult Data------------------*/
+    int noOfAccounts = 3;
+    int *defaultPins = new int[noOfAccounts]{111, 222, 333};
+    double *movementsAcc0 = new double[5]{2000, 1000, -500, 20000, -6000};
+    double *movementsAcc1 = new double[5]{5000, -2000, 10000, 5000, -8000};
+    double *movementsAcc2 = new double[5]{8000, 10000, 4000, -12000, -1000};
+    /*------------RunTime Information------------------*/
+    account *accounts = new account[noOfAccounts];
+    account currentUser;
+
+    /*------------ Deafult Accounts------------------*/
+    // account-1
+    accounts[0].setName("Muhib Arshad");
+    accounts[0].calculateUserName();
+    accounts[0].setPin(defaultPins[0]);
+    accounts[0].setSize(5);
+    accounts[0].setMovementsAddress(movementsAcc0);
+    accounts[0].calculateTotalBalance();
+    accounts[0].calculateTotalIncome();
+    accounts[0].calculateTotalOutcome();
+    accounts[0].calculateTotalInterest();
+    // accounts[0].getData();
+
+    // account-2
+    accounts[1].setName("Ali Abdullah");
+    accounts[1].calculateUserName();
+    accounts[1].setPin(defaultPins[1]);
+    accounts[1].setSize(5);
+    accounts[1].setMovementsAddress(movementsAcc1);
+    accounts[1].calculateTotalBalance();
+    accounts[1].calculateTotalIncome();
+    accounts[1].calculateTotalOutcome();
+    accounts[1].calculateTotalInterest();
+    // accounts[1].getData();
+
+    // account-3
+    accounts[2].setName("Bilal Sharafat");
+    accounts[2].calculateUserName();
+    accounts[2].setPin(defaultPins[2]);
+    accounts[2].setSize(5);
+    accounts[2].setMovementsAddress(movementsAcc2);
+    accounts[2].calculateTotalBalance();
+    accounts[2].calculateTotalIncome();
+    accounts[2].calculateTotalOutcome();
+    accounts[2].calculateTotalInterest();
+    // accounts[2].getData();
+
+    /*=============================LOGICAL PORTION STARTS HERE=========================*/
+
+    // SIGN-IN OR SIGN-UP
+    SIGN_IN_OR_SIGN_UP(accounts, noOfAccounts, currentUser);
+
+    // Deallocating memeory-To avoid memeory leakages
+    delete[] movementsAcc0;
+    movementsAcc0 = nullptr;
+    delete[] movementsAcc1;
+    movementsAcc0 = nullptr;
+    delete[] movementsAcc2;
+    movementsAcc0 = nullptr;
+    delete[] accounts;
+    accounts = nullptr;
+
+    return 0;
 }
 
 // LOGIN-PAGE
@@ -385,7 +463,7 @@ account createNewAccount(account *&accs, int &noOfAccounts)
 }
 
 // second-page
-void secondPage(account &currentUser,char &login)
+void secondPage(account &currentUser, char &login, account *accounts, int noOfAccounts)
 {
     // Second-Page-After-Login
     char options;
@@ -400,11 +478,12 @@ void secondPage(account &currentUser,char &login)
     cout << "\t\t ------------------------------------------" << endl;
     cout << "\t\t|      Press \'R\' for request loan        |" << endl;
     cout << "\t\t|      Press \'T\' for transfer money      |" << endl;
+    cout << "\t\t|      Press \'S\' for sort movements      |" << endl;
     cout << "\t\t|      Press \'D\' for delete account      |" << endl;
-    cout << "\t\t|      Press \'E\' for log out             |" << endl;
+    cout << "\t\t|      Press \'E\' for log exit            |" << endl;
     cout << "\t\t ------------------------------------------" << endl;
     spaces2();
-    cout << "\t\t\t\t *YOUR ACCOUNT DETAILS* " << endl;
+    cout << "\t\t\t *YOUR ACCOUNT DETAILS* " << endl;
     spaces2();
     currentUser.getData();
     options = getch();
@@ -423,77 +502,27 @@ void secondPage(account &currentUser,char &login)
     {
         break;
     }
+    case 's':
+    {
+        currentUser.sortMovements();
+        system("cls");
+        secondPage(currentUser, login, accounts, noOfAccounts);
+        break;
+    }
     case 'e':
     {
         system("cls");
-        loginPage(login);
+        cin.ignore();
+        SIGN_IN_OR_SIGN_UP(accounts, noOfAccounts, currentUser);
+
         break;
     }
     }
 }
 
 // SIGN-IN OR SIGN-UP
-void SIGN_IN_OR_SIGN_UP(account *accounts,int noOfAccounts)
+void SIGN_IN_OR_SIGN_UP(account *accounts, int noOfAccounts, account &currentUser)
 {
-
-}
- 
-
-int main()
-{
-
-    /*=============================Already DEFAULT ACCOUNTS IN BANKIST=========================*/
-
-    /*------------Deafult Data------------------*/
-    int noOfAccounts = 3;
-    int *defaultPins = new int[noOfAccounts]{111, 222, 333};
-    double *movementsAcc0 = new double[5]{2000, 1000, -500, 20000, -6000};
-    double *movementsAcc1 = new double[5]{5000, -2000, 10000, 5000, -8000};
-    double *movementsAcc2 = new double[5]{8000, 10000, 4000, -12000, -1000};
-    /*------------RunTime Information------------------*/
-    account *accounts = new account[noOfAccounts];
-    account currentUser;
-
-    /*------------ Deafult Accounts------------------*/
-    // account-1
-    accounts[0].setName("Muhib Arshad");
-    accounts[0].calculateUserName();
-    accounts[0].setPin(defaultPins[0]);
-    accounts[0].setSize(5);
-    accounts[0].setMovementsAddress(movementsAcc0);
-    accounts[0].calculateTotalBalance();
-    accounts[0].calculateTotalIncome();
-    accounts[0].calculateTotalOutcome();
-    accounts[0].calculateTotalInterest();
-    // accounts[0].getData();
-
-    // account-2
-    accounts[1].setName("Ali Abdullah");
-    accounts[1].calculateUserName();
-    accounts[1].setPin(defaultPins[1]);
-    accounts[1].setSize(5);
-    accounts[1].setMovementsAddress(movementsAcc1);
-    accounts[1].calculateTotalBalance();
-    accounts[1].calculateTotalIncome();
-    accounts[1].calculateTotalOutcome();
-    accounts[1].calculateTotalInterest();
-    // accounts[1].getData();
-
-    // account-3
-    accounts[2].setName("Bilal Sharafat");
-    accounts[2].calculateUserName();
-    accounts[2].setPin(defaultPins[2]);
-    accounts[2].setSize(5);
-    accounts[2].setMovementsAddress(movementsAcc2);
-    accounts[2].calculateTotalBalance();
-    accounts[2].calculateTotalIncome();
-    accounts[2].calculateTotalOutcome();
-    accounts[2].calculateTotalInterest();
-    // accounts[2].getData();
-
-    /*=============================LOGICAL PORTION STARTS HERE=========================*/
-
-    // SIGN-IN OR SIGN-UP
     string username;
     int pin;
     char login;
@@ -503,14 +532,14 @@ int main()
     case 'l':
     {
         currentUser = Login(username, pin, accounts, noOfAccounts);
-        secondPage(currentUser,login);
+        secondPage(currentUser, login, accounts, noOfAccounts);
 
         break;
     }
     case 'c':
     {
         currentUser = createNewAccount(accounts, noOfAccounts);
-        secondPage(currentUser,login);
+        secondPage(currentUser, login, accounts, noOfAccounts);
         break;
     }
     case 'e':
@@ -519,18 +548,6 @@ int main()
         break;
     }
     }
-
-    // Deallocating memeory-To avoid memeory leakages
-    delete[] movementsAcc0;
-    movementsAcc0 = nullptr;
-    delete[] movementsAcc1;
-    movementsAcc0 = nullptr;
-    delete[] movementsAcc2;
-    movementsAcc0 = nullptr;
-    delete[] accounts;
-    accounts = nullptr;
-
-    return 0;
 }
 
 // //Testing ;
