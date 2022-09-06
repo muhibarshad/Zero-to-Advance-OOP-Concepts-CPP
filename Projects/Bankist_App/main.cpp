@@ -287,8 +287,10 @@ void loginPage(char &login)
 }
 
 // Login
-void Login(string &username, int &pin)
+account Login(string &username, int &pin, account *accs, const int noOfAccounts)
 {
+    bool flag = false;
+    account temp;
     cout << endl;
     cout << "\t\t ----------------------------" << endl;
     cout << "\t\t Enter username:";
@@ -296,6 +298,24 @@ void Login(string &username, int &pin)
     cout << "\t\t Enter pin :";
     cin >> pin;
     cout << "\t\t ----------------------------" << endl;
+    // calculating-currentUSer
+    for (int i = 0; i < noOfAccounts && flag==false; i++)
+    {
+        if ((accs + i)->getUserName() == username && (accs + i)->getPin() == pin)
+        {
+            flag =true;
+            temp=*(accs + i);
+        }
+    }
+    if(flag==false)
+    {
+        
+    }
+    if(flag==true)
+    {
+        return temp;
+    }
+
 }
 
 // AFTER-SUCCESFFULY-CREATED-ACCOUNT
@@ -314,7 +334,7 @@ void successfullyCreatedAccount(account &newAccount)
 }
 
 // CREATE-NEW-ACCOUNT
-void createNewAccount(account *&accs,int &noOfAccounts)
+void createNewAccount(account *&accs, int &noOfAccounts)
 {
     system("cls");
     spaces1();
@@ -340,6 +360,7 @@ void createNewAccount(account *&accs,int &noOfAccounts)
             newAccount.setMovementsValue();
         }
         successfullyCreatedAccount(newAccount);
+
         break;
     }
     case 'n':
@@ -348,15 +369,15 @@ void createNewAccount(account *&accs,int &noOfAccounts)
         break;
     }
     }
-        //Adding to accounts array
-    account *tempAccounts = new account[noOfAccounts+1];
-    for(int i=0;i<noOfAccounts;i++)
+    // Adding to accounts array
+    account *tempAccounts = new account[noOfAccounts + 1];
+    for (int i = 0; i < noOfAccounts; i++)
     {
-        *(tempAccounts+i)=*(accs+i);
+        *(tempAccounts + i) = *(accs + i);
     }
     delete[] accs;
-    accs=tempAccounts;
-    accs[noOfAccounts]=newAccount;
+    accs = tempAccounts;
+    accs[noOfAccounts] = newAccount;
     noOfAccounts++;
 }
 int main()
@@ -422,22 +443,21 @@ int main()
     {
     case 'l':
     {
-        Login(username, pin);
+        currentUser = Login(username, pin, accounts, noOfAccounts);
+        currentUser.getData();
+        // // Second-Page-After-Login
+        // system("cls");
+        // spaces1();
+        // spaces2();
+        // cout << "\t\t WELCOME ! " <<currentUser.getName()<< endl;
         break;
     }
     case 'c':
     {
-        createNewAccount(accounts,noOfAccounts);
+        createNewAccount(accounts, noOfAccounts);
         break;
     }
     }
-
-    //Testing ;
-    for(int i=0;i<noOfAccounts;i++)
-    {
-    accounts[i].getData();
-    }
-    
 
     // Deallocating memeory-To avoid memeory leakages
     delete[] movementsAcc0;
@@ -451,3 +471,9 @@ int main()
 
     return 0;
 }
+
+// //Testing ;
+// for(int i=0;i<noOfAccounts;i++)
+// {
+// accounts[i].getData();
+// }
