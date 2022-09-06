@@ -16,7 +16,7 @@ void spaces1()
 {
     for (int i = 0; i < 4; i++)
         cout << endl;
-    cout << "\t\t\t SALIK BANK LIMITED (SBL) " << endl;
+    cout << "\t\t\t\t\t SALIK BANK LIMITED (SBL) " << endl;
 }
 void spaces2()
 {
@@ -268,12 +268,16 @@ public:
         }
     }
 };
+
+// Functions-protoTypes
 void loginPage(char &login);
 account Login(string &username, int &pin, account *accs, const int noOfAccounts);
 void successfullyCreatedAccount(account &newAccount);
 account createNewAccount(account *&accs, int &noOfAccounts);
 void secondPage(account &currentUser, char &login, account *accounts, int noOfAccounts);
 void SIGN_IN_OR_SIGN_UP(account *accounts, int noOfAccounts, account &currentUser);
+
+// main
 int main()
 {
 
@@ -349,11 +353,13 @@ void loginPage(char &login)
 {
     spaces1();
     spaces2();
-    cout << "\t\t\t\t LOGIN " << endl;
+    cout << "\t\t\t\t\t\t LOGIN " << endl;
     spaces2();
-    cout << "\t\t If you have already an account then press \'L\' for login your account : " << endl;
-    cout << "\t\t If you don't have an account then press \'C\' for create your account : " << endl;
-    cout << "\t\t Enter \'E\ to exit....." << endl;
+    cout << "\t\t -----------------------------------------------------------------------------" << endl;
+    cout << "\t\t | *If you have already an account then press \'L\' for login your account :   |"<< endl;
+    cout << "\t\t | *If you don't have an account then press \'C\' for create your account :    |"<< endl;
+    cout << "\t\t | *Press \'E\' to exit.....                                                   |"<< endl;
+    cout << "\t\t -----------------------------------------------------------------------------" << endl;
     login = getch();
     login = tolower(login);
     while (login != 'l' && login != 'c' && login != 'e')
@@ -404,8 +410,6 @@ account Login(string &username, int &pin, account *accs, const int noOfAccounts)
 // AFTER-SUCCESFFULY-CREATED-ACCOUNT
 void successfullyCreatedAccount(account &newAccount)
 {
-    spaces2();
-    cout << "\t\tCongratulations ! You have successfully created your first Account :" << endl;
     newAccount.calculateUserName();
     newAccount.calculateTotalBalance();
     newAccount.calculateTotalIncome();
@@ -440,6 +444,7 @@ account createNewAccount(account *&accs, int &noOfAccounts)
             newAccount.setMovementsValue();
         }
         successfullyCreatedAccount(newAccount);
+
         break;
     }
     case 'n':
@@ -463,14 +468,18 @@ account createNewAccount(account *&accs, int &noOfAccounts)
 }
 
 // second-page
-void secondPage(account &currentUser, char &login, account *accounts, int noOfAccounts)
+void secondPage(account &currentUser, char &login, account *accounts, int noOfAccounts, bool &flag)
 {
     // Second-Page-After-Login
+    if (flag == true)
+    {
+        system("cls");
+        flag = false;
+    }
     char options;
-    system("cls");
     spaces1();
     spaces2();
-    cout << "\t\t WELCOME ! " << currentUser.getName() << endl;
+    cout << "\t\t\t\t\t WELCOME ! " << currentUser.getName() << endl;
     spaces2();
     cout << "Total Balance : " << currentUser.getTotalBalance() << endl;
     spaces2();
@@ -488,6 +497,15 @@ void secondPage(account &currentUser, char &login, account *accounts, int noOfAc
     currentUser.getData();
     options = getch();
     options = tolower(options);
+
+    // Input validation
+    while (options != 'r' && options != 't' && options != 's' && options != 'd' && options != 'e')
+    {
+        cout << "\t\t Error : Invalid Input ! " << endl;
+        cout << "\t\t Please enter the valid input :" << endl;
+        options = getch();
+        options = tolower(options);
+    }
     switch (options)
     {
     case 'r':
@@ -506,7 +524,7 @@ void secondPage(account &currentUser, char &login, account *accounts, int noOfAc
     {
         currentUser.sortMovements();
         system("cls");
-        secondPage(currentUser, login, accounts, noOfAccounts);
+        secondPage(currentUser, login, accounts, noOfAccounts, flag);
         break;
     }
     case 'e':
@@ -526,20 +544,24 @@ void SIGN_IN_OR_SIGN_UP(account *accounts, int noOfAccounts, account &currentUse
     string username;
     int pin;
     char login;
+    bool flag = false;
     loginPage(login);
     switch (login)
     {
     case 'l':
     {
         currentUser = Login(username, pin, accounts, noOfAccounts);
-        secondPage(currentUser, login, accounts, noOfAccounts);
+        flag = true;
+        secondPage(currentUser, login, accounts, noOfAccounts, flag);
 
         break;
     }
     case 'c':
     {
         currentUser = createNewAccount(accounts, noOfAccounts);
-        secondPage(currentUser, login, accounts, noOfAccounts);
+        system("cls");
+        cout << "\t\tCongratulations ! You have successfully created your first Account :" << endl;
+        secondPage(currentUser, login, accounts, noOfAccounts, flag);
         break;
     }
     case 'e':
@@ -549,9 +571,3 @@ void SIGN_IN_OR_SIGN_UP(account *accounts, int noOfAccounts, account &currentUse
     }
     }
 }
-
-// //Testing ;
-// for(int i=0;i<noOfAccounts;i++)
-// {
-// accounts[i].getData();
-// }

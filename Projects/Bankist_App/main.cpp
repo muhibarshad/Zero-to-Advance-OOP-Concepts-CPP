@@ -16,7 +16,7 @@ void spaces1()
 {
     for (int i = 0; i < 4; i++)
         cout << endl;
-    cout << "\t\t\t SALIK BANK LIMITED (SBL) " << endl;
+    cout << "\t\t\t\t\t SALIK BANK LIMITED (SBL) " << endl;
 }
 void spaces2()
 {
@@ -353,11 +353,13 @@ void loginPage(char &login)
 {
     spaces1();
     spaces2();
-    cout << "\t\t\t\t LOGIN " << endl;
+    cout << "\t\t\t\t\t\t LOGIN " << endl;
     spaces2();
-    cout << "\t\t If you have already an account then press \'L\' for login your account : " << endl;
-    cout << "\t\t If you don't have an account then press \'C\' for create your account : " << endl;
-    cout << "\t\t Enter \'E\' to exit....." << endl;
+    cout << "\t\t -----------------------------------------------------------------------------" << endl;
+    cout << "\t\t | *If you have already an account then press \'L\' for login your account :   |"<< endl;
+    cout << "\t\t | *If you don't have an account then press \'C\' for create your account :    |"<< endl;
+    cout << "\t\t | *Press \'E\' to exit.....                                                   |"<< endl;
+    cout << "\t\t -----------------------------------------------------------------------------" << endl;
     login = getch();
     login = tolower(login);
     while (login != 'l' && login != 'c' && login != 'e')
@@ -477,7 +479,7 @@ void secondPage(account &currentUser, char &login, account *accounts, int noOfAc
     char options;
     spaces1();
     spaces2();
-    cout << "\t\t WELCOME ! " << currentUser.getName() << endl;
+    cout << "\t\t\t\t\t WELCOME ! " << currentUser.getName() << endl;
     spaces2();
     cout << "Total Balance : " << currentUser.getTotalBalance() << endl;
     spaces2();
@@ -569,9 +571,3 @@ void SIGN_IN_OR_SIGN_UP(account *accounts, int noOfAccounts, account &currentUse
     }
     }
 }
-
-// //Testing ;
-// for(int i=0;i<noOfAccounts;i++)
-// {
-// accounts[i].getData();
-// }
