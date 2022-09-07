@@ -5,6 +5,7 @@
 #include <conio.h>
 #include <cstdlib>
 #include <cmath>
+#include <unistd.h>
 
 using namespace std;
 
@@ -276,6 +277,7 @@ void successfullyCreatedAccount(account &newAccount);
 account createNewAccount(account *&accs, int &noOfAccounts);
 void secondPage(account &currentUser, char &login, account *accounts, int noOfAccounts);
 void SIGN_IN_OR_SIGN_UP(account *accounts, int noOfAccounts, account &currentUser);
+void loanRequest(account &currentUser);
 
 // main
 int main()
@@ -356,9 +358,9 @@ void loginPage(char &login)
     cout << "\t\t\t\t\t\t LOGIN " << endl;
     spaces2();
     cout << "\t\t -----------------------------------------------------------------------------" << endl;
-    cout << "\t\t | *If you have already an account then press \'L\' for login your account :   |"<< endl;
-    cout << "\t\t | *If you don't have an account then press \'C\' for create your account :    |"<< endl;
-    cout << "\t\t | *Press \'E\' to exit.....                                                   |"<< endl;
+    cout << "\t\t | *If you have already an account then press \'L\' for login your account :   |" << endl;
+    cout << "\t\t | *If you don't have an account then press \'C\' for create your account :    |" << endl;
+    cout << "\t\t | *Press \'E\' to exit.....                                                   |" << endl;
     cout << "\t\t -----------------------------------------------------------------------------" << endl;
     login = getch();
     login = tolower(login);
@@ -470,72 +472,88 @@ account createNewAccount(account *&accs, int &noOfAccounts)
 // second-page
 void secondPage(account &currentUser, char &login, account *accounts, int noOfAccounts, bool &flag)
 {
-    // Second-Page-After-Login
-    if (flag == true)
+    bool exit = false;
+    do
     {
-        system("cls");
-        flag = false;
-    }
-    char options;
-    spaces1();
-    spaces2();
-    cout << "\t\t\t\t\t WELCOME ! " << currentUser.getName() << endl;
-    spaces2();
-    cout << "Total Balance : " << currentUser.getTotalBalance() << endl;
-    spaces2();
-    cout << "\t\t\t\t *OPTIONS* " << endl;
-    cout << "\t\t ------------------------------------------" << endl;
-    cout << "\t\t|      Press \'R\' for request loan        |" << endl;
-    cout << "\t\t|      Press \'T\' for transfer money      |" << endl;
-    cout << "\t\t|      Press \'S\' for sort movements      |" << endl;
-    cout << "\t\t|      Press \'D\' for delete account      |" << endl;
-    cout << "\t\t|      Press \'E\' for log exit            |" << endl;
-    cout << "\t\t ------------------------------------------" << endl;
-    spaces2();
-    cout << "\t\t\t *YOUR ACCOUNT DETAILS* " << endl;
-    spaces2();
-    currentUser.getData();
-    options = getch();
-    options = tolower(options);
-
-    // Input validation
-    while (options != 'r' && options != 't' && options != 's' && options != 'd' && options != 'e')
-    {
-        cout << "\t\t Error : Invalid Input ! " << endl;
-        cout << "\t\t Please enter the valid input :" << endl;
+        // Second-Page-After-Login
+        if (flag == true)
+        {
+            system("cls");
+            flag = false;
+        }
+        char options;
+        spaces1();
+        spaces2();
+        cout << "\t\t\t\t\t WELCOME ! " << currentUser.getName() << endl;
+        spaces2();
+        cout << "Total Balance : " << currentUser.getTotalBalance() << endl;
+        spaces2();
+        cout << "\t\t\t\t *OPTIONS* " << endl;
+        cout << "\t\t ------------------------------------------" << endl;
+        cout << "\t\t|      Press \'R\' for request loan        |" << endl;
+        cout << "\t\t|      Press \'T\' for transfer money      |" << endl;
+        cout << "\t\t|      Press \'S\' for sort movements      |" << endl;
+        cout << "\t\t|      Press \'D\' for delete account      |" << endl;
+        cout << "\t\t|      Press \'E\' for log exit            |" << endl;
+        cout << "\t\t ------------------------------------------" << endl;
+        spaces2();
+        cout << "\t\t\t *YOUR ACCOUNT DETAILS* " << endl;
+        spaces2();
+        currentUser.getData();
         options = getch();
         options = tolower(options);
-    }
-    switch (options)
-    {
-    case 'r':
-    {
-        break;
-    }
-    case 't':
-    {
-        break;
-    }
-    case 'd':
-    {
-        break;
-    }
-    case 's':
-    {
-        currentUser.sortMovements();
-        system("cls");
-        secondPage(currentUser, login, accounts, noOfAccounts, flag);
-        break;
-    }
-    case 'e':
-    {
-        system("cls");
-        cin.ignore();
-        SIGN_IN_OR_SIGN_UP(accounts, noOfAccounts, currentUser);
 
-        break;
-    }
-    }
+        // Input validation
+        while (options != 'r' && options != 't' && options != 's' && options != 'd' && options != 'e')
+        {
+            cout << "\t\t Error : Invalid Input ! " << endl;
+            cout << "\t\t Please enter the valid input :" << endl;
+            options = getch();
+            options = tolower(options);
+        }
+        switch (options)
+        {
+        case 'r':
+        {
+            if (currentUser.getTotalBalance() >= 500)
+            {
+                loanRequest(currentUser);
+                secondPage(currentUser, login, accounts, noOfAccounts, flag);
+            }
+            else
+            {
+                system("cls");
+                cout << "\t\t Low Balance ! For requesting Loan you must have at least $500 in your account. " << endl;
+                secondPage(currentUser, login, accounts, noOfAccounts, flag);
+            }
+            break;
+        }
+        case 't':
+        {
+            
+            break;
+        }
+        case 'd':
+        {
+            break;
+        }
+        case 's':
+        {
+            currentUser.sortMovements();
+            system("cls");
+            secondPage(currentUser, login, accounts, noOfAccounts, flag);
+            break;
+        }
+        case 'e':
+        {
+            system("cls");
+            cin.ignore();
+            exit = true;
+            SIGN_IN_OR_SIGN_UP(accounts, noOfAccounts, currentUser);
+            break;
+        }
+        }
+    } while (exit == false);
 }
 
 // SIGN-IN OR SIGN-UP
@@ -570,4 +588,33 @@ void SIGN_IN_OR_SIGN_UP(account *accounts, int noOfAccounts, account &currentUse
         break;
     }
     }
+}
+
+// Requesting-loan
+void loanRequest(account &currentUser)
+{
+    long long int amount = 0;
+    spaces2();
+    cout << "\t\t\t Enter the loan amount you want to request from bank : ";
+    cin >> amount;
+    while (amount < 0)
+    {
+        cout << "\t\t\t Invalid Input : Please Enter the valid input (amount should be a positive value ) :";
+        cin >> amount;
+    }
+    cout << "\t\t\t\t Your request is in progress........." << endl;
+    sleep(3);
+    system("cls");
+    cout << "\t\t\t You request is approved ,You got $" << amount << " of loan from Salik Bank Limited (SBL) " << endl;
+
+    // Adding amount to movements array
+    double *temp = new double[currentUser.getSize() + 1];
+    for (int i = 0; i < currentUser.getSize(); i++)
+    {
+        *(temp + i) = *(currentUser.getMovementsAddress() + i);
+    }
+    *(temp + currentUser.getSize()) = amount;
+    delete[] currentUser.getMovementsAddress();
+    currentUser.setMovementsAddress(temp);
+    currentUser.setSize(currentUser.getSize() + 1);
 }
