@@ -59,7 +59,8 @@ In local functions we make a varaible and it goes out from the execuation stack 
 > Deleting a dynamic memory is called dellocating the memory.
 
 ## Dangling Pointer
-   A pointer whose is pointing to such memory  in the haep which is not exist .
+
+A pointer whose is pointing to such memory in the haep which is not exist .
 
 ## One Dimensional Dynamic Arrays
 
@@ -490,6 +491,11 @@ Three type of functions can be implemented on the objects.
 ## 1.By passing object as a value
 
 In `static` Pass objects into functions as an argument and use these parameters as a local object which has a complete access to the data members and member functions of the class same as for the argumentative object.
+
+> The object which calls the functions is called the `Left_hand_side_object`.
+
+We don't need to pass the two objects as the arguments beacuse L.H.S object is already exist ,and accessible to the class functions and we only need to pass the other funtions which is right hand side object.
+
 In `Dyanmic` the copy of argumentative objects will not be made only the address of these objects will pass and dereferencing these adress and perform operations.
 
 <p align="center">
@@ -510,10 +516,15 @@ In `Dyanmic` the copy of argumentative objects will not be made only the address
 In `static` Return type of the function is a class name. When you manipulate some data and return a object made inside the function.
 In `Dyanmic`,the returing object returns the only address of the making object not the object on the heap. beacuse when the function executes the making pointer will automatically goes out from the execuation stack. but the object on the heap is exixts . So just return the address of the making pointer.
 
+> When an object is returned at compile-time it can be stored an anonymous varaible of same returning dataType and then assign it the varible on which the functions call this process is called the `RETURN_VALUE_OPTIMIZATION(RVO)`. And you when you run the program its destructor will be showed in the screen .
+
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/f-3.png" style="height: 70vh; padding-left: 50vh;">
+    <img src="/Some%20extra%20concepts/codeSnaps/RVO.png" style="height: 70vh; padding-left: 50vh;">
  </p>
 
+<p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/RVO-result.png" style="height: 70vh; padding-left: 50vh;">
+ </p>
 ### Let understand by 😮 [dynamic-example](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/6_DyanmicObjects_and_acessOperaters.cpp):
 
 For static click [here](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/7_staticObjectAndFunctions.cpp)
@@ -1310,7 +1321,7 @@ int main()
 
 }
 
-```
+````
 ## Paramterized Constructor:
   Constructors are `overloaded` like `function-overloading`. When there are more than one constructors in a class having different number of parameters are called overloaded or parameterized constructors.
  ### VIP Note:
@@ -1373,7 +1384,7 @@ int main()
     return 0;
 
 }
-```
+````
 
 # Copy constructor
 
@@ -1386,6 +1397,7 @@ Copy constructor can be used to copy the one object constructor to another objec
 > It uses copy data of an object `bit-by-bit`.
 
 ### Syntax:
+
 <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/cons-3.png" style="height: 50vh; padding-left: 50vh;">
 </p>
@@ -1457,15 +1469,19 @@ int main()
 
 }
 ```
+
 ## Overloaded Constructor :
-  Overloaded Constrcutor is the sum of the deafult constructor and the parameterized constructor.
-  ### Basic Syntax:
+
+Overloaded Constrcutor is the sum of the deafult constructor and the parameterized constructor.
+
+### Basic Syntax:
 
 <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/over.png" style="height: 50vh; padding-left: 50vh;">
 </p>
 
 Example:
+
 ```cpp
 #include <iostream>
 using namespace std;
@@ -1479,8 +1495,8 @@ private:
 public:
 //==============================================
 //Overloaded constructor
-/*The sum of the 
-1-deafult constructor 
+/*The sum of the
+1-deafult constructor
 2-Paramterized Constructor
 */
 //==============================================
@@ -1540,10 +1556,11 @@ int main()
     d1.getData();
     d2.getData();
     d3.getData();
-    
+
     return 0;
 }
 ```
+
 ## Destructors:
 
 ### Defination:
@@ -1630,8 +1647,33 @@ int main()
 
 }
 ```
-# Boosted Material 4 
- ## Go deep 🧐 ,learn Deep 🤓
+
+# Boosted Material 4
+
+## Go deep 🧐 ,learn Deep 🤓
+
 - To get the briefly explained and good UI slides on the constructors and destructors get [here](/Some%20extra%20concepts/Slides/constructorsAndDestructors.pdf)
 - To get the practice programs step by step for constructors and destructors get [here](/Object%20Oriented%20Programming/Step2_Constructors%20and%20destructors/)
 - To study more abou t the constructors and destructors go [here](https://www.learncpp.com/cpp-tutorial/constructors/)
+
+# Objects Arrays
+
+Every object are same as the simple arrays on each index contain object class. On the time of creation of the objects array the `default_constructors` should be called.
+
+## Syntax:
+
+Basic syntax for the decalaration and initailzation of objects with the default values by calling different constructors :
+
+  <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/arrays.png" style="height: 70vh; padding-left: 50vh;">
+ </p>
+
+- On `0` index initilize the object with the default construtor.
+- On `1` index initilize the object with the parameterized construtor.
+- On `2` index initilize the object with the copy construtor.
+
+Accessing of these objects is same as the simple arrays `dot(.) operator` for the static arrays and `spread(->) operator` for the dynamic arrays.
+
+  <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/dot.png" style="height: 70vh; padding-left: 50vh;">
+ </p>
