@@ -519,11 +519,11 @@ In `Dyanmic`,the returing object returns the only address of the making object n
 > When an object is returned at compile-time it can be stored an anonymous varaible of same returning dataType and then assign it the varible on which the functions call this process is called the `RETURN_VALUE_OPTIMIZATION(RVO)`. And you when you run the program its destructor will be showed in the screen .
 
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/RVO.png" style="height: 70vh; padding-left: 50vh;">
+    <img src="/Some%20extra%20concepts/codeSnaps/RVO.png" style="height: 50vh; padding-left: 50vh;">
  </p>
 
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/RVO-result.png" style="height: 70vh; padding-left: 50vh;">
+    <img src="/Some%20extra%20concepts/codeSnaps/RVO-result.png" style="height: 50vh; padding-left: 50vh;">
  </p>
 ### Let understand by 😮 [dynamic-example](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/6_DyanmicObjects_and_acessOperaters.cpp):
 
@@ -1665,7 +1665,7 @@ Every object are same as the simple arrays on each index contain object class. O
 Basic syntax for the decalaration and initailzation of objects with the default values by calling different constructors :
 
   <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/arrays.png" style="height: 70vh; padding-left: 50vh;">
+    <img src="/Some%20extra%20concepts/codeSnaps/arrays.png" style="height: 50vh; padding-left: 50vh;">
  </p>
 
 - On `0` index initilize the object with the default construtor.
