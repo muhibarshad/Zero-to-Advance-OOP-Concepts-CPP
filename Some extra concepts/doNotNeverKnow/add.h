@@ -1,5 +1,8 @@
-#include<iostream>
 
+int sum(int x,int y)
+{
+    return x*y;
+}
 namespace add{
     int sum(int x,int y)
     {
@@ -7,7 +10,7 @@ namespace add{
     }
 };
 namespace sub{
-    int minus(int x,int y)
+    int sum(int x,int y)
     {
         return x-y;
     }
