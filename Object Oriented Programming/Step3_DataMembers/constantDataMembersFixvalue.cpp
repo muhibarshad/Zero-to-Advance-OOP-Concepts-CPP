@@ -13,16 +13,13 @@ public:
     algebra(int x = 0, int y = 0)
     {
         setX(x);
-        // setY(0);
     }
 
     //SETTERS_AND_GETTERS
     void setX(int x) { this->x = x; }
-    // void setY(int y) { this->y = y; }
     void setData(int x, int y)
     {
         this->x = x;
-        // this->y=y;
     }
     int getX() { return x; }
     int getY() { return y; }
