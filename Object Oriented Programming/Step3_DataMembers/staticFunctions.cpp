@@ -10,6 +10,7 @@ public:
     algebra(int, int);
     static void incrementY();
     static void printY();
+    static void setY(int );
     void getData();
     ~algebra();
 };
@@ -27,6 +28,10 @@ void algebra::getData()
 }
 
 //Do not use static while definig
+void algebra::setY(int y)
+{
+    algebra::y=y;
+}
 void algebra::incrementY()
 {
     algebra::y++;
@@ -58,4 +63,8 @@ int main()
     obj1.getData();
     obj1.incrementY();
     obj2.getData();//x=2, y=8
+
+    algebra::setY(6);
+
+    obj1.getData();
 }
