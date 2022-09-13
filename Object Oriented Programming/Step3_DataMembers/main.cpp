@@ -1,5 +1,6 @@
 #include <iostream>
-
+#include<cstdlib>
+#include<ctime>
 class game
 {
 private:
@@ -57,11 +58,13 @@ int main()
         std::cin >> obj;
         i++;
     }
-    game *players = new game[2]{(game(betCashes[0])), (game(betCashes[1]))};
+    int x=time(0);
+    srand(x);
+    game *players = new game[2]{(game(betCashes[0],0)), (game(betCashes[1],0))};
     game::setTurns((rand() % (betCashes[0] + betCashes[1] > 100 ? 20 : 10)) + 1);
     std::cout << "The total turns you both got = " << game::getTurns() << "\n";
-    players[0].getScore1();
-    players[1].getScore1();
+    std::cout<<"The score of the player 1"<<(players+0)->getScore1()<<"\n";
+    std::cout<<"The score of the player 2"<<(players+1)->getScore1()<<"\n";
 
     delete[] players;
     players = nullptr;
