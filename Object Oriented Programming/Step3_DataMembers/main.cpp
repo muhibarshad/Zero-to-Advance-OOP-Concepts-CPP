@@ -65,6 +65,8 @@ int main()
     std::cout << "The total turns you both got = " << game::getTurns() << "\n";
     std::cout<<"The score of the player 1"<<(players+0)->getScore1()<<"\n";
     std::cout<<"The score of the player 2"<<(players+1)->getScore1()<<"\n";
+    players[i].turnsRemaining();
+    std::cout<<game::getTurns()<<"\n";
 
     delete[] players;
     players = nullptr;
