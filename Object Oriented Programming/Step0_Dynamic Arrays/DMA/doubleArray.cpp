@@ -14,11 +14,10 @@ int *doublingArray(const int *arr, const int size, int &doubleSize)
 {
     doubleSize = size * 2;
     int *temp = new int[doubleSize]{0};
-    for (int i = 0, j = 0; i < doubleSize; i++, j++)
+    for (int i = 0, j = 0; i < doubleSize;i++, j++)
     {
         temp[i] = arr[j];
-        temp[i + 1] = arr[j];
-        i++;
+        temp[++i] = arr[j];
     }
     return temp;
 }
