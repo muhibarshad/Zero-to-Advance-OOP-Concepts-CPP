@@ -32,12 +32,12 @@ int main()
     cin >> size;
 
     int *arr = new int[size];
-    input(arr, size);
-    output(arr, size);
+    dma::input(arr, size);
+    dma::output(arr, size);
 
     int *Even = even(arr, size, evenSize);
     cout << "The even Elements in the array are given as :" << endl;
-    output(Even, evenSize);
+    dma::output(Even, evenSize);
 
     delete[] arr;
     delete[] Even;
