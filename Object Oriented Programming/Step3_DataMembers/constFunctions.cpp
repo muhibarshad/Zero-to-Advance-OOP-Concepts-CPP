@@ -13,9 +13,10 @@ private:
 
 public:
     // CONSTRUCTORS
-    Cuboids(float, float, float);
-    Cuboids(float, float);
     Cuboids();
+    Cuboids(float, float);
+    Cuboids(float, float, float);
+    Cuboids(const Cuboids &);
 
     // MUTATORS
     void setHeight(float);
@@ -79,6 +80,12 @@ Cuboids::Cuboids()
     setWidth(1);
     setDepth(1);
 }
+Cuboids::Cuboids(const Cuboids &cube)
+{
+    height=cube.height;
+    width=cube.width;
+    depth=cube.depth;
+}
 
 // DESTRUCTOR
 Cuboids::~Cuboids()
@@ -137,7 +144,7 @@ int main()
     // DECLARING_CUBOIDS
     cube[0].setCuboids(4, 3, 6);
     cube[1].setCuboids(0, 2.2, 4.3);
-    cube[2].setCuboids(15.8, 56.2, 5.9);
+    cube[2]=cube[0];//calling_Copy_Constructor
     cube[3].setCuboids(90, 30.6, 40.8);
 
     // FORMATTING_DATA
