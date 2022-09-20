@@ -1,88 +1,163 @@
-/*Write a C++ program to how to write the destructors of the class*/
-/*Write a C++ program how to write the default constructors*/
-#include <iostream>
+#include "iostream"
+
 using namespace std;
-class algebra
+
+//Declaration of class Algebra
+class Algebra
 {
-private:
-    int x;
-    int y;
+	//data members of the class
+	int a, b;
+
+	//static data member to keep the count of objects 
+	static int S;
 
 public:
-    algebra();
-    algebra(int, int);
-    algebra(const algebra &);
-    void setX(int);
-    void setY(int);
-    void setData(int, int);
-    int getX();
-    int getY();
-    void getData();
-    ~algebra();
-    algebra sum(const algebra &obj)
-    {
-        return algebra(x + obj.x, y + obj.y);
-    }
+	Algebra();								//default constructor
+	Algebra(int, int);						//parameterized constructor
+	Algebra(const Algebra&);				//copy constructor
+	~Algebra();								//destructor
+
+	void input();							//to take input for object's data
+	void print() const;						//Function to display object's data on screen
+
+	void setData(int, int);					//Function to set object's data
+
+	void setA(int);							//setter for data member A
+	int getA() const;						//getter for data member A
+
+	void setB(int);							//setter for data member B
+	int getB() const;						//setter for data member B
+
+	Algebra add(const Algebra&) const;						//function to add two objects and return their result
+	bool searchArray(const Algebra ar[], int size) const;	//search the left-hand side object in the array passed as argument
+
+	//static member functions to set/get the value S data member.
+	//'this' does not exist in static member functions.
+	static void setS(int);
+	static int getS();	
 };
-// default constructor
-algebra::algebra()
+
+//Definations of class Algebra's members
+
+//static data members are intiliazed with 0 automatically
+int Algebra::S;
+
+//static member functions to set the value of S static data member.
+void Algebra::setS(int S)
 {
-    x = 0;
-    y = 0;
-    cout << "Default constructor should be called:" << endl;
-}
-// paremterized constructor
-algebra::algebra(int x, int y)
-{
-    this->x = x;
-    this->y = y;
-    cout << "Parameterized Constructor should be called:" << endl;
-}
-// copy constructor
-algebra::algebra(const algebra &temp)
-{
-    x = temp.x;
-    y = temp.y;
-    cout << "Copy constructor should be called:" << endl;
-}
-void algebra::setX(int x) { this->x = x; };
-void algebra::setY(int y) { this->y = y; };
-int algebra::getX() { return x; };
-int algebra::getY() { return y; };
-void algebra ::setData(int x, int y)
-{
-    this->x = x;
-    this->y = y;
-}
-void algebra ::getData()
-{
-    cout << "The value of x = " << x << endl;
-    cout << "The value of y = " << y << endl;
+	//this->S = S;		Error: 'this' may only be used inside a nonstatic member function
+
+	Algebra::S = S;
 }
 
-// destructor
-algebra::~algebra()
+//static member functions to get the value of S static data member.
+int Algebra::getS()
 {
-    cout << "Destructor should be called" << endl;
+	return S;
 }
+
+//Default Constructor
+Algebra::Algebra()
+{
+	this->a = this->b = 0;
+}
+
+//Parameterized Constructor
+Algebra::Algebra(int a, int b)
+{
+	this->a = a;
+	this->b = b;
+}
+
+//Copy Constructor
+Algebra::Algebra(const Algebra& obj)
+{
+	this->a = obj.a;
+	this->b = obj.b;
+}
+
+//Destructor
+Algebra::~Algebra()
+{
+	//cout << "Desstructor" << endl;
+}
+
+//setter for data member a
+void Algebra::setA(int a)
+{
+	this->a = a;
+}
+
+//getter for data member a
+int Algebra::getA() const
+{
+	return this->a;
+}
+
+//setter for data member b
+void Algebra::setB(int b)
+{
+	this->b = b;
+}
+
+//getter for data member b
+int Algebra::getB() const
+{
+	return this->b;
+}
+
+//Function to set object's data
+void Algebra::setData(int a, int b)
+{
+	this->a = a;
+	this->b = b;
+}
+
+//Function to take input for object's data
+void Algebra::input()
+{
+	cout << "Enter a = ";
+	cin >> this->a;
+
+	cout << "Enter b = ";
+	cin >> this->b;
+}
+
+//Function to display object's data on screen
+void Algebra::print() const
+{
+	cout << "a = " << this->a << "\tb = " << this->b << endl;
+}
+
+//function to add two objects and return their result
+Algebra Algebra::add(const Algebra& obj) const
+{
+	return Algebra(a + obj.a, b + obj.b);
+}
+
+//search the left hand side object in the array passed as argument 
+bool Algebra::searchArray(const Algebra ar[], const int size) const
+{
+	for (int i = 0; i < size; i++)
+	{
+		if ((a == ar[i].a) && (b == ar[i].b))
+			return true;
+	}
+
+	return false;
+}
+
 int main()
 {
-    //for static object arrays
-    const int size=3;
-    algebra obj[size]={algebra(),algebra(1,2),algebra(obj[1])};
+	cout << Algebra::getS() << endl;	//access the static member function with its class name
 
-    //for dynamic object arrays
-    algebra *obj2=new algebra[size]{algebra(),algebra(1,2),algebra(obj[1])};
+	Algebra::setS(9);					//access the static member function with its class name
 
-    //for static object arrays
-    obj[0].getData();
-    obj[1].getData();
-    obj[2].getData();
+	cout << Algebra::getS() << endl;	//access the static member function with its class name
 
-    //for dynamic object arrays
-    (obj2+0)->getData();
-    (obj2+1)->getData();
-    (obj2+2)->getData();
+	Algebra obj1;
 
-        return 0;
+	cout << obj1.getS() << endl;		//static members can also be accessed with objects. 
+
+	return 0;
 }
