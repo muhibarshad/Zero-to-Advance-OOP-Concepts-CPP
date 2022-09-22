@@ -56,15 +56,14 @@ public:
     */
 
     //   1. Arithmetic -, +, *, /, % , +=, -=, *=, /=, %=
-    algebra operator-(const algebra &obj) const
-    {
-        return algebra(x - obj.x, y - obj.y, z - obj.z);
-    }
     algebra operator+(const algebra &obj) const
     {
         return algebra(x + obj.x, y + obj.y, z + obj.z);
     }
-
+    algebra operator+(const int &n) const
+    {
+        return algebra(x + n, y + n, z + n);
+    }
 
     // 2. Relational ==, !=, >=,<=, <, >
     bool operator==(const algebra &obj) const
@@ -79,7 +78,6 @@ public:
     {
         return (x >= obj.x && y >= obj.y && z >= obj.z);
     }
-
 
     // 3. Assignment =
     void operator=(const algebra &obj)
@@ -101,13 +99,27 @@ public:
     }
 
     //-5 Uniary operators
-    void operator ++()
+    algebra &operator-()
+    {
+        x = -x;
+        y = -y;
+        z = -z;
+        return *this;
+    }
+    algebra &operator++() // Pre-increment
     {
         ++x;
         ++y;
         ++z;
+        return *this;
     }
-    
+    algebra &operator++(int) // post increment
+    {
+        x++;
+        y++;
+        z++;
+        return *this;
+    }
 };
 int main()
 {
@@ -122,21 +134,54 @@ int main()
     a2.putData();
     a3.putData();
 
-    result = a2 - a1;
+    //======================
+    //*****Test 01:********
+    //======================
+    result = a2 + 2; // only fisrt data member do opeartion
+    result = a2 + 10;
     result.putData();
-    
-    result = a1 + a2+a3;//cash_cading left to right 
-    result.putData();
 
-    a3>=a1 ? cout<<"Object 3 is graeter than Object 2\n" :  cout<<"Object 2 is graeter than Object 3\n";
- 
-    a2=a3;
-    a2.putData();
-    a3.putData();
+    // //======================
+    // //*****Test 02:********
+    // //======================
+    // result = a1 + a2 + a3; // cash_cading left to right
+    // result.putData();
 
-    result=a1+=a2+=a3;//has right to left cash cading 
+    // //======================
+    // //*****Test 03:********
+    // //======================
+    // a3 >= a1 ? cout << "Object 3 is graeter than Object 2\n" : cout << "Object 2 is graeter than Object 3\n";
 
-    //cash cading not implemented on the logiacal operators due to no returning of the object
+    // //======================
+    // //*****Test 04:********
+    // //======================
+    // a2 = a3;
+    // a2.putData();
+    // a3.putData();
+
+    // //======================
+    // //*****Test 05:********
+    // //======================
+    // result = a1 += a2 += a3; // has right to left cash cading
+    // result.putData();
+    // // cash cading not implemented on the logiacal operators due to no returning of the object
+
+    // //======================
+    // //*****Test 06:********
+    // //======================
+    // ++a1;
+    // a1.putData();
+
+    // //======================
+    // //*****Test 07:********
+    // //======================
+    // a1++;
+    // a1.putData();
+
+    //======================
+    //*****Test 08:********
+    //======================
+    result = -a1;
     result.putData();
 
     return 0;
