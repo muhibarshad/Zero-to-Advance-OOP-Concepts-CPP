@@ -43,7 +43,6 @@ public:
         if (i >= 0 && i < size)
             return arr[i];
     }
-
     const int &operator[](const int &i) const
     {
         if (i >= 0 && i < size)
