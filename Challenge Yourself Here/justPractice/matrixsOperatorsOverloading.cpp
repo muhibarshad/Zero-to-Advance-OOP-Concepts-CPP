@@ -225,13 +225,16 @@ public:
     Matrix3by3 operator+(const Matrix3by3 &matrix) const
     {
         Matrix3by3 temp = *this;
-        for (int i = 0; i < 3; i++)
-        {
-            for (int j = 0; j < 3; j++)
-            {
-                temp.setIJElement(i, j, this->matrix[i][j] + (matrix.getIJElement(i, j)));
-            }
-        }
+        temp+=matrix;
+
+        //if don't have the += operator overloaded
+        // for (int i = 0; i < 3; i++)
+        // {
+        //     for (int j = 0; j < 3; j++)
+        //     {
+        //         temp.setIJElement(i, j, this->matrix[i][j] + (matrix.getIJElement(i, j)));
+        //     }
+        // }
         return temp;
     }
 
