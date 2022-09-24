@@ -11,7 +11,7 @@ public:
     algebra();
     algebra(int, int);
     void setX(int);
-    void setY(int);
+    void setY(int);   
     void setData(int, int);
     int getX();
     int getY();
