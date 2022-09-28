@@ -51,9 +51,11 @@ istream &operator>>(istream &in, Rational &rational)
     cout << "Enter the rational number :"
          << "\n";
     in >> rational.numerator;
+   rational.setNumerator(rational.numerator);
     cout << "/"
          << "\n";
     in >> rational.denominator;
+    rational.setDenominator(rational.denominator);
     return in;
 }
 
