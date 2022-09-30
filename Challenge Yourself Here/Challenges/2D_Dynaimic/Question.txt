@@ -4,6 +4,7 @@ prototype of any function.
 void StringConcatenate (char *str1, char *str2) ;
 Note: Do not use any extra string inside the function.
 2. Write a function that takes a string and if it finds more than one occurrences of a character in the 
+Void CompressString(char*);
 string, it removes the extra occurrences. 
 Void CompressString(char*);
 For example:
