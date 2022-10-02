@@ -1,6 +1,7 @@
 // Author: Muhib Arshad (@muhib7353 everywhere)
 // Date and Time: 2 October , 20222  5:28:00
 // Question : FAST University Lab1-1 (OOP) : Instructor=> Mam Abeeda
+
 /*Run this code and check if there is any issue, also detect dangling pointer and memory leak.
 int*ptr = new int;
     cout << "Enter Int Value: ";
