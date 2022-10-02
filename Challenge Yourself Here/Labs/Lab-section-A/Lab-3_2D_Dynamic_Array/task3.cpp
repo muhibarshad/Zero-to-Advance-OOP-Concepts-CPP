@@ -60,9 +60,8 @@ int main()
                 col++;
             }
         }
-        cout << "The elements in the matrix:\n";
-
-        for (int j = 0; j < col; j++)
+        cout << "The factors of "<<matrix[i][0]<<" are ";
+        for (int j = 1; j < col; j++)
         {
             cout << "\t" << matrix[i][j];
         }
