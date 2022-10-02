@@ -46,28 +46,40 @@ void increasingArray(int *&arr, int &size)
 }
 void compressingArray(int *&arr, int &size)
 {
-    int tempSize = 0;
-    bool flag = false;
-    int *temp = new int[tempSize];
+    int *temp = new int[size];
     for (int i = 0; i < size; i++)
     {
-        for (int j = 0; j < size; j++)
+        int count = 1;
+        for (int j = i; j < size; j++)
         {
-            if (arr[i] == arr[j+1])
+            if(arr[i]==arr[j+])
             {
-                flag = true;
-                break;
+                count
             }
         }
-        if (flag == false)
-        {
-            increasingArray(temp, tempSize);
-            temp[tempSize-1] = arr[i];
-        }
     }
-    delete[] arr;
-    arr = temp;
-    size = tempSize;
+    // int tempSize = 0;
+    // bool flag = false;
+    // int *temp = new int[tempSize];
+    // for (int i = 0; i < size; i++)
+    // {
+    //     for (int j = 0; j < size; j++)
+    //     {
+    //         if (arr[i] == arr[j+1])
+    //         {
+    //             flag = true;
+    //             break;
+    //         }
+    //     }
+    //     if (flag == false)
+    //     {
+    //         increasingArray(temp, tempSize);
+    //         temp[tempSize-1] = arr[i];
+    //     }
+    // }
+    // delete[] arr;
+    // arr = temp;
+    // size = tempSize;
 }
 
 void output(const int *arr, const int &size)
