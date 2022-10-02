@@ -33,53 +33,40 @@ void input(int *arr, const int &size)
         cin >> *(arr + i);
     }
 }
-void increasingArray(int *&arr, int &size)
+
+void compressingArray(int *&arr, int &size)
 {
-    int *temp = new int[size + 1];
-    for (int i = 0; i < size; i++)
+    int tempSize = 1;
+    bool flag ;
+    int *temp = new int[tempSize];
+    temp[0] = arr[0];
+    for (int i = 1; i < size; i++)
     {
-        temp[i] = arr[i];
+         flag = false;
+        for (int j = 0; j < tempSize; j++)
+        {
+            if (arr[i] == temp[j])
+            {
+                flag = true;
+            }
+        }
+        if (flag == false)
+        {
+            int *nestedTemp = new int[tempSize + 1];
+            for (int i = 0; i < tempSize; i++)
+            {
+                nestedTemp[i] = temp[i];
+            }
+
+            nestedTemp[tempSize] = arr[i];
+            delete[] temp;
+            temp = nestedTemp;
+            tempSize++;
+        }
     }
     delete[] arr;
     arr = temp;
-    size++;
-}
-void compressingArray(int *&arr, int &size)
-{
-    int *temp = new int[size];
-    for (int i = 0; i < size; i++)
-    {
-        int count = 1;
-        for (int j = i; j < size; j++)
-        {
-            if(arr[i]==arr[j+])
-            {
-                count
-            }
-        }
-    }
-    // int tempSize = 0;
-    // bool flag = false;
-    // int *temp = new int[tempSize];
-    // for (int i = 0; i < size; i++)
-    // {
-    //     for (int j = 0; j < size; j++)
-    //     {
-    //         if (arr[i] == arr[j+1])
-    //         {
-    //             flag = true;
-    //             break;
-    //         }
-    //     }
-    //     if (flag == false)
-    //     {
-    //         increasingArray(temp, tempSize);
-    //         temp[tempSize-1] = arr[i];
-    //     }
-    // }
-    // delete[] arr;
-    // arr = temp;
-    // size = tempSize;
+    size = tempSize;
 }
 
 void output(const int *arr, const int &size)
