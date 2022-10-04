@@ -3,7 +3,26 @@
 // Question : FAST University Lab4 (OOP) : Instructor=> Mam Abeeda
 
 /*
-Write a program that will read monthly sales into a dynamically allocated array. The program will input the size of the array from the user. It will call a function that will find the yearly sum (the sum of all the sales). It will also call another function that will find the average. Then it calls a display function that will display the total sales for the year and average monthly sale.
+Implement a C++ Function void myTokenizer(char *data, char **list_tokens, char delimiter)
+Your function should store the tokens in the list_tokens and split the data array on the basis of delimiter. Delimiter is another name for ‘separator’. Call the function in main and print the list_tokens. 
+Start traversing the data array until you find delimiter. Once you find the delimiter store the first token in the first row of list_tokens. Now find second token and store in the second row of list_tokens and so on…
+
+First find the number of tokens that can be formed from data. This will be the number of rows for char **list_tokens. Each row will have different number of columns. e.g. If string is my,name and delimiter is ‘,’ then following shall be the result.
+		 	0      1      2	      3	    4	
+0	m	y	‘\0’
+1	n	a	m	e	‘\0’
+
+Don’t allocate extra memory. Release memory before exiting program.
+
+Sample:
+Input: my,name,is,Mr,Faheem
+Delimiter: , 
+Tokens are: 
+my 
+name 
+is 
+Mr 
+Faheem
 
 */
 #include <iostream>
