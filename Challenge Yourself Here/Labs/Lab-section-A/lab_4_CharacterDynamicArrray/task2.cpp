@@ -76,8 +76,8 @@ int main()
         }
     }
 
-    cout << size << "\n";
-    cout << row << "\n";
+    cout << size << endl;
+    cout << row << endl;
     char *data = new char[size];
     char **list_tokens = new char *[row];
     for (int i = 0; i < row; i++)
