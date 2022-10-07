@@ -3,6 +3,7 @@
 using namespace std;
 int main(int argc,char *argv[])
 {
+    
     int sum=0;
     cout<<"The total number of arguments are passed into the main function "<<argc<<endl;
     //Arguments that are passed are also includes the name of the .exe file
