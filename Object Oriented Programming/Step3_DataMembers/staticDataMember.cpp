@@ -32,7 +32,7 @@ int main()
     obj1.getData(); // x=0 , y=0
     // only non-static members become object property
     //on the time of creation of object it defaulty initliaze the all values with 0 so static meber became aslo zero
-
+      
     algebra obj2(2, 7);
     obj2.getData(); // x=2 , y=7
     obj1.getData(); // x=0 , y=7
