@@ -1699,8 +1699,7 @@ Accessing of these objects is same as the simple arrays `dot(.) operator` for th
 
 1.  Initializing at time of declarartion.But keep in reminder that some compilers does not allow
     initialazation of const like this way.
-=======
-1.  Initializing at time of declarartion
+
 
 
  <p align="center">
