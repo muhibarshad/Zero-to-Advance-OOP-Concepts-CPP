@@ -33,7 +33,11 @@
     - [Overloaded Constructor](#overloaded-constructor)
     - [Copy Constructor](#copy-constructor)
     - [Destructor](#destructors)
-
+14. [Const in oop](#const-in-oop)
+     -[const data member](#const-data-members)
+     -[const member Function](#const-member-functions)
+     -[const obj](#const-object)
+     
 # Dynamic Arrays
 
 > Dynamic memory allocation is the process of changing the size of the memory space during the run-time.
@@ -1682,8 +1686,14 @@ Accessing of these objects is same as the simple arrays `dot(.) operator` for th
 # Const in oop
 
 ## Const Data Members
+
+
 ### Defination
+
 >The `data members`,state or properties whose value can not be changed during execution time and require value at time upon intialization .
+
+###  Note
+> You can not left const memmber uninitialized,otherwise it will cause error!
 
  ### Ways to declare and initialize
  1) Initializing at time of declarartion
