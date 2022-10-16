@@ -37,6 +37,9 @@
     - [const data member](#const-data-members)
     - [const member Function](#const-member-functions)
     - [const obj](#const-object)
+15. [Static Kewword With Classes](#static-kewword-with-classes)  
+    - [static data member](#static-data-member) 
+    - [static member function](#static-member-function)
 
 # Dynamic Arrays
 
@@ -1696,7 +1699,11 @@ Accessing of these objects is same as the simple arrays `dot(.) operator` for th
 
 ### Ways to declare and initialize
 
-1.  Initializing at time of declarartion
+
+1.  Initializing at time of declarartion.But keep in reminder that some compilers does not allow
+    initialazation of const like this way.
+
+
 
  <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/constdatamember.png" style="height: 70vh; padding-left: 50vh;">
@@ -1717,6 +1724,7 @@ using namespace std;
 class Student
 {
 	String name;
+
 	// 1) initializing const member at time of creation
 	const int Id=1;
 	const double CNIC;
@@ -1724,6 +1732,7 @@ class Student
 public:
 	// 2)initializing const member in member initialization list
 	Student():CNIC(123-456789-123) {}
+
 };
 ```
 
@@ -1772,6 +1781,7 @@ public:
       return Id;
 
 	}
+
 };
 int main()
 {
@@ -1783,6 +1793,7 @@ int main()
 
 	//Accessing constant function by const-object
 	student_2.getId();
+
 }
 
 ```
@@ -1791,7 +1802,7 @@ int main()
 
 ### Defination
 
-> Tese are `objects` of class which allow only _memory reading_.It simply means we can not change any `data member` of class either const or non-const `data member`.
+> Tese are `objects` of class which allow only **memory reading**.It simply means we can not change any `data member` of class either const or non-const `data member`.
 
 ### Note
 
@@ -1802,6 +1813,7 @@ int main()
 </p>
 
 ```cpp
+
 
 #include<iostream>
 using namespace std;
@@ -1814,6 +1826,7 @@ class Student
 public:
 
 	//-----Getters/Accessors----
+
 	string getName()
 	{
 
@@ -1827,6 +1840,7 @@ public:
 
 	}
 
+
 };
 int main()
 {
@@ -1836,8 +1850,163 @@ Student const Student_1;
     //obj studen_1 give its refrence
 	Student_1.getId();
 
+
+
 	//getName is not_ constant member function,Therfore const
     //obj studen_1 does not give  its refrence
    //  Error---> Student_1.getName();
+
+
 }
+```
+
+# Static Kewword With Classes
+
+### Defination
+
+> Using the static keyword on a local variable changes its duration from **automatic duration** to **static duration**. This means the variable is now created at the start of the program, and destroyed at the end of the program (just like a global variable). As a result, the static variable will retain its value even after it goes out of scope!
+
+Static kewword has two uses with class which are following below:
+- `static data member`
+- `static function`
+
+## Static Data member
+
+### Defination
+
+> Static Data members in `Classes` are actually belong to respective Class not to the object,it means it works like `Global Variable` for the `class` and `class objects`.
+
+#### Declaration and defination of static Data member
+
+- static members are declared *inside* the `Class`
+- static members are defined *outside* the `Class`
+
+##### Reason of Defining outside the class 😉
+
+> It makes a sense because static data member belong to class and its memory allocated once but imagin if it is defined inside class so whenever the object of class is being made,everytime memory allocated wich is not allowed
+
+<p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/staticdatamember.png" style="height: 70vh; padding-left: 50vh;">
+</p>
+
+##### Best Practice 👀
+
+> It is best practice to access `static data member` by **class name** with `scope resolution (::) operartor` rather than by accessing **object** with `memory access/dot operattor (.)`.
+
+<p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/staticdatamember_define.png" style="height: 70vh; padding-left: 50vh;">
+</p>
+
+##### Tips 😎
+
+<p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/staticdatamember_const.png" style="height: 70vh; padding-left: 50vh;">
+</p>
+
+### Example code
+
+```cpp
+#include<iostream>
+using namespace std;
+
+class Circle
+{
+	int radius;
+	static const float Pi;
+
+public:
+	//------Mutator/setter-------------
+	void setRadius(int radius)
+	{
+		this->radius = radius;
+	}
+
+	//-----Getter/Accessor--------------
+	int getRadius() const
+	{
+		return radius;
+	}
+
+
+	//-----member function-----------
+	double calculateArea()
+	{
+		return Pi * (radius * radius);
+	}
+
+
+
+};
+
+int main()
+{
+	Circle circle_1;
+	circle_1.setRadius(5);
+
+	cout << circle_1.calculateArea();
+}
+```
+
+# Static Member Function
+
+## Defination
+
+>`Static member functions` can be used to work with `static member` variables in the **class**. An **object** of the class is not required to call them.
+
+### Interesting Facts about Static functions ✔
+
+- `this pointer` does not exist in `static member function`,because `this pointer` belong to the object where static member function belong to **class** not to object
+- In static behaviour ,we can also call other `static data members` and `static functions`
+- `static member functions` can not be **constant**.
+
+### Tip 👀
+
+> You can call `static function` by **object name** with `memory access operator (.)` but it doest not good programming practice.So,it is good practice to access `stattic memmber function` of class by **class** name with `scope resolution operator (::)`.
+
+
+<p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/staticFunctions.png" style="height: 70vh; padding-left: 50vh;">
+</p>
+
+## Example code
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Circle
+{
+    int radius;
+    static const float Pi;
+
+public:
+    //--------Setter/Mutator------------
+    void setRadius(int radius)
+    {
+        this->radius = radius;
+    }
+
+    int getRadius() const
+    {
+        return radius;
+    }
+
+    //-----Getter/Accessor--------------
+    static int getPi()
+    {
+        // Here,you cant not access any data member and member function directly except static data member and other static function
+        //  like
+        // radius=6;  -->error
+        //  setRadius(5);   -->error
+
+        return Pi;
+    }
+};
+
+int main()
+{ // Accessing static data member of class through static function with class name and scope resolution operartor
+    cout << Circle::getPi();
+}
+
+
 ```
