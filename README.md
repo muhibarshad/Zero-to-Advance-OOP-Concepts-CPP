@@ -1682,9 +1682,8 @@ Accessing of these objects is same as the simple arrays `dot(.) operator` for th
 # Const in oop
 
 ## Const Data Members
-> Defination
- The `data members`,state or properties whose value can not be changed during execution time 
- and require value at time upon intialization .
+### Defination
+>The `data members`,state or properties whose value can not be changed during execution time and require value at time upon intialization .
 
  ### Ways to declare and initialize
  1) Initializing at time of declarartion
@@ -1696,7 +1695,7 @@ Accessing of these objects is same as the simple arrays `dot(.) operator` for th
  2)Initializing in `Initializer list` of `constructors`
 
  <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/const_In_initializerlist.png" style="height: 70vh; padding-left: 50vh;">
+    <img src="/Some%20extra%20concepts/codeSnaps/connst_In_initializerlist.png" style="height: 70vh; padding-left: 50vh;">
 </p>
 
 ### Example Code
@@ -1726,11 +1725,11 @@ public:
 
 ## Const Member functions
 
-> Defination
-Tese are `member functions` of class which allow only memory reading.It simply means we can not change any `data member` of class either const or non-const `data member` in Const member functions.The can be accessed by both `const object` and `non-const object`.
+### Defination
+>Tese are `member functions` of class which allow only memory reading.It simply means we can not change any `data member` of class either const or non-const `data member` in Const member functions.The can be accessed by both `const object` and `non-const object`.
 
-> Note
-`constructors` are also special member functions of class but it is not allowed to make constructors const functions. 
+### Note
+> `constructors` are also special member functions of class but it is not allowed to make constructors const functions. 
 
 
 <p align="center">
@@ -1790,12 +1789,11 @@ int main()
 
 ## Const Object
 
+### Defination
+> Tese are `objects` of class which allow only memory reading.It simply means we can not change any `data member` of class either const or non-const `data member`.
 
-> Defination
-Tese are `objects` of class which allow only memory reading.It simply means we can not change any `data member` of class either const or non-const `data member`.
-
-> Mote
-const objects give their `refrence` to only const member functions/behaviours.
+### Note
+> const objects give their `refrence` to only const member functions/behaviours.
 
 <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/const_obj.png" style="height: 70vh; padding-left: 50vh;">
