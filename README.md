@@ -1717,19 +1717,13 @@ using namespace std;
 class Student
 {
 	String name;
-
-
 	// 1) initializing const member at time of creation
 	const int Id=1;
-
 	const double CNIC;
 
 public:
 	// 2)initializing const member in member initialization list
 	Student():CNIC(123-456789-123) {}
-
-
-
 };
 ```
 
@@ -1762,7 +1756,6 @@ class Student
 public:
 
 	//-----Getters/Accessors----
-
 	string getName() const
 	{
 		//Here if you try to modify data member name,it will cause error although it is non-const
@@ -1771,7 +1764,6 @@ public:
       return name;
 
 	}
-
 	int getId() const
 	{
 		//Here if you try to modify data member Id,it will cause error
@@ -1780,9 +1772,6 @@ public:
       return Id;
 
 	}
-
-
-
 };
 int main()
 {
@@ -1794,7 +1783,6 @@ int main()
 
 	//Accessing constant function by const-object
 	student_2.getId();
-
 }
 
 ```
@@ -1826,22 +1814,18 @@ class Student
 public:
 
 	//-----Getters/Accessors----
-
 	string getName()
 	{
 
       return name;
 
 	}
-
 	int getId() const
 	{
 
       return Id;
 
 	}
-
-
 
 };
 int main()
@@ -1852,11 +1836,8 @@ Student const Student_1;
     //obj studen_1 give its refrence
 	Student_1.getId();
 
-
 	//getName is not_ constant member function,Therfore const
     //obj studen_1 does not give  its refrence
    //  Error---> Student_1.getName();
-
-
 }
 ```
