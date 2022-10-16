@@ -5,6 +5,7 @@
 <!-- Place this tag where you want the button to render. -->
 
 <a class="github-button" href="https://github.com/muhib7353" data-color-scheme="no-preference: light; light: light; dark: dark;" aria-label="Follow @muhib7353 on GitHub">Follow @muhib7353</a>
+
 # Zero to Advance OOP Course in C++
 
 > This course helps you to cover all `OBJECT-ORIENTED-PROGRAMMING` concepts .By providing proper documentation of example codes with testing portions, attached slides with every topic, external links thats help to get benefit from them without straggling on internet a lot of hours 🤔.The one plus point for you is that every thing is in the complete `road-map` means you go through step by step without jumping to mixed topics.✨
@@ -36,7 +37,7 @@
     - [const data member](#const-data-members)
     - [const member Function](#const-member-functions)
     - [const obj](#const-object)
-     
+
 # Dynamic Arrays
 
 > Dynamic memory allocation is the process of changing the size of the memory space during the run-time.
@@ -1681,27 +1682,27 @@ Accessing of these objects is same as the simple arrays `dot(.) operator` for th
     <img src="/Some%20extra%20concepts/codeSnaps/dot.png" style="height: 70vh; padding-left: 50vh;">
  </p>
 
-
 # Const in oop
 
 ## Const Data Members
 
-
 ### Defination
 
->The `data members`,state or properties whose value can not be changed during execution time and require value at time upon intialization .
+> The `data members`,state or properties whose value can not be changed during execution time and require value at time upon intialization .
 
-###  Note
+### Note
+
 > You can not left const memmber uninitialized,otherwise it will cause error!
 
- ### Ways to declare and initialize
- 1) Initializing at time of declarartion
+### Ways to declare and initialize
+
+1.  Initializing at time of declarartion
 
  <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/constdatamember.png" style="height: 70vh; padding-left: 50vh;">
  </p>
 
- 2)Initializing in `Initializer list` of `constructors`
+2)Initializing in `Initializer list` of `constructors`
 
  <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/connst_In_initializerlist.png" style="height: 70vh; padding-left: 50vh;">
@@ -1717,7 +1718,7 @@ class Student
 {
 	String name;
 
-	
+
 	// 1) initializing const member at time of creation
 	const int Id=1;
 
@@ -1727,7 +1728,7 @@ public:
 	// 2)initializing const member in member initialization list
 	Student():CNIC(123-456789-123) {}
 
-	
+
 
 };
 ```
@@ -1735,17 +1736,19 @@ public:
 ## Const Member functions
 
 ### Defination
->Tese are `member functions` of class which allow only *memory reading*.It simply means we can not change any `data member` of class either const or non-const `data member` in Const member functions.The can be accessed by both `const object` and `non-const object`.
+
+> Tese are `member functions` of class which allow only _memory reading_.It simply means we can not change any `data member` of class either const or non-const `data member` in Const member functions.The can be accessed by both `const object` and `non-const object`.
 
 ### Note
-> `constructors` are also *special member functions* of class but it is not allowed to make constructors const functions. 
 
+> `constructors` are also _special member functions_ of class but it is not allowed to make constructors const functions.
 
 <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/const_functionn.png" style="height: 70vh; padding-left: 50vh;">
 </p>
 
 ### Example code
+
 ```cpp
 
 #include<iostream>
@@ -1755,7 +1758,7 @@ class Student
 {
 	String name;
 	const int Id = 1;
-	
+
 public:
 
 	//-----Getters/Accessors----
@@ -1771,13 +1774,13 @@ public:
 
 	int getId() const
 	{
-		//Here if you try to modify data member Id,it will cause error 
+		//Here if you try to modify data member Id,it will cause error
 		// like:
 		// Id=9;
       return Id;
 
 	}
-	
+
 
 
 };
@@ -1791,7 +1794,7 @@ int main()
 
 	//Accessing constant function by const-object
 	student_2.getId();
-	
+
 }
 
 ```
@@ -1799,9 +1802,11 @@ int main()
 ## Const Object
 
 ### Defination
-> Tese are `objects` of class which allow only *memory reading*.It simply means we can not change any `data member` of class either const or non-const `data member`.
+
+> Tese are `objects` of class which allow only _memory reading_.It simply means we can not change any `data member` of class either const or non-const `data member`.
 
 ### Note
+
 > const objects give their `refrence` to only const member functions/behaviours.
 
 <p align="center">
@@ -1817,45 +1822,41 @@ class Student
 {
 	String name;
 	const int Id = 1;
-	
+
 public:
 
 	//-----Getters/Accessors----
 
-	string getName() 
+	string getName()
 	{
-		
+
       return name;
 
 	}
 
 	int getId() const
 	{
-		
+
       return Id;
 
 	}
-	
+
 
 
 };
 int main()
 {
-	
+
 Student const Student_1;
-	//getId is constant member function,Therfore const 
+	//getId is constant member function,Therfore const
     //obj studen_1 give its refrence
 	Student_1.getId();
 
 
-	//getName is not_ constant member function,Therfore const 
+	//getName is not_ constant member function,Therfore const
     //obj studen_1 does not give  its refrence
    //  Error---> Student_1.getName();
 
-	
+
 }
 ```
-
-
-
- 
