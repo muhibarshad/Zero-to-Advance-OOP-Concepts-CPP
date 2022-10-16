@@ -37,7 +37,7 @@
     - [const data member](#const-data-members)
     - [const member Function](#const-member-functions)
     - [const obj](#const-object)
-     
+
 # Dynamic Arrays
 
 > Dynamic memory allocation is the process of changing the size of the memory space during the run-time.
@@ -1682,27 +1682,28 @@ Accessing of these objects is same as the simple arrays `dot(.) operator` for th
     <img src="/Some%20extra%20concepts/codeSnaps/dot.png" style="height: 70vh; padding-left: 50vh;">
  </p>
 
-
 # Const in oop
 
 ## Const Data Members
 
-
 ### Defination
 
->The `data members`,state or properties whose value can not be changed during execution time and require value at time upon intialization .
+> The `data members`,state or properties whose value can not be changed during execution time and require value at time upon intialization .
 
-###  Note
+### Note
+
 > You can not left const memmber uninitialized,otherwise it will cause error!
 
- ### Ways to declare and initialize
- 1) Initializing at time of declarartion
+### Ways to declare and initialize
+
+1.  Initializing at time of declarartion.But keep in reminder that some compilers does not allow
+    initialazation of const like this way.
 
  <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/constdatamember.png" style="height: 70vh; padding-left: 50vh;">
  </p>
 
- 2)Initializing in `Initializer list` of `constructors`
+2)Initializing in `Initializer list` of `constructors`
 
  <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/connst_In_initializerlist.png" style="height: 70vh; padding-left: 50vh;">
@@ -1718,7 +1719,7 @@ class Student
 {
 	String name;
 
-	
+
 	// 1) initializing const member at time of creation
 	const int Id=1;
 
@@ -1728,7 +1729,7 @@ public:
 	// 2)initializing const member in member initialization list
 	Student():CNIC(123-456789-123) {}
 
-	
+
 
 };
 ```
@@ -1736,17 +1737,19 @@ public:
 ## Const Member functions
 
 ### Defination
->Tese are `member functions` of class which allow only *memory reading*.It simply means we can not change any `data member` of class either const or non-const `data member` in Const member functions.The can be accessed by both `const object` and `non-const object`.
+
+> Tese are `member functions` of class which allow only _memory reading_.It simply means we can not change any `data member` of class either const or non-const `data member` in Const member functions.The can be accessed by both `const object` and `non-const object`.
 
 ### Note
-> `constructors` are also *special member functions* of class but it is not allowed to make constructors const functions. 
 
+> `constructors` are also _special member functions_ of class but it is not allowed to make constructors const functions.
 
 <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/const_functionn.png" style="height: 70vh; padding-left: 50vh;">
 </p>
 
 ### Example code
+
 ```cpp
 
 #include<iostream>
@@ -1756,7 +1759,7 @@ class Student
 {
 	String name;
 	const int Id = 1;
-	
+
 public:
 
 	//-----Getters/Accessors----
@@ -1772,13 +1775,13 @@ public:
 
 	int getId() const
 	{
-		//Here if you try to modify data member Id,it will cause error 
+		//Here if you try to modify data member Id,it will cause error
 		// like:
 		// Id=9;
       return Id;
 
 	}
-	
+
 
 
 };
@@ -1792,7 +1795,7 @@ int main()
 
 	//Accessing constant function by const-object
 	student_2.getId();
-	
+
 }
 
 ```
@@ -1800,9 +1803,11 @@ int main()
 ## Const Object
 
 ### Defination
-> Tese are `objects` of class which allow only *memory reading*.It simply means we can not change any `data member` of class either const or non-const `data member`.
+
+> Tese are `objects` of class which allow only _memory reading_.It simply means we can not change any `data member` of class either const or non-const `data member`.
 
 ### Note
+
 > const objects give their `refrence` to only const member functions/behaviours.
 
 <p align="center">
@@ -1811,6 +1816,7 @@ int main()
 
 ```cpp
 
+
 #include<iostream>
 using namespace std;
 
@@ -1818,45 +1824,131 @@ class Student
 {
 	String name;
 	const int Id = 1;
-	
+
 public:
 
 	//-----Getters/Accessors----
 
-	string getName() 
+	string getName()
 	{
-		
+
       return name;
 
 	}
 
 	int getId() const
 	{
-		
+
       return Id;
 
 	}
-	
+
 
 
 };
 int main()
 {
-	
+
 Student const Student_1;
-	//getId is constant member function,Therfore const 
+	//getId is constant member function,Therfore const
     //obj studen_1 give its refrence
 	Student_1.getId();
 
 
-	//getName is not_ constant member function,Therfore const 
+	//getName is not_ constant member function,Therfore const
     //obj studen_1 does not give  its refrence
    //  Error---> Student_1.getName();
 
-	
+
 }
 ```
 
+# Static Kewword With Classes
+
+### Defination
+
+> Using the static keyword on a local variable changes its duration from automatic duration to static duration. This means the variable is now created at the start of the program, and destroyed at the end of the program (just like a global variable). As a result, the static variable will retain its value even after it goes out of scope!
+
+Static kewword has two uses with class which are following below:
+-static data member
+-static function
+
+## Static Data member
+
+### Defination
+
+> Static Data members in Classes are actually belong to respective Class not to the object,it means it works like `Global Variable` for the `class` and `class objects`.
+
+#### Declaration and defination of static Data member
+
+-static members are declared _inside_ the `Class`,
+-static members are defined _outside_ the `Class`.
+
+##### Reason of Defining outside the class 😉
+
+> It makes a sense because static data member belong to class and its memory allocated once but imagin if it is defined inside class so whenever the object of class is being made,everytime memory allocated wich is not allowed
+
+<p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/staticdatamember.png" style="height: 70vh; padding-left: 50vh;">
+</p>
+
+##### Best Practice 👀
+
+> It is best practice to access static data member by class name with scope resolution (::) operartor rather than by accessing object with memory access/dot operattor (.).
+
+<p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/staticdatamember_define.png" style="height: 70vh; padding-left: 50vh;">
+</p>
+
+##### Tips 😎
+
+<p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/staticdatamember_const.png" style="height: 70vh; padding-left: 50vh;">
+</p>
+
+### Example code
+
+```cpp
+#include<iostream>
+using namespace std;
+
+class Circle
+{
+	int radius;
+	static const float Pi;
+
+public:
+	//------Mutator/setter-------------
+	void setRadius(int radius)
+	{
+		this->radius = radius;
+	}
+
+	//-----Getter/Accessor--------------
+	int getRadius() const
+	{
+		return radius;
+	}
 
 
- 
+	//-----member function------
+	double calculateArea()
+	{
+		return Pi * (radius * radius);
+	}
+
+
+
+};
+
+int main()
+{
+	Circle circle_1;
+	circle_1.setRadius(5);
+
+	cout << circle_1.calculateArea();
+}
+
+
+
+```
