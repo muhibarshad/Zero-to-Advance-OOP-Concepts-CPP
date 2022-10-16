@@ -1677,3 +1677,178 @@ Accessing of these objects is same as the simple arrays `dot(.) operator` for th
   <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/dot.png" style="height: 70vh; padding-left: 50vh;">
  </p>
+
+
+# Const in oop
+
+## Const Data Members
+> Defination
+ The `data members`,state or properties whose value can not be changed during execution time 
+ and require value at time upon intialization .
+
+ ### Ways to declare and initialize
+ 1) Initializing at time of declarartion
+
+ <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/constdatamember.png" style="height: 70vh; padding-left: 50vh;">
+ </p>
+
+ 2)Initializing in `Initializer list` of `constructors`
+
+ <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/const_In_initializerlist.png" style="height: 70vh; padding-left: 50vh;">
+</p>
+
+### Example Code
+
+```cpp
+#include<iostream>
+using namespace std;
+
+class Student
+{
+	String name;
+
+	
+	// 1) initializing const member at time of creation
+	const int Id=1;
+
+	const double CNIC;
+
+public:
+	// 2)initializing const member in member initialization list
+	Student():CNIC(123-456789-123) {}
+
+	
+
+};
+```
+
+## Const Member functions
+
+> Defination
+Tese are `member functions` of class which allow only memory reading.It simply means we can not change any `data member` of class either const or non-const `data member` in Const member functions.The can be accessed by both `const object` and `non-const object`.
+
+> Note
+`constructors` are also special member functions of class but it is not allowed to make constructors const functions. 
+
+
+<p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/const_functionn.png" style="height: 70vh; padding-left: 50vh;">
+</p>
+
+### Example code
+```cpp
+
+#include<iostream>
+using namespace std;
+
+class Student
+{
+	String name;
+	const int Id = 1;
+	
+public:
+
+	//-----Getters/Accessors----
+
+	string getName() const
+	{
+		//Here if you try to modify data member name,it will cause error although it is non-const
+		// like:
+		// name="Waleed";
+      return name;
+
+	}
+
+	int getId() const
+	{
+		//Here if you try to modify data member Id,it will cause error 
+		// like:
+		// Id=9;
+      return Id;
+
+	}
+	
+
+
+};
+int main()
+{
+	Student student_1;
+	Student const  student_2;
+
+	//Accessing constant function by Non const-object
+	student_1.getId();
+
+	//Accessing constant function by const-object
+	student_2.getId();
+	
+}
+
+```
+
+## Const Object
+
+
+> Defination
+Tese are `objects` of class which allow only memory reading.It simply means we can not change any `data member` of class either const or non-const `data member`.
+
+> Mote
+const objects give their `refrence` to only const member functions/behaviours.
+
+<p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/const_obj.png" style="height: 70vh; padding-left: 50vh;">
+</p>
+
+```cpp
+
+#include<iostream>
+using namespace std;
+
+class Student
+{
+	String name;
+	const int Id = 1;
+	
+public:
+
+	//-----Getters/Accessors----
+
+	string getName() 
+	{
+		
+      return name;
+
+	}
+
+	int getId() const
+	{
+		
+      return Id;
+
+	}
+	
+
+
+};
+int main()
+{
+	
+Student const Student_1;
+	//getId is constant member function,Therfore const 
+    //obj studen_1 give its refrence
+	Student_1.getId();
+
+
+	//getName is not_ constant member function,Therfore const 
+    //obj studen_1 does not give  its refrence
+   //  Error---> Student_1.getName();
+
+	
+}
+```
+
+
+
+ 
