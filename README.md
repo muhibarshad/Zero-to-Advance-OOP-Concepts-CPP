@@ -1696,12 +1696,12 @@ Accessing of these objects is same as the simple arrays `dot(.) operator` for th
 
 ### Ways to declare and initialize
 
-<<<<<<< HEAD
+
 1.  Initializing at time of declarartion.But keep in reminder that some compilers does not allow
     initialazation of const like this way.
 =======
 1.  Initializing at time of declarartion
->>>>>>> 803a00fa4d810d66b36d27e00eecd1d5ceaf53da
+
 
  <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/constdatamember.png" style="height: 70vh; padding-left: 50vh;">
@@ -1722,11 +1722,7 @@ using namespace std;
 class Student
 {
 	String name;
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 803a00fa4d810d66b36d27e00eecd1d5ceaf53da
 	// 1) initializing const member at time of creation
 	const int Id=1;
 	const double CNIC;
@@ -1734,12 +1730,7 @@ class Student
 public:
 	// 2)initializing const member in member initialization list
 	Student():CNIC(123-456789-123) {}
-<<<<<<< HEAD
 
-
-
-=======
->>>>>>> 803a00fa4d810d66b36d27e00eecd1d5ceaf53da
 };
 ```
 
@@ -1788,12 +1779,7 @@ public:
       return Id;
 
 	}
-<<<<<<< HEAD
 
-
-
-=======
->>>>>>> 803a00fa4d810d66b36d27e00eecd1d5ceaf53da
 };
 int main()
 {
@@ -1805,10 +1791,7 @@ int main()
 
 	//Accessing constant function by const-object
 	student_2.getId();
-<<<<<<< HEAD
 
-=======
->>>>>>> 803a00fa4d810d66b36d27e00eecd1d5ceaf53da
 }
 
 ```
@@ -1817,7 +1800,7 @@ int main()
 
 ### Defination
 
-> Tese are `objects` of class which allow only _memory reading_.It simply means we can not change any `data member` of class either const or non-const `data member`.
+> Tese are `objects` of class which allow only **memory reading**.It simply means we can not change any `data member` of class either const or non-const `data member`.
 
 ### Note
 
@@ -1841,10 +1824,7 @@ class Student
 public:
 
 	//-----Getters/Accessors----
-<<<<<<< HEAD
 
-=======
->>>>>>> 803a00fa4d810d66b36d27e00eecd1d5ceaf53da
 	string getName()
 	{
 
@@ -1882,22 +1862,22 @@ Student const Student_1;
 
 ### Defination
 
-> Using the static keyword on a local variable changes its duration from automatic duration to static duration. This means the variable is now created at the start of the program, and destroyed at the end of the program (just like a global variable). As a result, the static variable will retain its value even after it goes out of scope!
+> Using the static keyword on a local variable changes its duration from **automatic duration** to **static duration**. This means the variable is now created at the start of the program, and destroyed at the end of the program (just like a global variable). As a result, the static variable will retain its value even after it goes out of scope!
 
 Static kewword has two uses with class which are following below:
--static data member
--static function
+- `static data member`
+- `static function`
 
 ## Static Data member
 
 ### Defination
 
-> Static Data members in Classes are actually belong to respective Class not to the object,it means it works like `Global Variable` for the `class` and `class objects`.
+> Static Data members in `Classes` are actually belong to respective Class not to the object,it means it works like `Global Variable` for the `class` and `class objects`.
 
 #### Declaration and defination of static Data member
 
--static members are declared *inside* the `Class`,
--static members are defined *outside* the `Class`.
+- static members are declared *inside* the `Class`
+- static members are defined *outside* the `Class`
 
 ##### Reason of Defining outside the class 😉
 
