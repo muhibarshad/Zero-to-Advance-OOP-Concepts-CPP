@@ -5,12 +5,12 @@ class algebra
 {
 private:
     int x;
-    const int y = 30;
+    const int y;
 
 public:
 
     //OVERLOADED_CONSTRUCTOR
-    algebra(int x = 0, int y = 0)
+    algebra(int x = 0):y(30)
     {
         setX(x);
     }

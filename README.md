@@ -1696,8 +1696,12 @@ Accessing of these objects is same as the simple arrays `dot(.) operator` for th
 
 ### Ways to declare and initialize
 
+<<<<<<< HEAD
 1.  Initializing at time of declarartion.But keep in reminder that some compilers does not allow
     initialazation of const like this way.
+=======
+1.  Initializing at time of declarartion
+>>>>>>> 803a00fa4d810d66b36d27e00eecd1d5ceaf53da
 
  <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/constdatamember.png" style="height: 70vh; padding-left: 50vh;">
@@ -1718,19 +1722,24 @@ using namespace std;
 class Student
 {
 	String name;
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 803a00fa4d810d66b36d27e00eecd1d5ceaf53da
 	// 1) initializing const member at time of creation
 	const int Id=1;
-
 	const double CNIC;
 
 public:
 	// 2)initializing const member in member initialization list
 	Student():CNIC(123-456789-123) {}
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 803a00fa4d810d66b36d27e00eecd1d5ceaf53da
 };
 ```
 
@@ -1763,7 +1772,6 @@ class Student
 public:
 
 	//-----Getters/Accessors----
-
 	string getName() const
 	{
 		//Here if you try to modify data member name,it will cause error although it is non-const
@@ -1772,7 +1780,6 @@ public:
       return name;
 
 	}
-
 	int getId() const
 	{
 		//Here if you try to modify data member Id,it will cause error
@@ -1781,9 +1788,12 @@ public:
       return Id;
 
 	}
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> 803a00fa4d810d66b36d27e00eecd1d5ceaf53da
 };
 int main()
 {
@@ -1795,7 +1805,10 @@ int main()
 
 	//Accessing constant function by const-object
 	student_2.getId();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 803a00fa4d810d66b36d27e00eecd1d5ceaf53da
 }
 
 ```
@@ -1828,21 +1841,22 @@ class Student
 public:
 
 	//-----Getters/Accessors----
+<<<<<<< HEAD
 
+=======
+>>>>>>> 803a00fa4d810d66b36d27e00eecd1d5ceaf53da
 	string getName()
 	{
 
       return name;
 
 	}
-
 	int getId() const
 	{
 
       return Id;
 
 	}
-
 
 
 };
@@ -1853,6 +1867,7 @@ Student const Student_1;
 	//getId is constant member function,Therfore const
     //obj studen_1 give its refrence
 	Student_1.getId();
+
 
 
 	//getName is not_ constant member function,Therfore const
@@ -1881,8 +1896,8 @@ Static kewword has two uses with class which are following below:
 
 #### Declaration and defination of static Data member
 
--static members are declared _inside_ the `Class`,
--static members are defined _outside_ the `Class`.
+-static members are declared *inside* the `Class`,
+-static members are defined *outside* the `Class`.
 
 ##### Reason of Defining outside the class 😉
 
@@ -1931,7 +1946,7 @@ public:
 	}
 
 
-	//-----member function------
+	//-----member function-----------
 	double calculateArea()
 	{
 		return Pi * (radius * radius);
@@ -1948,7 +1963,5 @@ int main()
 
 	cout << circle_1.calculateArea();
 }
-
-
-
 ```
+

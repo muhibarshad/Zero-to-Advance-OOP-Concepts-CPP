@@ -80,11 +80,12 @@ public:
     }
 
     // 3. Assignment =
-    void operator=(const algebra &obj)
+    algebra& operator=(const algebra &obj)
     {
         x = obj.x;
         y = obj.y;
         z = obj.z;
+        return *this;
     }
 
     // 4.Arithematic_Assignment  +=, -=, *=, /=, %=
