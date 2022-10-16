@@ -1736,10 +1736,10 @@ public:
 ## Const Member functions
 
 ### Defination
->Tese are `member functions` of class which allow only memory reading.It simply means we can not change any `data member` of class either const or non-const `data member` in Const member functions.The can be accessed by both `const object` and `non-const object`.
+>Tese are `member functions` of class which allow only *memory reading*.It simply means we can not change any `data member` of class either const or non-const `data member` in Const member functions.The can be accessed by both `const object` and `non-const object`.
 
 ### Note
-> `constructors` are also special member functions of class but it is not allowed to make constructors const functions. 
+> `constructors` are also *special member functions* of class but it is not allowed to make constructors const functions. 
 
 
 <p align="center">
@@ -1800,7 +1800,7 @@ int main()
 ## Const Object
 
 ### Defination
-> Tese are `objects` of class which allow only memory reading.It simply means we can not change any `data member` of class either const or non-const `data member`.
+> Tese are `objects` of class which allow only *memory reading*.It simply means we can not change any `data member` of class either const or non-const `data member`.
 
 ### Note
 > const objects give their `refrence` to only const member functions/behaviours.
