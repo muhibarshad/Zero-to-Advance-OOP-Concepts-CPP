@@ -1888,7 +1888,7 @@ Static kewword has two uses with class which are following below:
 
 ##### Best Practice 👀
 
-> It is best practice to access static data member by class name with scope resolution (::) operartor rather than by accessing object with memory access/dot operattor (.).
+> It is best practice to access `static data member` by **class name** with `scope resolution (::) operartor` rather than by accessing **object** with `memory access/dot operattor (.)`.
 
 <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/staticdatamember_define.png" style="height: 70vh; padding-left: 50vh;">
