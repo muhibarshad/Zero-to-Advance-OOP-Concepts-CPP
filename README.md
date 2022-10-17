@@ -1944,3 +1944,66 @@ int main()
 }
 ```
 
+# Static Member Function
+
+## Defination
+
+>`Static member functions` can be used to work with `static member` variables in the **class**. An **object** of the class is not required to call them.
+
+### Interesting Facts about Static functions ✔
+
+- `this pointer` does not exist in `static member function`,because `this pointer` belong to the object where static member function belong to **class** not to object
+- In static behaviour ,we can also call other `static data members` and `static functions`
+- `static member functions` can not be **constant**.
+
+### Tip 👀
+
+> You can call `static function` by **object name** with `memory access operator (.)` but it doest not good programming practice.So,it is good practice to access `stattic memmber function` of class by **class** name with `scope resolution operator (::)`.
+
+
+<p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/staticFunctions.png" style="height: 70vh; padding-left: 50vh;">
+</p>
+
+## Example code
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class Circle
+{
+    int radius;
+    static const float Pi;
+
+public:
+    //--------Setter/Mutator------------
+    void setRadius(int radius)
+    {
+        this->radius = radius;
+    }
+
+    int getRadius() const
+    {
+        return radius;
+    }
+
+    //-----Getter/Accessor--------------
+    static int getPi()
+    {
+        // Here,you cant not access any data member and member function directly except static data member and other static function
+        //  like
+        // radius=6;  -->error
+        //  setRadius(5);   -->error
+
+        return Pi;
+    }
+};
+
+int main()
+{ // Accessing static data member of class through static function with class name and scope resolution operartor
+    cout << Circle::getPi();
+}
+
+
+```
