@@ -2014,9 +2014,9 @@ int main()
 
 <!--Operator overloading-->
 # Operator Overloading
-**So, the first Question is what are operators?**
+**So, the first Question is what are operators?**\
 In mathematics and sometimes in computer programming, an operator is a character that represents an action, as for example + is an arithmetic operator that represents addition.
-**Why we need operator overloading concept?**
+**Why we need operator overloading concept?**\
 The Arithmetic operator (+, -, *, /, %) are already defined for the built in data types like int, float, char etc. But, right now, when we are creating/defining our own data types( class represents a data type), So, we need to write our own operators for this purpose.
 ### Defination 
 >Perform operations on class objects (variables of user defined ADTs) as performed on system defined datatypes.
@@ -2074,8 +2074,6 @@ Operator function header contains\
     <img src="/Some%20extra%20concepts/codeSnaps/operatorSyantx.png" style="height: 50vh; padding-left: 50vh;">
  </p>
  
-**Firstly**, we will discuss whole about the `uniary` operators  in both type of functions as non-static and non-member and then discuss  `Binary` operators in the same way.
-
 
 ### Before Starting : Prerequisite (Cascadding Concept)
 When we learn the [this](#this-pointer-or-this-keyword-in-cpp) keyword , we will discuss about the refernce of current object class returing of [this](#this-pointer-or-this-keyword-in-cpp).We can use the same concept for the `operator` overloading.In opertor overloading the `Left-hand-Object` be overload the `Right-hand-object`. 
@@ -2138,9 +2136,9 @@ algebra operator +(const algebra& obj)
 ```
 ### Note:(Better-Practice)
 >Better practice is that we should always make opertor overloading functions which supports cascading.Beacuse we don't know actually in the main this operators resulant used .(To make the program more generic)
+## Non-Static Member Functions
+### Uniary Operators 
 
-## Uniary Operators 
-### Non-Static Member Functions
 Member function takes no argument work on single operand must be the class object.
 #### - (in-uinary) 
 Converting object to their negative form.
@@ -2159,7 +2157,7 @@ Pre increment-- ,is increment the object to -1 firtstly so, in cascading we have
 Post increment--, same as to increment the object to -1 after , cascading strategy is same as above [pre-increment](#pre-increment).To distugish between post and pre , in post we use the void `int` as a parameter in the parameters list.Thats easy,
 
  <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/postIncrement.png" style="height: 50vh; padding-left: 50vh;">
+    <img src="/Some%20extra%20concepts/codeSnaps/postIncrement-2.png" style="height: 50vh; padding-left: 50vh;">
  </p>
 
 ##### Now Understand by example:
@@ -2184,12 +2182,11 @@ public:
         return temp;
     }
     // Post increment Operator
-    algebra operator--(int)
+    algebra& operator--(int)
     {
-        algebra temp(*this);
         x--;
         y--;
-        return temp;
+        return *this;
     }
     void getData() { cout << x << "  " << y << "\n"; }
 };
@@ -2199,14 +2196,327 @@ int main()
     algebra preMinus_Obj = --obj;
     algebra postMinus_Obj = obj--;
     preMinus_Obj.getData(); // 1    1
-    postMinus_Obj.getData(); // 1    1
-    obj.getData();      // 0    0
+    postMinus_Obj.getData(); // 0    0
 }
 ```
 
- 
+**Why we use the `&` sign with returing objects ? and When to use it ?**\
+This is a very interesting question may confuse begginers very well.Now understand firstly **why we need and use `&`**? When we update the current object and returning the current object completely by using `return *this`\
+Like this,
+```cpp
+algebra operator-()
+{
+    x=-x;
+    y=-y;
+    return *this;
+}
+```
+This means that, we are returing the value of the current object completely to algebra and the compiler at that time make the copy of this `*this` and stores it into the `algebra` anonymously and then gives it assigns to cascading.So at that time the `copy constructor` calls and its `destructor` should also be called.Means our memory is wasted for some period of time.Its not a better way , we can use the `*this` refernce instead of copying to anonymous.So thats why , we use the `&` sign with the returnType to avoid the anonymous `constructors` and `destructors` calling and make our memory and program more efficient.\
+Now our next questionn is **When to use `&`?** The answer of this question is very simple , when we are updating the current object and returing the current object for the cascading then use it.
 
+### Note:(Avoid)
+Never use `&` sign when you are returing the non-current class object.Because it gets the address of that object made inside the class and when the function destroys this local object varaible also destroys from the execuation stack.And now you have a refernce of a such object varaiable whose does'nt exist. `Error-Becomes`.
 
+### Binary Operators
+> Member function, needs one argument right operand can be class object or other datatype.
+- Left operand must be class object
+- When don't Update the L.H.S Object then use the `const` function.
+- Also When don't update the R.H.S Object pass the R.H.S object as refernce and to safe memory use the `alias(refernce)` of it.
+Be like ,
+```cpp
+algebra operator +(const algebra& obj) const{
+    //function_body
+}
+``` 
+- All operators can be overloaded through member functions in which left operand is class object.\
+for example:\
+```cpp
+algebra p1, p2(2, 3);
+p1 + p2; //both are class objects of Point class
+p1++;
+p1 = p2;
+//left operand is class object member function will work
+p1 + 3;
+```
+#### Binary Operator Addition (+)
+- Both operands are class objects.
+- Member function takes right operand of
+operation as one argument.
+- Called on left operand must be class object.
 
+##### Syntax:
+ <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/additionOperator-2.png" style="height: 50vh; padding-left: 50vh;">
+ </p>
+
+- Can be called in both ways.
+```cpp
+int main()
+{
+    algebra obj1(2,2);
+    algebra obj2(3,3);
+    obj1.operator+(obj2);
+    obj1+obj2;
+    algebra obj3=obj1+obj2;
+}
+```
+### Note:
+ Now the other `Arithematic Operators like -,*,/ ,%` can overloaded in the same way sa above. 
+
+### Arirthematic Assignment Operator +=
+The simple addition (+=) is like :\
+obj1 += obj2;\
+We will follow the original definition of the += operator. Here, the +=
+operator adds obj1 and obj2 and returns a current object which is again stored in
+obj1 or we can say that the value of obj1 will be updated. The operands on the
+left i.e obj2 remained unchanged after the execution of the statement, and
+results are stored in obj1 not as a new object but only the current (previous,
+called) object is updated.
+
+### Syntax:
+ <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/arithematicAssignment.png" style="height: 50vh; padding-left: 50vh;">
+ </p>
+
+#### Relating + and += :😢
+
+Now, we are trying to relate + and += operators to
+make our program more simple( or more complex for some reason
+).\
+If we focus on the above two codes of the + and += operators, we can seet hat actually we are doing exactly the same thing in both of the programs.\
+The only difference is the object which is to be updated or the object in which the results of addition is stored. In the first case i.e +, we created a new object and updated that object. While in the other case, we changed the current object, and stored the results into it.\
+Now consider an example of simple numbers instead of the objects of class.\
+`R = obj1 + obj2`; // `R` is the object where result is to be stored and `obj1`
+and `obj2 `should remain unchanged.\
+One method to do this is by simply adding `obj1` and `obj2` and storing it into `R`.\
+But, if we have an option of `+=` then we follow another method to do the same thing.
+First simply let:😎\
+`R = obj1`;\
+We Stored `obj1` into `R` OR in
+programming context made `obj1` copy of a into `R`\
+Now, all we need to do is :\
+`R = R + obj2;` //Adding R (which is a copy of obj1) into obj2 and storing result into R
+Or isn’t it simply :\
+`R += B;`Hopefully, we gathered the idea that how `+ and +=` can be used
+simultaneously.\
+Now, coming back to the coding portion. If we implement the same logic with the objects of the class and adding them, The code will
+be like this :
+
+<p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/relate+and+=.png" style="height: 70vh; padding-left: 0vh;">
+ </p>
+
+#### Note : 
+ All the other `Arithematic Assignment Operators -=,*=,/=` work in the same way.
+
+Exmple of code is given as :
+```cpp
+#include <iostream>
+
+using namespace std;
+
+class algebra
+{
+private:
+    int x, y;
+
+public:
+    algebra(int x = 1, int y = 1) : x(x), y(y) {}
+
+    algebra operator+(const algebra &obj)
+    {
+        algebra resultant(*this);
+        resultant += obj;
+        return resultant;
+    }
+    algebra &operator+=(const algebra &obj)
+    {
+        x += obj.x;
+        y += obj.y;
+        return *this;
+    }
+    void getData() { cout << x << "  " << y << "\n"; }
+};
+int main()
+{
+    // Addition +
+    algebra obj1(1, 1);
+    algebra obj2(6, 9);
+    obj1.operator+(obj2);
+    obj1 + obj2;
+    algebra obj3 = obj1 + obj2;
+    obj3.getData(); // 7  9
+
+    // Assignment Addition +=
+    algebra obj4 = obj1 += obj2;
+    obj4.getData(); // 7  9
+    obj1.getData(); // 7  9
+}
+
+```
+### Logical Operator ==
+- Return type is always `bool`  
+- Both operands should be class objects.
+- Member function takes right operand
+of operation as one argument.
+- Called on left operand must be class
+object
+
+#### Syntax:
+<p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/==.png" style="height: 40vh; padding-left: 0vh;">
+ </p>
+
+### Logical Operator !=
+If logical operatot `==` is defined then relate it with the  `!=` as 
+`!(*this==obj)`
+<p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/!=.png" style="height: 40vh; padding-left: 0vh;">
+ </p>
+
+Other Logical operators like `<=,>=,<,>` are work in the same way sa above.
+
+**Example code is given as :**
+```cpp
+#include <iostream>
+
+using namespace std;
+
+class algebra
+{
+private:
+    int x, y;
+
+public:
+    algebra(int x = 1, int y = 1) : x(x), y(y) {}
+
+    bool operator==(const algebra &obj)
+    {
+        return (x == obj.x && y == obj.y);
+    }
+    bool operator!=(const algebra &obj)
+    {
+        return !(*this == obj);
+    }
+    void getData() { cout << x << "  " << y << "\n"; }
+};
+int main()
+{
+    // Addition +
+    algebra obj1(2, 2);
+    algebra obj2(2, 1);
+    cout << (obj1 == obj2) << "\n"; // 1
+    cout << (obj1 != obj2) << "\n"; // 1
+}
+```
+
+### Assignment Operator = 
+When we don't overload the `assignment operator` then the our compiler by `default` gives the overloaded assignment operator.
+- Member Functions are compulsory for assignment
+- Both operands should be the same class objects
+- Member function takes right operation of operation as argumnet
+- Check state of both L.H.S and R.H.S objects data members carefully.
+  - If they are pointers address issues, due to different constructors, nullptr or valid memory address.
+  - Dynamic arrays size mismatch issues.
+  - Self assignment issue with pointer data members
+
+For `STATIC-Memory`, we can do assigment of values .
+Our all `data-members` are on the stack. So we just copy the one varible to other.
+our data-members are as follows:
+```cpp
+private:
+    int x, y;
+```
+<p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/=.png" style="height: 50vh; padding-left: 0vh;">
+ </p>
+
+For `Pointers`,Check L.H.S AND R.H.S objects as;
+|Left Operand | Right operand |
+|:-----------:|:--------------:|
+|nullptr|nullptr|
+|nullptr|address|
+|address|nullptr|
+|address(single variable)|address(single variable)|
+|address (Array Size Check)|address (Array Size Check)|
+
+### Syntax:
+<p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/pointer=.png" style="height: 50vh; padding-left: 0vh;">
+ </p>
+
+### Subscript Operator []
+- Member function is compulsory for subscript operator.
+- Left operand should be class object and right should be `int`.
+- Member function takes right operand of operation as argument and called on left operand.
+- It provides access to elements of arrays defined inside objects as private data members.
+- For example: a class myArray is defined here
+
+**understand Setp by step in the code,See the code Example**
+```cpp
+#include <iostream>
+
+using namespace std;
+
+class myArray
+{
+    int size; // Array size
+    int *ptr; // Pointer for dynamic 1-D Array
+public:
+    myArray()
+    {
+        size = 0;
+        ptr = nullptr;
+    }
+    myArray(int size)
+    {
+        this->size = size;
+        if (size > 0)
+        {
+            ptr = new int[size];
+            for (int i = 0; i < size; i++)
+                ptr[i] = i + 1;
+        }
+        else
+            ptr = nullptr;
+    }
+    int &operator[](const int i);
+    const int &operator[](const int i) const;
+};
+// implementation for Normal object
+int &myArray::operator[](const int i)
+{
+    // check if index i is in range
+    if (i >= 0 && i < size)
+        return ptr[i];
+    // return element by reference as lvalue
+}
+// implementation accessor for Constant object
+const int &myArray::operator[](const int i) const
+{
+    // check if index i is in range
+    if (i >= 0 && i < size)
+        return ptr[i];
+    // return element by reference as constant rvalue
+}
+int main()
+{
+    myArray a1(5); // creates array inside object
+    a1[0] = 100;   // return reference to int element 1 of array
+    // store 100 in element 1
+    a1[1] = a1[0];       // copy element 1 to element 2
+    cout << a1[1];       // print value of element 2
+    const myArray a2(3); // creates array of size 3 inside constant object
+    cout << a2[1];
+    // return constant reference (read only) to int
+    // a2[1] = 10;                     // wrong as constant reference is returned for constant object
+    // • Not work on pointers to objects directly
+    myArray *aptr = new myArray(5); // creates array inside object
+    aptr[3] = 100;                  // wrong as aptr is pointer
+    (*aptr)[3] = 100;               // first dereference the pointer then access data
+    aptr[0][3] = 100;
+}
+
+```
 
 
