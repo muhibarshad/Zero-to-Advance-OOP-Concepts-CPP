@@ -40,6 +40,7 @@
 15. [Static Kewword With Classes](#static-kewword-with-classes)  
     - [static data member](#static-data-member) 
     - [static member function](#static-member-function)
+16. [Operators Overloading](#operator-overloading)
 
 # Dynamic Arrays
 
@@ -1146,10 +1147,10 @@ You already know that we had already discussed the member functions, then what t
 - [Mutators](#setters)
 - [Accessers](#getters)
 - [Functionaliters](#functionaliters)
-- Constructors
-- Destructors
-- Iterators
-- Operators
+- [Constructors](#constructors-and-destructors)
+- [Destructors](#constructors-and-destructors)
+- [Iterators](#setters)
+- [Operators](#operator-overloading)\
   In all of above we have done `getters` and `setters`. `Mutators` and `Accessors` are same as `getters` and `setters` beacuse by using the `setters` we can have full access to the data memebers of the class to mutate them directly and sam for the `getters` we can have directly access to retrieve them.
   **NOW**,we will discuss about the **_Functionaliters_**( I think thats not make sense 😅, but according to me its very straightForward to understand).Others will be discuss in the coming points.
 
@@ -2141,6 +2142,70 @@ algebra operator +(const algebra& obj)
 ## Uniary Operators 
 ### Non-Static Member Functions
 Member function takes no argument work on single operand must be the class object.
+#### - (in-uinary) 
+Converting object to their negative form.
+ <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/uniaryNon-static.png" style="height: 70vh; padding-left: 50vh;">
+ </p>
+
+#### Pre increment --
+Pre increment-- ,is increment the object to -1 firtstly so, in cascading we have two options , we can return the updated object or just returns the non-updated object. The best practice here comes is to return the non-updated object because we may use this so object without increment in anywhere.
+
+ <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/preIncrement.png" style="height: 50vh; padding-left: 50vh;">
+ </p>
+
+#### Post increment --
+Post increment--, same as to increment the object to -1 after , cascading strategy is same as above [pre-increment](#pre-increment).To distugish between post and pre , in post we use the void `int` as a parameter in the parameters list.Thats easy,
+
+ <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/postIncrement.png" style="height: 50vh; padding-left: 50vh;">
+ </p>
+
+##### Now Understand by example:
+```cpp
+#include <iostream>
+
+using namespace std;
+
+class algebra
+{
+private:
+    int x, y;
+
+public:
+    algebra(int x = 1, int y = 1) : x(x), y(y) {}
+    // Pre increment Operator
+    algebra operator--()
+    {
+        algebra temp(*this);
+        --x;
+        --y;
+        return temp;
+    }
+    // Post increment Operator
+    algebra operator--(int)
+    {
+        algebra temp(*this);
+        x--;
+        y--;
+        return temp;
+    }
+    void getData() { cout << x << "  " << y << "\n"; }
+};
+int main()
+{
+    algebra obj(2, 2);
+    algebra preMinus_Obj = --obj;
+    algebra postMinus_Obj = obj--;
+    preMinus_Obj.getData(); // 1    1
+    postMinus_Obj.getData(); // 1    1
+    obj.getData();      // 0    0
+}
+```
+
+ 
+
 
 
 
