@@ -2673,5 +2673,5 @@ int main()
 
 # Summary of Operator Overloading
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/summary.png" style="height: 100vh; padding-left: 0vh;">
+    <img src="/Some%20extra%20concepts/codeSnaps/summary.png" style="height: 80vh; padding-left: 0vh;">
  </p>
