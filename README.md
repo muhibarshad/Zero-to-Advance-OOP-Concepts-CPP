@@ -2442,7 +2442,7 @@ For `Pointers`,Check L.H.S AND R.H.S objects as;
 
 ### Syntax:
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/pointer=.png" style="height: 50vh; padding-left: 0vh;">
+    <img src="/Some%20extra%20concepts/codeSnaps/pointer=.png" style="height: 80vh; padding-left: 0vh;">
  </p>
 
 ### Subscript Operator []
