@@ -2140,6 +2140,8 @@ algebra operator +(const algebra& obj)
 
 ## Uniary Operators 
 ### Non-Static Member Functions
+Member function takes no argument work on single operand must be the class object.
+
 
 
 
