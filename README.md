@@ -2070,7 +2070,7 @@ Operator function header contains\
 4.parameters list
 
  <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/operatorSynatx.png" style="height: 50vh; padding-left: 50vh;">
+    <img src="/Some%20extra%20concepts/codeSnaps/operatorSyantx.png" style="height: 50vh; padding-left: 50vh;">
  </p>
  
 **Firstly**, we will discuss whole about the `uniary` operators  in both type of functions as non-static and non-member and then discuss  `Binary` operators in the same way.
