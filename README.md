@@ -2010,3 +2010,136 @@ int main()
 
 
 ```
+
+<!--Operator overloading-->
+# Operator Overloading
+**So, the first Question is what are operators?**
+In mathematics and sometimes in computer programming, an operator is a character that represents an action, as for example + is an arithmetic operator that represents addition.
+**Why we need operator overloading concept?**
+The Arithmetic operator (+, -, *, /, %) are already defined for the built in data types like int, float, char etc. But, right now, when we are creating/defining our own data types( class represents a data type), So, we need to write our own operators for this purpose.
+### Defination 
+>Perform operations on class objects (variables of user defined ADTs) as performed on system defined datatypes.
+### Operators that can be overloaded
+| + | - | *| / | = | ==| >= | <=|
+|-- |-- |--|-- |-- |--|-- |--|
+|  > | <  | += | -=  | *=  | /= | &  | \|  |
+|  % | ^  | ! |  %= | ^=  | &= | \|=  |>>  |
+|  << | <<==  | >>== |&&   |\|\|   | ++  | --   | , |
+|  -> | ->*  |[]  |()   | new  |delete  |new[]   |delete[]  |
+
+### Operators that cannot be overloaded
+| . | .* | ::| ?: | sizeof | 
+|-- |-- |--|-- |-- |
+
+### Operators Classification
+>Opertors can be classified into **two** main categeries.
+
+1.Uniary operators\
+2.Binary operators
+
+#### Uniary Operators
+- (minus)
+- !
+- ++ (pre and post)
+- -- (pre and post)
+- ~ ( bitwise not)
+- & (address of)
+#### Binary Operators
+
+- Arithmetic -, +, *, /, % , +=, -=, *=, /=, %=
+- Relational ==, !=, >=,<=, <, >
+- Assignment =
+- Logical &&, ||
+- Subscript []
+- Member access ->
+- Stream operators can be overload for file stream or command line stream
+<< (stream insertion), >> (stream extraction)
+- Bitwise: &, |, >> (shift right), <<(shift left), ^ (XOR)
+- Memory management: new, delete
+#### Note:
+>Operator as += must be overloaded explicitly because + does not overload +=
+ ### Operators Function
+ When we want to make the overloaded function it is of two type.
+ 1. Non-static member function of a class.
+2. Non-member function.
+## Basic Syntax 
+Operator function header contains\
+1.return type\
+2.`operator` reserve word\
+3.operator symbol\
+4.parameters list
+
+ <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/operatorSynatx.png" style="height: 50vh; padding-left: 50vh;">
+ </p>
+ 
+**Firstly**, we will discuss whole about the `uniary` operators  in both type of functions as non-static and non-member and then discuss  `Binary` operators in the same way.
+
+
+### Before Starting : Prerequisite (Cascadding Concept)
+When we learn the [this](#this-pointer-or-this-keyword-in-cpp) keyword , we will discuss about the refernce of current object class returing of [this](#this-pointer-or-this-keyword-in-cpp).We can use the same concept for the `operator` overloading.In opertor overloading the `Left-hand-Object` be overload the `Right-hand-object`. 
+```cpp
+int main()
+{
+    algebra x,y;
+    x+y;
+}
+```
+In the above example the object `x` be overaloded and it calls the `y` object in its overloaded function as a parameter.
+Now , suppose we want to add the three objects consectively.
+like this
+```cpp
+int main()
+{
+    algebra x,y,z;
+    x+y+z;
+}
+```
+In this case the `precedence` of operators comes,firstly `x+y` can be overloaded and returns the resultant object of `x+y` this resultant object now can be overloaded with `z`.The returing of new object is refer to as the `cascading` of operators.
+
+Now , discuss the another case and understand more about the `cascading`.
+suppose we want to add the `x+y` and stores into the `z`.Like this
+```cpp
+int main()
+{
+    algebra x,y,z;
+    z=x+y;
+}
+```
+`z` is an object of class type  `algebra ` so it stores the result only in `algebra` class type.So, here the cascading comes, we can return the resultant of `x+y` as same as the dataType of the `z`.\
+To put the whole discussion in a nutshell,When we make the overaloded function, then we can make it according to the following instructions\
+1.Can it just update the current object and no needs to store the updated object into an other object?\
+Like this,
+```cpp
+void operator --()
+{
+    --x;
+    --y;
+}
+```
+2.Can it updates the current object and store teh updated object anywere?\
+Like this,
+```cpp
+algebra operator --()
+{
+    --x;
+    --y;
+    return *this;
+}
+```
+3.Can it just perform the functionality upon the objects, without updating objects and returns the new resultant object and use this resultant object to anywhere.\
+Like this,
+```cpp
+algebra operator +(const algebra& obj)
+{
+ return algebra(x+obj.x,y+obj.y);
+}
+```
+### Note:(Better-Practice)
+>Better practice is that we should always make opertor overloading functions which supports cascading.Beacuse we don't know actually in the main this operators resulant used .(To make the program more generic)
+
+## Uniary Operators 
+### Non-Static Member Functions
+
+
+
