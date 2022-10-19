@@ -2698,3 +2698,9 @@ The following rules of thumb can help you determine which form is best for a giv
 - If you’re overloading a binary operator that does not modify its left operand (e.g. operator+), do so as a normal function (preferred) or friend function.
 - If you’re overloading a binary operator that modifies its left operand, but you can’t add members to the class definition of the left operand (e.g. operator<<, which has a left operand of type ostream), do so as a normal function (preferred) or friend function.
 - If you’re overloading a binary operator that modifies its left operand (e.g. operator+=), and you can modify the definition of the left operand, do so as a member function.
+
+# Boosted Material 5.0
+
+- To get the briefly explained and good UI slides get here [`Static_and_Const`](/Some%20extra%20concepts/Slides/Static%20and%20Const.pdf),and for Operator Overading get here [`Uniary Operator`](/Some%20extra%20concepts/Slides/OPerator_Overloading(Uniary_Operators).pdf), [`Binary Operator`](/Some%20extra%20concepts/Slides/OPerator_Overloading(Binnary_Operators).pdf) and [`Friend Fuunctions `](/Some%20extra%20concepts/Slides/OPerator_Overloading(Friend_functions).pdf).
+- To get the practice programs step by step for `Static_and_Const` get [here](/Object%20Oriented%20Programming/Step3_DataMembers/) and about the `Operators Overloading` get [here](/Object%20Oriented%20Programming/Step4_Operator%20Overloading/)
+- To study more abou t the Operators Overalodin go [here](https://www.learncpp.com/cpp-tutorial/introduction-to-operator-overloading/)
