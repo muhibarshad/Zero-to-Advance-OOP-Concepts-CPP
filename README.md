@@ -1865,7 +1865,7 @@ Student const Student_1;
 }
 ```
 
-# Static Kewword With Classes
+# Static Keyword With Classes
 
 ### Defination
 
