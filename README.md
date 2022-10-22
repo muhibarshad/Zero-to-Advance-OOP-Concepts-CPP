@@ -2636,7 +2636,7 @@ takes two arguments
 - For cascading return `ostream` object by reference from function.
 
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/<<>>.png" style="height: 60vh; padding-left: 0vh;">
+    <img src="/Some%20extra%20concepts/codeSnaps/stream.png" style="height: 60vh; padding-left: 0vh;">
  </p>
 
  **Code Example here**:
