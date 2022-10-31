@@ -45,6 +45,8 @@
     - [Binary operators](#binary-operators-1)
     - [Assignment Operator](#assignment-operator)
     - [Friend Functions](#non-member-friend-functions)
+17. [Object Relationships](#object-relationships)
+    - [Aggregation](#aggregatatoion)
 
 # Dynamic Arrays
 
@@ -2705,6 +2707,7 @@ The following rules of thumb can help you determine which form is best for a giv
 - To get the practice programs step by step for `Static_and_Const` get [here](/Object%20Oriented%20Programming/Step3_DataMembers/) and about the `Operators Overloading` get [here](/Object%20Oriented%20Programming/Step4_Operator%20Overloading/)
 - To study more abou t the Operators Overalodin go [here](https://www.learncpp.com/cpp-tutorial/introduction-to-operator-overloading/)
 
+# Object Relationships
 
 # Aggregatatoion
 Like, we early discuss that classes have a relationship between them like in real world. The life of creation and death, ownership depends upon the suiation we uses as it is is `has-a` , `uses-a`, `is-a` etc relationship.In one of them is a named is aggregation.
@@ -2719,6 +2722,10 @@ Like, we early discuss that classes have a relationship between them like in rea
    When we want to use same class in many classes as a data member, or want to use the some properties and methods of class.Like an engine of automobile is used in different cars. Like audi, mahran, civiv all three cars uses the same engine then we use aggreagtion of engine class in these cars. Engine is totally unware about the presence of car, but car knows about the presence of the engine.
 ## How to use
   Just use the pointer or a reference`&` of a used object in the parent class.This refernce refers to the used class object.`Reference or alias &` actually have a value and address both same as the refered class.When the `reference` then it does'nt mean that the actual class alos detroys, only this refernce varaible having address of refered class destroys.
+  <p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/aggregation.png" style="height: 70vh; padding-left: 0vh;">
+ </p>
+
 ## Example Class
 ```cpp
 #include <iostream>
@@ -2743,10 +2750,9 @@ public:
 class Car
 {
 private:
-    const Engine &engine;
+    const Engine &engine;//use reference of Engine
     string name;
     int price;
-
 public:
     Car(const Engine &engine, string name, int price) : engine(engine)
     {
