@@ -2704,3 +2704,73 @@ The following rules of thumb can help you determine which form is best for a giv
 - To get the briefly explained and good UI slides get here [`Static_and_Const`](/Some%20extra%20concepts/Slides/Static%20and%20Const.pdf),and for Operator Overading get here [`Uniary Operator`](/Some%20extra%20concepts/Slides/OPerator_Overloading(Uniary_Operators).pdf), [`Binary Operator`](/Some%20extra%20concepts/Slides/OPerator_Overloading(Binnary_Operators).pdf) and [`Friend Fuunctions `](/Some%20extra%20concepts/Slides/OPerator_Overloading(Friend_functions).pdf).
 - To get the practice programs step by step for `Static_and_Const` get [here](/Object%20Oriented%20Programming/Step3_DataMembers/) and about the `Operators Overloading` get [here](/Object%20Oriented%20Programming/Step4_Operator%20Overloading/)
 - To study more abou t the Operators Overalodin go [here](https://www.learncpp.com/cpp-tutorial/introduction-to-operator-overloading/)
+
+
+# Aggregatatoion
+Like, we early discuss that classes have a relationship between them like in real world. The life of creation and death, ownership depends upon the suiation we uses as it is is `has-a` , `uses-a`, `is-a` etc relationship.In one of them is a named is aggregation.
+
+- The part (member) is part of the object (class)
+- The part (member) can belong to more than one object (class) at a time
+- The part (member) does not have its existence managed by the object (class)
+- The part (member) does not know about the existence of the object (class)
+## Basic Concept:
+  When we want to use some properties and methods of an external class object in a parent class object.The used class has no think about its uses in the class. In this realtionship the parent class knows the presence of the used class but used class does'nt know about it.The life of creation of both classes is totally independent.The parent class destroys but the used class even remains.
+## When to use
+   When we want to use same class in many classes as a data member, or want to use the some properties and methods of class.Like an engine of automobile is used in different cars. Like audi, mahran, civiv all three cars uses the same engine then we use aggreagtion of engine class in these cars. Engine is totally unware about the presence of car, but car knows about the presence of the engine.
+## How to use
+  Just use the pointer or a reference`&` of a used object in the parent class.This refernce refers to the used class object.`Reference or alias &` actually have a value and address both same as the refered class.When the `reference` then it does'nt mean that the actual class alos detroys, only this refernce varaible having address of refered class destroys.
+## Example Class
+```cpp
+#include <iostream>
+
+using namespace std;
+
+class Engine
+{
+private:
+    string speed;
+    int model;
+
+public:
+    Engine(string speed, int model) : speed(speed), model(model) {}
+    friend ostream &operator<<(ostream &out, const Engine &engine)
+    {
+        out << "The speed of the engine :" << engine.speed << "\n";
+        out << "The model of the engine :" << engine.model << "\n";
+        return out;
+    }
+};
+class Car
+{
+private:
+    const Engine &engine;
+    string name;
+    int price;
+
+public:
+    Car(const Engine &engine, string name, int price) : engine(engine)
+    {
+        this->name = name;
+        this->price = price;
+    }
+    friend ostream &operator<<(ostream &out, const Car &car)
+    {
+        out << "The name of the car :" << car.name << "\n";
+        out << "The price of the car :" << car.price << "\n";
+        out << "The specifications of the engine :\n"
+            << car.engine << "\n";
+        return out;
+    }
+};
+int main()
+{
+    Engine engine("200Km/h", 2002);
+    {
+        Car car(engine, "Mehran", 200);
+        cout << car << "\n";
+    }                       // this object destroys out of block
+    cout << engine << "\n"; // but the engine object still remains
+
+    return 0;
+}
+```
