@@ -2950,6 +2950,21 @@ int main()
 }
 ```
 
+# Object RelationShips
+
+In daily life we see that everyting is connected to oneanother ,like we see that leaves are conncected to the branches and braches are connected to tree. The life of leaves depends upon the attachment of leaves. In same case we see that human has a heart, car uses a volume and Cat is a animal. In programming every class is connected to another realted class wit a different relationships.There are two major type of relatioships in this case.
+
+1. `has-a` relationship
+2. `is-a` realtioship
+
+# has-a relatioship
+
+It means to keep the object of one class in another class.It is containership possession.
+In a `has-a` realtionship we can say that , Parent class has a child class . The used class totally dependent or independent on the creation or destruction of the main class.This relationship is further divided into two more steps.
+
+1. Composition (Strong RelationShip)
+1. Aggregation (Week RelationShip)
+
 # Aggregatatoion
 
 Like, we early discuss that classes have a relationship between them like in real world. The life of creation and death, ownership depends upon the suiation we uses as it is is `has-a` , `uses-a`, `is-a` etc relationship.In one of them is a named is aggregation.
@@ -2969,13 +2984,13 @@ When we want to use same class in many classes as a data member, or want to use 
 
 ## How to use
 
-Just use the pointer or a reference`&` of a used object in the parent class.This refernce refers to the used class object.`Reference or alias &` actually have a value and address both same as the refered class.When the `reference` then it does'nt mean that the actual class alos detroys, only this refernce varaible having address of refered class destroys.
+Just use the pointer or a reference`&` of a used object or a pointer `*` address of the used object.This refernce refers to the used class object in the parent class.`Reference or alias &` actually have a just differnet name of the original object actually we are using the same address value.When the `reference` then it does'nt mean that the actual class also detroys, only this refernce varaible having address of refered class destroys.And in pointer pass the adress of the aggregated object .used its address and play with it.
 
   <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/aggregation.png" style="height: 70vh; padding-left: 0vh;">
  </p>
 
-## Example Class
+## Aggregation by `refernce & `
 
 ```cpp
 #include <iostream>
@@ -3030,3 +3045,73 @@ int main()
     return 0;
 }
 ```
+
+## Aggregation by `Pointer * `
+
+```cpp
+#include "iostream"
+
+using namespace std;
+
+class Teacher
+{
+	int eCode;
+	string tName;
+
+public:
+	Teacher(int eCode, string tName)
+	{
+		this->eCode = eCode;
+		this->tName = tName;
+	}
+
+	void teacherInfo()
+	{
+		cout << "e-code = " << eCode << "\tt-name = " << tName << endl;
+	}
+};
+
+class Department
+{
+	int dNo;
+	string dName;
+
+	Teacher* teacher;	//holds a reference to Teacher : Aggregation (week binding)
+
+public:
+	Department(int dNo, string dName, Teacher* teacher)
+	{
+		this->dNo = dNo;
+		this->dName = dName;
+
+		this->teacher = teacher;	//data member teacher holds the reference/address of a Teacher
+	}
+
+	void departmentInfo()
+	{
+		cout << "d-no = " << dNo << "\td-name = " << dName << endl;
+
+		if (teacher != NULL)			//if teacher exists
+			teacher->teacherInfo();		//display teacher information
+	}
+};
+
+int main()
+{
+	Teacher t(100, "Khan");
+
+	Department d(1, "DIT", &t);			//&t reference of teacher
+
+	d.departmentInfo();
+
+	return 0;
+}
+```
+
+## Important Points
+
+- Always pass the aggregated object `const` because otherwise accidently its a chance to change the aggreagated object properties nad methods by using its public methods.To secure this use `const` with them
+
+- From the abstraction point of view, mainly use the `refernce & ` aggreagtion because in `main` we jus pass the aggregated objec name without adding `&` sign with it. So the user don't know about the concepts of aggreagation and composition.
+
+- Never judge the `has-a` relationship type by just seeing the data types like you see `Array *arr;` and decide its a aggreagation. `No`,may be user use this poinetr for the making dynamic compostion relatioship.like this `arr=new Array[5]` .So for judging we can see the `constructor` of the class and see here whether the address are copied or used for dynamic purposes.
