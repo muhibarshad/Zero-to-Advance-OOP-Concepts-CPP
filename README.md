@@ -45,7 +45,7 @@
     - [Binary operators](#binary-operators-1)
     - [Assignment Operator](#assignment-operator)
     - [Friend Functions](#non-member-friend-functions)
-17. Array_Class
+17. [Array_Class](#array-class)
 18. [Object Relationships](#object-relationships)
     - [Aggregation](#aggregatatoion)
 
@@ -2812,20 +2812,143 @@ If you come from the other high level programming languages background, like in 
  </p>
 
 3. Always overload Assignment Operator write and deallocate previous memory and reallocate with new memory
-  The most important point that is here to understand, in assignment `operator` firstly we can check there is no self assigning `&obj!=this` then there is a chance the left hand object having a size different then the size of the right hand object. So if we copy them then the `array index out of bounds` issues will be created . To resolve these problems we can `delete` the left hand memory equal its size to right hand object size, then copy them.
+   The most important point that is here to understand, in assignment `operator` firstly we can check there is no self assigning `&obj!=this` then there is a chance the left hand object having a size different then the size of the right hand object. So if we copy them then the `array index out of bounds` issues will be created . To resolve these problems we can `delete` the left hand memory equal its size to right hand object size, then copy them.
 
  <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/array_4.png" style="height: 50vh; padding-left: 0vh;">
  </p>
 
- 4. Overload subscript operator `[]` for the `l-value_r-value` and `const-r-value` to get more abstraction
- suppose we hava an array of `size=5` in main we are accesing the array element be like `arr[8]` then what we get ? we are actually accessing the memory position of 4*3 bytes index out of bounds .We may get some garbage collection here. To restrict the user and resolve this problem we will apply the check `if(index>=0 && index<size)` else get the some alert result.
- There is some another interesting fact here is when we are re-assigning the array element with the new element in short terms over-writing the variable. Then we will returns the reference alias `int &` of the original array elementto overrite the image of that index value.
+4.  Overload subscript operator `[]` for the `l-value_r-value` and `const-r-value` to get more abstraction
+    suppose we hava an array of `size=5` in main we are accesing the array element be like `arr[8]` then what we get ? we are actually accessing the memory position of 4\*3 bytes index out of bounds .We may get some garbage collection here. To restrict the user and resolve this problem we will apply the check `if(index>=0 && index<size)` else get the some alert result.
+    There is some another interesting fact here is when we are re-assigning the array element with the new element in short terms over-writing the variable. Then we will returns the reference alias `int &` of the original array elementto overrite the image of that index value.
 
   <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/array_5.png" style="height: 80vh; padding-left: 0vh;">
  </p>
-# Object Relationships
+
+## `Default` Array class blueprint
+
+```cpp
+#include <iostream>
+
+using namespace std;
+
+class Array
+{
+private:
+    int *arr;
+    int size;
+
+public:
+    Array()
+    {
+        size = 1;
+        arr = new int[size];
+        for (int i = 0; i < size; i++)
+        {
+            arr[i] = 0;
+        }
+    }
+    Array(const int &size) : size{size}
+    {
+        arr = new int[size];
+        for (int i = 0; i < size; i++)
+        {
+            arr[i] = 0;
+        }
+    }
+    // PARAMETERIZED_CONSTRUCTOR
+    Array(const int &size, const int _arr[]) : size{size}
+    {
+        arr = new int[size];
+        for (int i = 0; i < size; i++)
+        {
+            arr[i] = _arr[i];
+        }
+    }
+    // COPY_CONSTRUCTOR
+    Array(const Array &obj) : size{obj.size}
+    {
+        arr = new int[size];
+        for (int i = 0; i < size; i++)
+        {
+            arr[i] = obj.arr[i];
+        }
+    }
+    // OVERLOADED_ASSIGNMENT OPERATOR
+    Array operator=(const Array &obj)
+    {
+        if (&obj != this)
+        {
+            size = obj.size;
+            delete[] arr;
+            arr = new int[size];
+            for (int i = 0; i < size; i++)
+            {
+                arr[i] = obj.arr[i];
+            }
+        }
+        return *this;
+    }
+    // OVERLOADED _SUBSCRIPT OPERATOR(For the R-value)
+    int operator[](const int &index) const
+    {
+        if (index >= 0 && index < size)
+        {
+            return arr[index];
+        }
+        cout << "Array Index is Out-of-Bound" << endl;
+
+        exit(0);
+    }
+    // OVERLOADED _SUBSCRIPT OPERATOR(For the L-value and R-value)
+    int &operator[](const int &index)
+    {
+        if (index >= 0 && index < size)
+        {
+            return arr[index];
+        }
+        cout << "Array Index is Out-of-Bound" << endl;
+
+        exit(0);
+    }
+
+    void putData()
+    {
+        cout << "Put the data in the all array elements of size " << size << ": \n";
+        for (int i = 0; i < size; i++)
+        {
+            cin >> arr[i];
+        }
+    }
+    void getData()
+    {
+        cout << "The data in the all array elements of size " << size << ": \n";
+        for (int i = 0; i < size; i++)
+        {
+            cout << arr[i] << "\n";
+        }
+    }
+    ~Array()
+    {
+        delete[] arr;
+    }
+};
+int main()
+{
+    int a[5] = {5, 4, 3, 2, 1};
+
+    Array obj1, obj2(7), obj3(5, a), obj4(obj3);
+    const Array objc(5, a);
+
+    obj4[3] = 9;
+
+    cout << obj4[3] << endl;
+
+    cout << objc[4] << endl;
+    return 0;
+}
+```
 
 # Aggregatatoion
 
