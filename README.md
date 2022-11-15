@@ -51,7 +51,7 @@
 17. [Array_Class](#array-class)
 18. [Object Relationships](#object-relationships)
     - [Aggregation](#aggregatoion)
-    -[Composition](#composition)
+    - [Composition](#composition)
 
 
 # Dynamic Arrays
