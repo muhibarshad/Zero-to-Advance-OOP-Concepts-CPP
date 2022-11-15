@@ -554,3 +554,19 @@ std::cout<<"                            1t1111i1ii:i11111ttt1C008880GGtttttttt1.
 // .:.      ,;:::::;;;:::::::::::....:;tfL;    ;CGG;itii1iiiiiiiiiii;;;;;;,::.
 // ..   .,::,:;:;;:::;;;;:::::,,   .,;;::i1   ,fCt1:;1iiiiiiiiiiii;;;;;;i,.:.
 // .,;;:;;::..::::;:,,,,,,,,,.        ..,::ifCGG;:::;ii;;;::::;;;;;;;;;;;..:i:
+ Single class person controls every thing
+class Person{
+int pid;
+// Name
+char * fname;
+char * lname;
+//Date of Birth
+int day;
+int mon;
+int year;
+//Address
+char * city;
+char *country;
+int streetNo;
+int houseNo;
+};
