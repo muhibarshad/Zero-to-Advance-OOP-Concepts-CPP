@@ -3287,3 +3287,6 @@ int main()
 - From the abstraction point of view, mainly use the `refernce & ` aggreagtion because in `main` we jus pass the aggregated objec name without adding `&` sign with it. So the user don't know about the concepts of aggreagation and composition.
 
 - Never judge the `has-a` relationship type by just seeing the data types like you see `Array *arr;` and decide its a aggreagation. `No`,may be user use this poinetr for the making dynamic compostion relatioship.like this `arr=new Array[5]` .So for judging we can see the `constructor` of the class and see here whether the address are copied or used for dynamic purposes.
+
+# TEMPLATE
+It is used to create a generic function and classes.
