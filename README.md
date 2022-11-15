@@ -43,7 +43,7 @@
 16. [Operators Overloading](#operator-overloading)
     - [Uniary Operators](#uniary-operators-1)
     - [Binary operators](#binary-operators-1)
-    - [Assignment Operator](#assignment-operator)
+    - [Assignment Operator](#arirthematic-assignment-operator)
     - [Friend Functions](#non-member-friend-functions)
 17. [Array_Class](#array-class)
 18. [Object Relationships](#object-relationships)
@@ -433,9 +433,9 @@ we cannot access the dataMemebers of the class outside the class .Their members 
 There are there Access specifiers.
 
 - ### Public
-  Members declerad as private are only accessible within the class.
-- ### Private
   Memebers of public are accessible from anywhere(accissble through the object).
+- ### Private
+  Members declerad as private are only accessible within the class.
 - ### Protected
   Members are only accessible in child class.
 
