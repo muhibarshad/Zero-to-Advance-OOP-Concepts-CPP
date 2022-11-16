@@ -60,26 +60,26 @@
 ## Why we need it ?
 
 Suppose you are coding an account creating application like Facebook.Users can create or delete accounts.In your database all the accounts can be stored in an array of **Users**.Suppose
-at morning the users of your application are **5** `{'Hamza','Abbas','Ali','Ayesha','Fatima','Mujeeb'}`.At evening a boy named **_Ali_** want to delete its account due to some reasons.When he deletes its account then at position of ali `index` becomes empty . like this `{'Hamza','Abbas','','Ayesha','Fatima','Mujeeb'}`.Till the size of array is **5**.Now **Ali** again wants to creates its account, so we wants to add it on `run-time` **How can we increase the size of arrays?🤔**.
+at morning the users of your application are **5** `{'Hamza','Abbas','Ali','Ayesha','Fatima','Mujeeb'}`.At evening a boy named **_Ali_** wants to delete his account due to some reasons.When he deletes his account then at position of ali, `index` becomes empty . like this `{'Hamza','Abbas','','Ayesha','Fatima','Mujeeb'}`.Till the size of array is **5**.Now **Ali** again wants to creates his account, so we want to add it on `run-time` **How can we increase the size of array?🤔**
 
-Main problem here is that ,when we deletes the account the in our memory, the size of array is till **5** means our memory is wasting . And when we adding an account then how we increase the size of array ?. To resolve such problems we need such a way to increase or decrease `dynamiclly` change the size of our arrays during `run-time`.It is not possible with the `static` arrays which size are always constant.Thats way,`DYNAMIC MEMORY ALLOCATION (DMA)` is introduced.
+The main problem here is that when we delete the account in our memory, the size of array is still **5** meaning that our memory is being wasted . And when we add an account, then how can we increase the size of array? To resolve such problems we need  a way to increase or decrease `dynamiclly`  the size of our array/arrays during `run-time`.It is not possible with the `static` array, the size of which is always constant.in this way, `DYNAMIC MEMORY ALLOCATION (DMA)` is introduced.
 
-## Before Starting Something better to know (Heap or Stack):
+## Before Starting Something its better to know (HEAP or STACK):
 
-There are two types of memory in our computers **_Heap and Stack_**.During Dynamic Memory Allocation, When we make a pointer of our variable its can be formed at the stack.(storing the address of our varible only) and its value can be stored at the heap.
+There are two types of memory in our computers, **_Heap and Stack_**.During Dynamic Memory Allocation, we make a pointer of our variable its can be formed on the stack.(storing the address of our varible only) and its value can be stored at the heap.
 
-In `static memory`, all the varibles and arrays are formed in the memory (stack) at the `compile-time` so after exection all the variables and arrays are destroyed from the memory (stack) by the compiler itself.
-But in `Dynamic memory`, all the variables and arrays `values` are formed in the memory (heap) at the run-time, so compiler doesn't made them we `developers` made it during the execuation time. So its our responsibilty to destroyed them from the memory after the completition of their tasks.Otherwise a problem named `memory-leakage` can be created and our program `crashes`.
+In `static memory`, all the varibles and arrays are formed in the memory (stack) at the `compile-time`, so after execution all the variables and arrays are destroyed from the memory (stack) by the compiler itself.
+But in `Dynamic Memory`, all the variable and array `values` are formed in the memory (heap) at the run-time. So compiler didn't make that memory! we `developers` made it during the execuation time. So it's our responsibilty to destroy them from the memory after using. Otherwise, `memory-leakage` can arise and our program can `crash`.
 
-One more important concept about the dynamic memory allocation.
-In local functions we make a varaible and it goes out from the execuation stack after the calling .So we cannot use its value further more to to store its value we make a varaible on heap and ist pointer on the stack and return the pointer from the function and store its in to the main stack pointer varaible.Now your memory cannot be leakage.The main point is your pointer would never be became the dangling pointer. And your heap value can never be became without its pointer.
+One more important concept about the dynamic memory allocation:
+In local functions we make a varaible and it goes out from the execution stack after being called. So we cannot use its value further more. To store its value, we make a variable on heap and its pointer on stack and return the pointer from the function and store it in in the main stack pointer variable. Now, your memory cannot leak.The main advantage is that your pointer will never become a dangling pointer. And your heap value can never be formed without its pointer.
 
 > Making a dynamic memory is called allocating the memory.
 > Deleting a dynamic memory is called dellocating the memory.
 
 ## Dangling Pointer
 
-A pointer whose is pointing to such memory in the haep which is not exist .
+A pointer that is pointing to such memory in the heap that does not exist!
 
 ## One Dimensional Dynamic Arrays
 
@@ -90,7 +90,7 @@ A pointer whose is pointing to such memory in the haep which is not exist .
 
  </p>
 
-**Secondly**,we make a array at the heap by the `new` keyword.
+**Secondly**,we make a array at heap by the `new` keyword.
 
 <p align="center">
 <img src="/Some%20extra%20concepts/codeSnaps/heap.png" style="height: 40vh; padding-left: 50vh;">
@@ -104,8 +104,8 @@ A pointer whose is pointing to such memory in the haep which is not exist .
 
  </p>
 
-**At last**, `dellocating`, delete the array values at the heap by the `delete` keyword.And
-make the pointer of our array `nullptr` so its pointing to nothing.
+**At last**, `dellocating`, delete the array values at the heap by `delete` keyword and
+make the pointer of our array `nullptr` so its points to nothing.
 
 ```cpp
 #include <iostream>
