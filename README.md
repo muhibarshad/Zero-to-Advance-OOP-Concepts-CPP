@@ -2033,7 +2033,7 @@ As we have studied earlier,C++ compiler provied default copy constructor and ass
 
 ### Example code
 
-    ```cpp
+```cpp
 #include <iostream>
     using namespace std;
 class fraction
@@ -2059,6 +2059,7 @@ int main()
     fraction f3 = f1; // memberwise copying of f1 into f3 by default copy assignment operator
     return 0;
 }
+
 ```
 
 ### Whats the problem with shallow copy ? 😒
@@ -2110,6 +2111,7 @@ int main()
     return 0;
 
 }
+
 ```
 
 ### so whats the solution when we have dynamic memory alloaction😉 ?
