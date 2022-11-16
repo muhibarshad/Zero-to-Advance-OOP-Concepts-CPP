@@ -2024,7 +2024,7 @@ int main()
 As we have studied earlier,C++ compiler provied default copy constructor and assignment operator.Till this time,we were dealing with data member which were simple variable,so will all the things be work some if we deal with pointer or refrence variable? Think about it🤔.
 ## shallow copy 
 
-> Because C++ does not know much about your class, the default copy constructorand `default assignment operators` it provides use a copying method known as a** memberwise copy** (also known as a `shallow copy`).
+> Because C++ does not know much about your class, the default copy constructorand `default assignment operators` it provides use a copying method known as a **memberwise copy** (also known as a `shallow copy`).
 
    
 <p align="center">
@@ -2114,10 +2114,10 @@ int main()
 
 ### so whats the solution when we have dynamic memory alloaction😉 ?
 
-> Here, the concept `deep copy`/concrete copy comes, whenever we have to do `dynamic memmory allocation` with** class data members** we have to use `deep copy` rather than `shallow copy`.
+> Here, the concept `deep copy`/concrete copy comes, whenever we have to do `dynamic memmory allocation` with **class data members** we have to use `deep copy` rather than `shallow copy`.
 
 ## Deep copy
-In `Deep copy`, an `object` is created by copying data of all variablesand it also allocates the same size of `dynamic memory` with the same values to the new object.In order to perform `Deep copy`, we need to** explicitly** define the `copy constructor`and assign** dynamic memory** as well if required.Also, it is required to dynamically allocate memory to the variables in the other `constructors`, as well.And also important to deallocate memory in destructor mannually by `delete keyword`.
+In `Deep copy`, an `object` is created by copying data of all variablesand it also allocates the same size of `dynamic memory` with the same values to the new object.In order to perform `Deep copy`, we need to **explicitly** define the `copy constructor`and assign **dynamic memory** as well if required.Also, it is required to dynamically allocate memory to the variables in the other `constructors`, as well.And also important to deallocate memory in destructor mannually by `delete keyword`.
 
 It has two sub - Divisions
 - deep copy in copy constructor
@@ -3308,9 +3308,13 @@ int main()
 
 > It is case where one `object(part)` is a** part** of another `object(whole)`.It is also known as `part-whole relationship`.It is** strong relationship** because ownership is involved.
 
-<p align = "center">
-<img src = "/Some%20extra%20concepts/codeSnaps/composition.png" style = "height: 70vh; padding-left: 50vh;">
-< / p>
+
+
+<p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/composition.png" style="height: 70vh; padding-left: 0vh;">
+ </p>
+
+
 
 ### To qualify for composition 😎 ?
 
@@ -3339,18 +3343,18 @@ When `object` of** A** is destroyed part
 
 #### explanation
 
-The creationand destruction of `part`** B** (`data member` of `class` \* _A\*\*) does not affect or controll the creation and destruction of `object` of _ _A _ \*.
+The creationand destruction of `part`** B** (`data member` of `class` **A**) does not affect or controll the creation and destruction of `object` of `class` **A**.
 
 ## why there is a need of composition ? 👀
 
 <p align = "center">
 <img src = "/Some%20extra%20concepts/codeSnaps/composition1.png" style = "height: 70vh; padding-left: 50vh;">
-< / p>
+</p>
 
 ### Note
 
 In the above picture :
-Single `class` \* _person _ \*controls every thing.
+Single `class` **person** controls every thing.
 
 ##### Disadvantages
 
@@ -3364,7 +3368,7 @@ Single `class` \* _person _ \*controls every thing.
 
 <p align = "center">
 <img src = "/Some%20extra%20concepts/codeSnaps/composition2.png" style = "height: 70vh; padding-left: 50vh;">
-< / p>
+</p>
 
 ### Note
 
@@ -3386,14 +3390,13 @@ In the above picture :
 
 <p align = "center">
 <img src = "/Some%20extra%20concepts/codeSnaps/composition3.png" style = "height: 70vh; padding-left: 50vh;">
-< / p>
+</p>
 
--`Default constructor`: in \* _same order _ \*as defined objects in `class`
+-`Default constructor`: in **same order** as defined objects in `class`
 1)name 2)date 3)address 4)person
-
-- `Destructor`: in \* _reverse order _ \*as defined objects in class
+- `Destructor`: in **reverse order** as defined objects in class
   1)person 2)address 3)date 4)name
-- `Parametrized constructor`: called in \* _order of member initializer syntax _ \*
+- `Parametrized constructor`: called in **order of member initializer syntax**
   : dateofBirth(d, m, y), pname(fn, ln), paddress(city, country, street, house)
   1)date 2)name 3)address 4)person
 
