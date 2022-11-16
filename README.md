@@ -40,13 +40,16 @@
 15. [Static Keyword With Classes](#static-keyword-with-classes)
     - [static data member](#static-data-member)
     - [static member function](#static-member-function)
-16. [Operators Overloading](#operator-overloading)
+16. [Shallow vs Deep copy](#shallow-vs-deep-copy)   
+    - [Shallow copy](#shallow-copy)
+    - [Deep or concrete copy](#deep-copy)
+17. [Operators Overloading](#operator-overloading)
     - [Uniary Operators](#uniary-operators-1)
     - [Binary operators](#binary-operators-1)
     - [Assignment Operator](#assignment-operator)
     - [Friend Functions](#non-member-friend-functions)
-17. [Array_Class](#array-class)
-18. [Object Relationships](#object-relationships)
+18. [Array_Class](#array-class)
+19. [Object Relationships](#object-relationships)
     - [Aggregation](#aggregatatoion)
     - [Composition](#composition)
 
@@ -2016,6 +2019,195 @@ int main()
 
 
 ```
+<!--Shallow and Deep copy-->
+# shallow vs deep copy
+As we have studied earlier,C++ compiler provied default copy constructor and assignment operator.Till this time,we were dealing with data member which were simple variable,so will all the things be work some if we deal with pointer or refrence variable? Think about it🤔.
+## shallow copy 
+
+> Because C++ does not know much about your class, the default copy constructorand `default assignment operators` it provides use a copying method known as a** memberwise copy** (also known as a `shallow copy`).
+
+   
+<p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/shallowcopy1.png" style="height: 70vh; padding-left: 50vh;">
+</p>
+
+### Example code
+
+    ```cpp
+#include <iostream>
+    using namespace std;
+class fraction
+{
+    int numerator;
+    int denominator;
+
+public:
+    //---------Default  constructor-----------
+    fraction() : numerator(1), denominator(2) {}
+
+    void printData() const
+    {
+        cout << "Rational number is: " << numerator << "/" << denominator << endl;
+    }
+};
+int main()
+{
+    fraction f1;
+
+    fraction f2(f1); // memberwise copying of f1 into f2 by defauly copy constructor that compiler provides.
+
+    fraction f3 = f1; // memberwise copying of f1 into f3 by default copy assignment operator
+    return 0;
+}
+```
+
+### Whats the problem with shallow copy ? 😒
+shallow copying by default copy constructor or by copying assignment operator works fine until tha class data members have dynamic memory allocation.let understand by code.
+### code example
+```cpp
+#include <iostream>
+using namespace std;
+class fraction
+{
+    int* numerator;
+    int denominator;
+
+public:
+    //---------Default  constructor-----------
+    fraction()
+    {
+        numerator = new int(1);
+        denominator = 2;
+    }
+    //---------setter------------------------
+    void setNumerator(int n)
+    {
+        *numerator = n;
+    }
+
+    void printData() const
+    {
+        cout << "Rational number is: " << *numerator << "/" << denominator << endl;
+    }
+};
+int main()
+{
+    fraction f1;
+
+    fraction f2(f1); // memberwise copying of f1 into f2 by defauly copy constructor that compiler provides.
+
+    fraction f3 = f1; // memberwise copying of f1 into f3t by default copy assignment operator
+
+    f3.setNumerator(6); //  numerator=6 ==> of f3,but it will also change the value of numerator of f1 and f2
+
+    //==> Reason: because shallow copy does membervise copy and in class we have dynamic memmry allocation for numerator,
+    // so when f2,f3 are created by default copy constructor ,their data member numerator copy the address of numerator of
+    // f1,so as a result numerator of all objects are pointing by same memory address and changing in one will reflect in all.
+
+    f3.printData(); //nemerator=6
+    f1.printData(); //numerator=6
+    f2.printData(); //numerartor=6
+    return 0;
+
+}
+```
+
+### so whats the solution when we have dynamic memory alloaction😉 ?
+
+> Here, the concept `deep copy`/concrete copy comes, whenever we have to do `dynamic memmory allocation` with** class data members** we have to use `deep copy` rather than `shallow copy`.
+
+## Deep copy
+In `Deep copy`, an `object` is created by copying data of all variablesand it also allocates the same size of `dynamic memory` with the same values to the new object.In order to perform `Deep copy`, we need to** explicitly** define the `copy constructor`and assign** dynamic memory** as well if required.Also, it is required to dynamically allocate memory to the variables in the other `constructors`, as well.And also important to deallocate memory in destructor mannually by `delete keyword`.
+
+It has two sub - Divisions
+- deep copy in copy constructor
+- deep copy in assignmen operator
+
+#### 1) deep copy in copy constructor
+<p align = "center">
+<img src = "/Some%20extra%20concepts/codeSnaps/deepcopy2.png" style = "height: 70vh; padding-left: 50vh;">
+< / p>
+
+#### 2) deep copy in assignment operator
+<p align = "center">
+<img src = "/Some%20extra%20concepts/codeSnaps/deepcopy3.png" style = "height: 70vh; padding-left: 50vh;">
+< / p>
+
+
+### code example
+```cpp
+#include <iostream>
+using namespace std;
+class fraction
+{
+    int* numerator;
+    int denominator;
+
+public:
+    //---------Default  constructor-----------
+    fraction()
+    {
+        numerator = new int(1);
+        denominator = 2;
+    }
+
+    //--------Deep copy in copy constructor-----
+    fraction(const fraction& tempObj)
+    {
+        numerator = new int;
+        *numerator = *(tempObj.numerator);
+        denominator = tempObj.denominator;
+    }
+
+    // -----Deep copy in assignment opeartor--
+    fraction& operator==(const fraction& obj)
+    {
+        delete numerator; // first has to free the address that numerator already contain to prevent memory leak
+        if (this != &obj) // self assignment check
+        {
+            numerator = new int;
+            *numerator = *(obj.numerator);
+            denominator = obj.denominator;
+        }
+        return *this; // return current obj for cascading
+    }
+    //---------setter------------------------
+    void setNumerator(int n)
+    {
+
+        *numerator = n;
+    }
+
+    void printData() const
+    {
+        cout << "Rational number is: " << *numerator << "/" << denominator << endl;
+    }
+    // ------Destructor-----------------
+    ~fraction()
+    {//It is neccessary to deallocate memmory manually to prevevnt memmory leak.
+        delete numerator;
+    }
+};
+int main()
+{
+    fraction f1;
+
+    fraction f2(f1); // deep copy of f1 into f2
+
+    fraction f3 = f1; // deep copy by assignment operator
+
+    f3.setNumerator(6); //  numerator=6 ==> of f3,but it will not change the value of numerator of f1 and f2
+
+    //<====Test cases====>
+    f3.printData();
+    f1.printData();
+    f2.printData();
+    return 0;
+}
+
+```
+
+
 
 <!--Operator overloading-->
 
