@@ -3480,5 +3480,3 @@ int main()
 
 - Never judge the `has-a` relationship type by just seeing the data types like you see `Array *arr;` and decide its a aggreagation. `No`,may be user use this poinetr for the making dynamic compostion relatioship.like this `arr=new Array[5]` .So for judging we can see the `constructor` of the class and see here whether the address are copied or used for dynamic purposes.
 
-# TEMPLATE
-It is used to create a generic function and classes.
