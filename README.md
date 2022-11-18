@@ -134,16 +134,16 @@ int main()
 }
 ```
 
-### How to change the size of our arrays at run-time ? or at execution time? How to increase or decrease the size of our arrays dynamically ? or at execution time?
+### How to change the size of our array at run-time or at execution time? How to increase or decrease the size of our array dynamically or at execution time?
 
-**Firstly**, we made our array whose size we want to change dynamically.
+**Firstly**, we create our array, the size we want to change dynamically.
 
 <p align="center">
 <img src="/Some%20extra%20concepts/codeSnaps/temp1.png" style="height: 40vh; padding-left: 50vh;">
 
  </p>
 
-**Secondly**, we create an temp dyanmic 1D-Array.Whose size is the size thats we want after changing meanns `size+increaseNum` or `size+decreaseNum` .
+**Secondly**, we create a temporary(temp) dyanmic 1D-Array, the size of which is that we want after change meaning that `size+increaseNum` or `size+decreaseNum` .
 
 <p align="center">
 <img src="/Some%20extra%20concepts/codeSnaps/temp2.png" style="height: 40vh; padding-left: 50vh;">
@@ -157,16 +157,16 @@ int main()
 
  </p>
 
-**At Last**, delete the array values from heap and mutate the array-pointer to the tempArray-pointer.And now you can mutate the size as `size+=num` (for-increaing) or `size-=num`(for-decreaing)
+**At Last**, delete the array values from heap and mutate the array-pointer to the tempArray-pointer. No,w you can mutate the size as `size+=num` (for-increaing) or `size-=num`(for-decreaing)
 
-> Both our array and tempArray pointers in the stack pointing to the same changed tempArray values in the heap.
+> Both our array and tempArray pointers in the stack point to the same changed tempArray values in the heap.
 
 <p align="center">
 <img src="/Some%20extra%20concepts/codeSnaps/temp4.png" style="height: 50vh; padding-left: 50vh;">
 
  </p>
 
-**Now**,You can perform tasks, to the changed sized array ,after performing methods deallocate the aray and program happily finishes😊.(Problem-Solved,Hurray🥳)
+**Now**,You can perform tasks to the changed sized array. After performing methods, deallocate the aray and program happily finishes😊.(Problem-Solved!Hurray🥳)
 
 ```cpp
 #include <iostream>
@@ -178,7 +178,7 @@ int main()
     int *arr = new int[size]{1, 2, 3, 4, 5};
 
     int num;
-    cout << "Enter the number how much size of array you wnat to cahnge :" << endl;
+    cout << "Enter the number how much size of array you wnat to change :" << endl;
     cin >> num;
 
     int *temp = new int[size + num];
@@ -191,7 +191,7 @@ int main()
     delete[] arr;
     arr=temp;
 
-    //giving values to increased indexs
+    //giving values to increased indexes
     for(int i=size;i<size+num;i++){
         cin>>arr[i];
     }
@@ -214,25 +214,25 @@ int main()
 
 ## Two Dimensional Dynamic arrays
 
-**Firtsly**, In Two Dimensional Dynamic arrays ,make an array of pointers (every element of array contaning the address of first element of each row of matrix) which is stored to the pointer in stack ,beacuse this pointer storing the address first pointer of array, so this pointer is the double pointer.
+**Firtsly**, In Two Dimensional Dynamic arrays, make an array of pointers (every element of array contains the address of first element of each row of matrix) which is stored to the pointer in stack, beacuse this pointer stores the address of first pointer of array, this pointer is the Double Pointer.
 
    <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/2d-1.png" style="height: 40vh; padding-left: 50vh;">
  </p>
-  **Secondly**, Make a new array on the heap (column) from the every element(single-pointer) of the pointers array,that conatain the address of the first element of it column on the stack.
+  **Secondly**, Make a new array on heap (column) from the every element(single-pointer) of the pointers array, that conatains the address of the first element of its column on the stack.
 
    <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/2d-2.png" style="height: 50vh; padding-left: 50vh;">
  </p>
 
-**Thirdly**, Now our 2D-array is allocated.Now perform the all tasks on it.
+**Thirdly**, our 2D-array is allocated.Now perform all the tasks on it.
 
    <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/2d-3.png" style="height: 70vh; padding-left: 50vh;">
  </p>
 
-**At Last**,Deallocate the firstly all the columns on the heap. Then delete the pointers array.
-Then make the matrix pointer to null pointing to the nothing.
+**At Last**, Deallocate all the columns on the heap. Then delete the pointers array.
+Then make the matrix pointer to null (pointing to the nothing).
 
 ```cpp
 #include <iostream>
@@ -272,25 +272,25 @@ You can understand the one example of how to increase the size of columns and th
 
 ### Steps:(To increase the rows dynamically)
 
-**Firstly**: Make the new 2D-Dynamic array .
+**Firstly**: Make the new 2D-Dynamic array.
 
    <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/temp2-1.png" style="height: 50vh; padding-left: 50vh;">
  </p>
 
-**Secondly**: Make the `temp`2D-Dyanmic array.
+**Secondly**: Make the `temp` 2D-Dyanmic array.
 
    <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/temp2-2.png" style="height: 60vh; padding-left: 50vh;">
  </p>
 
-**Thirdly**: Copy the pervious 2d-array to temp array.Delete the previous 2D-Array.Give pointer of temp array to previous array.
+**Thirdly**: Copy the pervious 2d-array to temp array. Delete the previous 2D-Array and give pointer of temp array to previous array.
 
    <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/temp2-3.png" style="height: 70vh; padding-left: 50vh;">
  </p>
 
-**At Last**: Add the new elements in the array .And finally dellocate the array.
+**At Last**: Add new elements in the array.Finally, dellocate the array.
 
 ```cpp
 #include <iostream>
@@ -310,7 +310,7 @@ int main()
         matrix[i] = new int[col];
     }
 
-   cout << "The random elements in the array :" << endl;
+   cout << "Random elements in the array :" << endl;
     for (int i = 0; i < row; i++)
     {
         // cout<<"Enter the row "<<i+1<<" :"<<endl;
@@ -346,7 +346,7 @@ int main()
     matrix = temp;
 
 
-    //Entering elemenst in the increased rows
+    //Entering elements in the increased rows
     for (int i = row; i < row + num; i++)
     {
         // cout<<"Enter the row "<<row+1<<" :"<<endl;
@@ -369,7 +369,7 @@ int main()
         cout << endl;
     }
 
-    //dellocating the memory
+    //Dellocating the memory
     for (int i = 0; i < row; i++)
     {
         delete[] matrix[i];
@@ -384,7 +384,7 @@ int main()
 
 ## Boosted Material:
 
-- To Practice Questions Like inrease and decrease rows or columns of the 2D-arrays dynamically
+- To Practice Questions Like increase and decrease rows or columns of the 2D-arrays dynamically
   see [1D-Arrays-Examples](</Object%20Oriented%20Programming/Step0_Dynamic%20Arrays/Two%20Dimensional%20(2D)%20%20Dynamic%20Arrays/>)
 - To Read more complexities about the dyanmic arrays read book pages from
   [LearnCpp](https://www.learncpp.com/cpp-tutorial/dynamic-memory-allocation-with-new-and-delete/)
@@ -392,11 +392,11 @@ int main()
 
 # Core Concepts
 
-A langugae which containes these four segments is referrred as **_Object-Oriented-Programming_** language.
+A langugae which containes these four core segments is referrred as **_Object-Oriented-Programming_** language.
 
 - ## Classes and object :
-  Classes have no exixtence in the memeory,its only a blueprint.When we make an object of that class ,then it should having the some memeory.Class is an user defined-data-Type, called as **_ABSTRACT_DATA_TYPE_**.
-- ## Data hiding and Encapsulation:
+  Classes have no exixtence in the memeory, it's only a blueprint.When we make an object of that class, then it should having the same memeory.Class is a user defined-data-Type, called as **_ABSTRACT_DATA_TYPE_**.
+- ## Data Hiding and Encapsulation:
   Data is hided from every another object is data hiding .All the memebers of a class including data members and member functions are closed in a class like a capsule is referred to as Encapsulation.This feature opens the new term named as `Abstraction` means all the inner details are completetly ifnored and we focus on the working of the software.
 - ## Inheritance:
   **_Do not reinvent the wheel_**.In programming the term used as : **Do not repeat the code⛔**.Inheritance has the code reuse-ability.Some features are inherited from the base class and given to the derived class.If any language does not support the inheritance then its not calle the Object oriented programming language its called the **\*Object-Based-Language**.
