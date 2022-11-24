@@ -40,13 +40,16 @@
 15. [Static Keyword With Classes](#static-keyword-with-classes)
     - [static data member](#static-data-member)
     - [static member function](#static-member-function)
-16. [Operators Overloading](#operator-overloading)
+16. [Shallow vs Deep copy](#shallow-vs-deep-copy)   
+    - [Shallow copy](#shallow-copy)
+    - [Deep or concrete copy](#deep-copy)
+17. [Operators Overloading](#operator-overloading)
     - [Uniary Operators](#uniary-operators-1)
     - [Binary operators](#binary-operators-1)
     - [Assignment Operator](#arirthematic-assignment-operator)
     - [Friend Functions](#non-member-friend-functions)
-17. [Array_Class](#array-class)
-18. [Object Relationships](#object-relationships)
+18. [Array_Class](#array-class)
+19. [Object Relationships](#object-relationships)
     - [Aggregation](#aggregatatoion)
     - [Composition](#composition)
 
@@ -56,27 +59,27 @@
 
 ## Why we need it ?
 
-Suppose you have building a facebook like accounts creating application.Users can create or delete accounts.In your database all the accounts can be stored in an array of **Users**.Suppose
-at morning the users of your application are **5** `{'Hamza','Abbas','Ali','Ayesha','Fatima','Mujeeb'}`.At evening a boy named **_Ali_** want to delete its account due to some reasons.When he deletes its account then at position of ali `index` becomes empty . like this `{'Hamza','Abbas','','Ayesha','Fatima','Mujeeb'}`.Till the size of array is **5**.Now **Ali** again wants to creates its account, so we wants to add it on `run-time` **How can we increase the size of arrays?🤔**.
+Suppose you are coding an account creating application like Facebook.Users can create or delete accounts.In your database all the accounts can be stored in an array of **Users**.Suppose
+at morning the users of your application are **5** `{'Hamza','Abbas','Ali','Ayesha','Fatima','Mujeeb'}`.At evening a boy named **_Ali_** wants to delete his account due to some reasons.When he deletes his account then at position of ali, `index` becomes empty . like this `{'Hamza','Abbas','','Ayesha','Fatima','Mujeeb'}`.Till the size of array is **5**.Now **Ali** again wants to creates his account, so we want to add it on `run-time` **How can we increase the size of array?🤔**
 
-Main problem here is that ,when we deletes the account the in our memory, the size of array is till **5** means our memory is wasting . And when we adding an account then how we increase the size of array ?. To resolve such problems we need such a way to increase or decrease `dynamiclly` change the size of our arrays during `run-time`.It is not possible with the `static` arrays which size are always constant.Thats way,`DYNAMIC MEMORY ALLOCATION (DMA)` is introduced.
+The main problem here is that when we delete the account in our memory, the size of array is still **5** meaning that our memory is being wasted . And when we add an account, then how can we increase the size of array? To resolve such problems we need  a way to increase or decrease `dynamiclly`  the size of our array/arrays during `run-time`.It is not possible with the `static` array, the size of which is always constant.in this way, `DYNAMIC MEMORY ALLOCATION (DMA)` is introduced.
 
-## Before Starting Something better to know (Heap or Stack):
+## Before Starting Something its better to know (HEAP or STACK):
 
-There are two types of memory in our computers **_Heap and Stack_**.During Dynamic Memory Allocation, When we make a pointer of our variable its can be formed at the stack.(storing the address of our varible only) and its value can be stored at the heap.
+There are two types of memory in our computers, **_Heap and Stack_**.During Dynamic Memory Allocation, we make a pointer of our variable its can be formed on the stack.(storing the address of our varible only) and its value can be stored at the heap.
 
-In `static memory`, all the varibles and arrays are formed in the memory (stack) at the `compile-time` so after exection all the variables and arrays are destroyed from the memory (stack) by the compiler itself.
-But in `Dynamic memory`, all the variables and arrays `values` are formed in the memory (heap) at the run-time, so compiler doesn't made them we `developers` made it during the execuation time. So its our responsibilty to destroyed them from the memory after the completition of their tasks.Otherwise a problem named `memory-leakage` can be created and our program `crashes`.
+In `static memory`, all the varibles and arrays are formed in the memory (stack) at the `compile-time`, so after execution all the variables and arrays are destroyed from the memory (stack) by the compiler itself.
+But in `Dynamic Memory`, all the variable and array `values` are formed in the memory (heap) at the run-time. So compiler didn't make that memory! we `developers` made it during the execuation time. So it's our responsibilty to destroy them from the memory after using. Otherwise, `memory-leakage` can arise and our program can `crash`.
 
-One more important concept about the dynamic memory allocation.
-In local functions we make a varaible and it goes out from the execuation stack after the calling .So we cannot use its value further more to to store its value we make a varaible on heap and ist pointer on the stack and return the pointer from the function and store its in to the main stack pointer varaible.Now your memory cannot be leakage.The main point is your pointer would never be became the dangling pointer. And your heap value can never be became without its pointer.
+One more important concept about the dynamic memory allocation:
+In local functions we make a varaible and it goes out from the execution stack after being called. So we cannot use its value further more. To store its value, we make a variable on heap and its pointer on stack and return the pointer from the function and store it in in the main stack pointer variable. Now, your memory cannot leak.The main advantage is that your pointer will never become a dangling pointer. And your heap value can never be formed without its pointer.
 
 > Making a dynamic memory is called allocating the memory.
 > Deleting a dynamic memory is called dellocating the memory.
 
 ## Dangling Pointer
 
-A pointer whose is pointing to such memory in the haep which is not exist .
+A pointer that is pointing to such memory in the heap that does not exist!
 
 ## One Dimensional Dynamic Arrays
 
@@ -87,7 +90,7 @@ A pointer whose is pointing to such memory in the haep which is not exist .
 
  </p>
 
-**Secondly**,we make a array at the heap by the `new` keyword.
+**Secondly**,we make a array at heap by the `new` keyword.
 
 <p align="center">
 <img src="/Some%20extra%20concepts/codeSnaps/heap.png" style="height: 40vh; padding-left: 50vh;">
@@ -101,8 +104,8 @@ A pointer whose is pointing to such memory in the haep which is not exist .
 
  </p>
 
-**At last**, `dellocating`, delete the array values at the heap by the `delete` keyword.And
-make the pointer of our array `nullptr` so its pointing to nothing.
+**At last**, `dellocating`, delete the array values at the heap by `delete` keyword and
+make the pointer of our array `nullptr` so its points to nothing.
 
 ```cpp
 #include <iostream>
@@ -131,16 +134,16 @@ int main()
 }
 ```
 
-### How to change the size of our arrays at run-time ? or at execution time? How to increase or decrease the size of our arrays dynamically ? or at execution time?
+### How to change the size of our array at run-time or at execution time? How to increase or decrease the size of our array dynamically or at execution time?
 
-**Firstly**, we made our array whose size we want to change dynamically.
+**Firstly**, we create our array, the size we want to change dynamically.
 
 <p align="center">
 <img src="/Some%20extra%20concepts/codeSnaps/temp1.png" style="height: 40vh; padding-left: 50vh;">
 
  </p>
 
-**Secondly**, we create an temp dyanmic 1D-Array.Whose size is the size thats we want after changing meanns `size+increaseNum` or `size+decreaseNum` .
+**Secondly**, we create a temporary(temp) dyanmic 1D-Array, the size of which is that we want after change meaning that `size+increaseNum` or `size+decreaseNum` .
 
 <p align="center">
 <img src="/Some%20extra%20concepts/codeSnaps/temp2.png" style="height: 40vh; padding-left: 50vh;">
@@ -154,16 +157,16 @@ int main()
 
  </p>
 
-**At Last**, delete the array values from heap and mutate the array-pointer to the tempArray-pointer.And now you can mutate the size as `size+=num` (for-increaing) or `size-=num`(for-decreaing)
+**At Last**, delete the array values from heap and mutate the array-pointer to the tempArray-pointer. No,w you can mutate the size as `size+=num` (for-increaing) or `size-=num`(for-decreaing)
 
-> Both our array and tempArray pointers in the stack pointing to the same changed tempArray values in the heap.
+> Both our array and tempArray pointers in the stack point to the same changed tempArray values in the heap.
 
 <p align="center">
 <img src="/Some%20extra%20concepts/codeSnaps/temp4.png" style="height: 50vh; padding-left: 50vh;">
 
  </p>
 
-**Now**,You can perform tasks, to the changed sized array ,after performing methods deallocate the aray and program happily finishes😊.(Problem-Solved,Hurray🥳)
+**Now**,You can perform tasks to the changed sized array. After performing methods, deallocate the aray and program happily finishes😊.(Problem-Solved!Hurray🥳)
 
 ```cpp
 #include <iostream>
@@ -175,7 +178,7 @@ int main()
     int *arr = new int[size]{1, 2, 3, 4, 5};
 
     int num;
-    cout << "Enter the number how much size of array you wnat to cahnge :" << endl;
+    cout << "Enter the number how much size of array you wnat to change :" << endl;
     cin >> num;
 
     int *temp = new int[size + num];
@@ -188,7 +191,7 @@ int main()
     delete[] arr;
     arr=temp;
 
-    //giving values to increased indexs
+    //giving values to increased indexes
     for(int i=size;i<size+num;i++){
         cin>>arr[i];
     }
@@ -211,25 +214,25 @@ int main()
 
 ## Two Dimensional Dynamic arrays
 
-**Firtsly**, In Two Dimensional Dynamic arrays ,make an array of pointers (every element of array contaning the address of first element of each row of matrix) which is stored to the pointer in stack ,beacuse this pointer storing the address first pointer of array, so this pointer is the double pointer.
+**Firtsly**, In Two Dimensional Dynamic arrays, make an array of pointers (every element of array contains the address of first element of each row of matrix) which is stored to the pointer in stack, beacuse this pointer stores the address of first pointer of array, this pointer is the Double Pointer.
 
    <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/2d-1.png" style="height: 40vh; padding-left: 50vh;">
  </p>
-  **Secondly**, Make a new array on the heap (column) from the every element(single-pointer) of the pointers array,that conatain the address of the first element of it column on the stack.
+  **Secondly**, Make a new array on heap (column) from the every element(single-pointer) of the pointers array, that conatains the address of the first element of its column on the stack.
 
    <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/2d-2.png" style="height: 50vh; padding-left: 50vh;">
  </p>
 
-**Thirdly**, Now our 2D-array is allocated.Now perform the all tasks on it.
+**Thirdly**, our 2D-array is allocated.Now perform all the tasks on it.
 
    <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/2d-3.png" style="height: 70vh; padding-left: 50vh;">
  </p>
 
-**At Last**,Deallocate the firstly all the columns on the heap. Then delete the pointers array.
-Then make the matrix pointer to null pointing to the nothing.
+**At Last**, Deallocate all the columns on the heap. Then delete the pointers array.
+Then make the matrix pointer to null (pointing to the nothing).
 
 ```cpp
 #include <iostream>
@@ -269,25 +272,25 @@ You can understand the one example of how to increase the size of columns and th
 
 ### Steps:(To increase the rows dynamically)
 
-**Firstly**: Make the new 2D-Dynamic array .
+**Firstly**: Make the new 2D-Dynamic array.
 
    <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/temp2-1.png" style="height: 50vh; padding-left: 50vh;">
  </p>
 
-**Secondly**: Make the `temp`2D-Dyanmic array.
+**Secondly**: Make the `temp` 2D-Dyanmic array.
 
    <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/temp2-2.png" style="height: 60vh; padding-left: 50vh;">
  </p>
 
-**Thirdly**: Copy the pervious 2d-array to temp array.Delete the previous 2D-Array.Give pointer of temp array to previous array.
+**Thirdly**: Copy the pervious 2d-array to temp array. Delete the previous 2D-Array and give pointer of temp array to previous array.
 
    <p align="center">
     <img src="/Some%20extra%20concepts/codeSnaps/temp2-3.png" style="height: 70vh; padding-left: 50vh;">
  </p>
 
-**At Last**: Add the new elements in the array .And finally dellocate the array.
+**At Last**: Add new elements in the array.Finally, dellocate the array.
 
 ```cpp
 #include <iostream>
@@ -307,7 +310,7 @@ int main()
         matrix[i] = new int[col];
     }
 
-   cout << "The random elements in the array :" << endl;
+   cout << "Random elements in the array :" << endl;
     for (int i = 0; i < row; i++)
     {
         // cout<<"Enter the row "<<i+1<<" :"<<endl;
@@ -343,7 +346,7 @@ int main()
     matrix = temp;
 
 
-    //Entering elemenst in the increased rows
+    //Entering elements in the increased rows
     for (int i = row; i < row + num; i++)
     {
         // cout<<"Enter the row "<<row+1<<" :"<<endl;
@@ -366,7 +369,7 @@ int main()
         cout << endl;
     }
 
-    //dellocating the memory
+    //Dellocating the memory
     for (int i = 0; i < row; i++)
     {
         delete[] matrix[i];
@@ -381,7 +384,7 @@ int main()
 
 ## Boosted Material:
 
-- To Practice Questions Like inrease and decrease rows or columns of the 2D-arrays dynamically
+- To Practice Questions Like increase and decrease rows or columns of the 2D-arrays dynamically
   see [1D-Arrays-Examples](</Object%20Oriented%20Programming/Step0_Dynamic%20Arrays/Two%20Dimensional%20(2D)%20%20Dynamic%20Arrays/>)
 - To Read more complexities about the dyanmic arrays read book pages from
   [LearnCpp](https://www.learncpp.com/cpp-tutorial/dynamic-memory-allocation-with-new-and-delete/)
@@ -389,12 +392,12 @@ int main()
 
 # Core Concepts
 
-A langugae which containes these four segments is referrred as **_Object-Oriented-Programming_** language.
+A langugae which containes these four core segments is referrred as **_Object-Oriented-Programming_** language.
 
 - ## Classes and object :
-  Classes have no exixtence in the memeory,its only a blueprint.When we make an object of that class ,then it should having the some memeory.Class is an user defined-data-Type, called as **_ABSTRACT_DATA_TYPE_**.
-- ## Data hiding and Encapsulation:
-  Data is hided from every another object is data hiding .All the memebers of a class including data members and member functions are closed in a class like a capsule is referred to as Encapsulation.This feature opens the new term named as `Abstraction` means all the inner details are completetly ifnored and we focus on the working of the software.
+  Classes have no exixtence in the memeory, it's only a blueprint.When we make an object of that class, then it should having the same memeory.Class is a user defined-data-Type, called as **_ABSTRACT_DATA_TYPE_**.
+- ## Data Hiding and Encapsulation:
+  Data hided from every another object is called data hiding. All the members of a class including data members and member functions are closed in a class like a capsule is referred to as Encapsulation. This feature opens a new term named as `Abstraction` which means that all the inner details are completetly ignored and we focus only on the working of the software.
 - ## Inheritance:
   **_Do not reinvent the wheel_**.In programming the term used as : **Do not repeat the code⛔**.Inheritance has the code reuse-ability.Some features are inherited from the base class and given to the derived class.If any language does not support the inheritance then its not calle the Object oriented programming language its called the **\*Object-Based-Language**.
 - ## Polymorphism
@@ -2016,6 +2019,197 @@ int main()
 
 
 ```
+<!--Shallow and Deep copy-->
+# shallow vs deep copy
+As we have studied earlier,C++ compiler provied default copy constructor and assignment operator.Till this time,we were dealing with data member which were simple variable,so will all the things be work some if we deal with pointer or refrence variable? Think about it🤔.
+## shallow copy 
+
+> Because C++ does not know much about your class, the default copy constructorand `default assignment operators` it provides use a copying method known as a **memberwise copy** (also known as a `shallow copy`).
+
+   
+<p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/shallowcopy1.png" style="height: 70vh; padding-left: 50vh;">
+</p>
+
+### Example code
+
+```cpp
+#include <iostream>
+    using namespace std;
+class fraction
+{
+    int numerator;
+    int denominator;
+
+public:
+    //---------Default  constructor-----------
+    fraction() : numerator(1), denominator(2) {}
+
+    void printData() const
+    {
+        cout << "Rational number is: " << numerator << "/" << denominator << endl;
+    }
+};
+int main()
+{
+    fraction f1;
+
+    fraction f2(f1); // memberwise copying of f1 into f2 by defauly copy constructor that compiler provides.
+
+    fraction f3 = f1; // memberwise copying of f1 into f3 by default copy assignment operator
+    return 0;
+}
+
+```
+
+### Whats the problem with shallow copy ? 😒
+shallow copying by default copy constructor or by copying assignment operator works fine until tha class data members have dynamic memory allocation.let understand by code.
+### code example
+```cpp
+#include <iostream>
+using namespace std;
+class fraction
+{
+    int* numerator;
+    int denominator;
+
+public:
+    //---------Default  constructor-----------
+    fraction()
+    {
+        numerator = new int(1);
+        denominator = 2;
+    }
+    //---------setter------------------------
+    void setNumerator(int n)
+    {
+        *numerator = n;
+    }
+
+    void printData() const
+    {
+        cout << "Rational number is: " << *numerator << "/" << denominator << endl;
+    }
+};
+int main()
+{
+    fraction f1;
+
+    fraction f2(f1); // memberwise copying of f1 into f2 by defauly copy constructor that compiler provides.
+
+    fraction f3 = f1; // memberwise copying of f1 into f3t by default copy assignment operator
+
+    f3.setNumerator(6); //  numerator=6 ==> of f3,but it will also change the value of numerator of f1 and f2
+
+    //==> Reason: because shallow copy does membervise copy and in class we have dynamic memmry allocation for numerator,
+    // so when f2,f3 are created by default copy constructor ,their data member numerator copy the address of numerator of
+    // f1,so as a result numerator of all objects are pointing by same memory address and changing in one will reflect in all.
+
+    f3.printData(); //nemerator=6
+    f1.printData(); //numerator=6
+    f2.printData(); //numerartor=6
+    return 0;
+
+}
+
+```
+
+### so whats the solution when we have dynamic memory alloaction😉 ?
+
+> Here, the concept `deep copy`/concrete copy comes, whenever we have to do `dynamic memmory allocation` with **class data members** we have to use `deep copy` rather than `shallow copy`.
+
+## Deep copy
+In `Deep copy`, an `object` is created by copying data of all variablesand it also allocates the same size of `dynamic memory` with the same values to the new object.In order to perform `Deep copy`, we need to **explicitly** define the `copy constructor`and assign **dynamic memory** as well if required.Also, it is required to dynamically allocate memory to the variables in the other `constructors`, as well.And also important to deallocate memory in destructor mannually by `delete keyword`.
+
+It has two sub - Divisions
+- deep copy in copy constructor
+- deep copy in assignmen operator
+
+#### 1) deep copy in copy constructor
+<p align = "center">
+<img src = "/Some%20extra%20concepts/codeSnaps/deepcopy2.png" style = "height: 70vh; padding-left: 50vh;">
+< / p>
+
+#### 2) deep copy in assignment operator
+<p align = "center">
+<img src = "/Some%20extra%20concepts/codeSnaps/deepcopy3.png" style = "height: 70vh; padding-left: 50vh;">
+< / p>
+
+
+### code example
+```cpp
+#include <iostream>
+using namespace std;
+class fraction
+{
+    int* numerator;
+    int denominator;
+
+public:
+    //---------Default  constructor-----------
+    fraction()
+    {
+        numerator = new int(1);
+        denominator = 2;
+    }
+
+    //--------Deep copy in copy constructor-----
+    fraction(const fraction& tempObj)
+    {
+        numerator = new int;
+        *numerator = *(tempObj.numerator);
+        denominator = tempObj.denominator;
+    }
+
+    // -----Deep copy in assignment opeartor--
+    fraction& operator==(const fraction& obj)
+    {
+        delete numerator; // first has to free the address that numerator already contain to prevent memory leak
+        if (this != &obj) // self assignment check
+        {
+            numerator = new int;
+            *numerator = *(obj.numerator);
+            denominator = obj.denominator;
+        }
+        return *this; // return current obj for cascading
+    }
+    //---------setter------------------------
+    void setNumerator(int n)
+    {
+
+        *numerator = n;
+    }
+
+    void printData() const
+    {
+        cout << "Rational number is: " << *numerator << "/" << denominator << endl;
+    }
+    // ------Destructor-----------------
+    ~fraction()
+    {//It is neccessary to deallocate memmory manually to prevevnt memmory leak.
+        delete numerator;
+    }
+};
+int main()
+{
+    fraction f1;
+
+    fraction f2(f1); // deep copy of f1 into f2
+
+    fraction f3 = f1; // deep copy by assignment operator
+
+    f3.setNumerator(6); //  numerator=6 ==> of f3,but it will not change the value of numerator of f1 and f2
+
+    //<====Test cases====>
+    f3.printData();
+    f1.printData();
+    f2.printData();
+    return 0;
+}
+
+```
+
+
 
 <!--Operator overloading-->
 
@@ -3116,9 +3310,13 @@ int main()
 
 > It is case where one `object(part)` is a** part** of another `object(whole)`.It is also known as `part-whole relationship`.It is** strong relationship** because ownership is involved.
 
-<p align = "center">
-<img src = "/Some%20extra%20concepts/codeSnaps/composition.png" style = "height: 70vh; padding-left: 50vh;">
-< / p>
+
+
+<p align="center">
+    <img src="/Some%20extra%20concepts/codeSnaps/composition.png" style="height: 70vh; padding-left: 0vh;">
+ </p>
+
+
 
 ### To qualify for composition 😎 ?
 
@@ -3147,18 +3345,18 @@ When `object` of** A** is destroyed part
 
 #### explanation
 
-The creationand destruction of `part`** B** (`data member` of `class` \* _A\*\*) does not affect or controll the creation and destruction of `object` of _ _A _ \*.
+The creationand destruction of `part`** B** (`data member` of `class` **A**) does not affect or controll the creation and destruction of `object` of `class` **A**.
 
 ## why there is a need of composition ? 👀
 
 <p align = "center">
 <img src = "/Some%20extra%20concepts/codeSnaps/composition1.png" style = "height: 70vh; padding-left: 50vh;">
-< / p>
+</p>
 
 ### Note
 
 In the above picture :
-Single `class` \* _person _ \*controls every thing.
+Single `class` **person** controls every thing.
 
 ##### Disadvantages
 
@@ -3172,7 +3370,7 @@ Single `class` \* _person _ \*controls every thing.
 
 <p align = "center">
 <img src = "/Some%20extra%20concepts/codeSnaps/composition2.png" style = "height: 70vh; padding-left: 50vh;">
-< / p>
+</p>
 
 ### Note
 
@@ -3194,14 +3392,13 @@ In the above picture :
 
 <p align = "center">
 <img src = "/Some%20extra%20concepts/codeSnaps/composition3.png" style = "height: 70vh; padding-left: 50vh;">
-< / p>
+</p>
 
--`Default constructor`: in \* _same order _ \*as defined objects in `class`
+-`Default constructor`: in **same order** as defined objects in `class`
 1)name 2)date 3)address 4)person
-
-- `Destructor`: in \* _reverse order _ \*as defined objects in class
+- `Destructor`: in **reverse order** as defined objects in class
   1)person 2)address 3)date 4)name
-- `Parametrized constructor`: called in \* _order of member initializer syntax _ \*
+- `Parametrized constructor`: called in **order of member initializer syntax**
   : dateofBirth(d, m, y), pname(fn, ln), paddress(city, country, street, house)
   1)date 2)name 3)address 4)person
 
@@ -3288,5 +3485,3 @@ int main()
 
 - Never judge the `has-a` relationship type by just seeing the data types like you see `Array *arr;` and decide its a aggreagation. `No`,may be user use this poinetr for the making dynamic compostion relatioship.like this `arr=new Array[5]` .So for judging we can see the `constructor` of the class and see here whether the address are copied or used for dynamic purposes.
 
-# TEMPLATE
-It is used to create a generic function and classes.
