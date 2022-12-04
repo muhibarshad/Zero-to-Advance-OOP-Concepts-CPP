@@ -46,6 +46,12 @@
         "xloctime": "cpp",
         "xstddef": "cpp",
         "xtr1common": "cpp",
-        "fstream": "cpp"
+        "fstream": "cpp",
+        "*.tcc": "cpp",
+        "string_view": "cpp",
+        "random": "cpp",
+        "functional": "cpp",
+        "numeric": "cpp",
+        "sstream": "cpp"
     }
 }
