@@ -3,8 +3,7 @@
 </div>
 <br>
 <h1 align="center" style="font-size: 120px;" >  C++ Object-Oriented Programming  
-<br>Comprehensive Guide and Resource<h1/>
-<!-- Comprehensive-Guide-and-Resource-of-OOP-In-CPP -->
+<br>Comprehensive Guide and Resource</h1>
 
 <div align="center">
  <h2>Contributors ⛓️</h2>
@@ -13,10 +12,13 @@
 </a>
 
 </div>
+<br>
 
-> This repository is a comprehensive resource and guide for those looking to learn or improve their understanding of Object-Oriented Programming (OOP) in C++. It includes a wide range of materials, including slides, code examples, exercises, and blog posts, all of which are designed to help you gain a deeper understanding of OOP concepts and techniques. Whether you are a beginner just starting out with C++ or an experienced programmer looking to expand your skills, this repository has something for you. With clear explanations, detailed examples, and plenty of opportunities to practice and apply your knowledge, this is the ultimate resource for learning OOP in C++.
+
+>This repository is a comprehensive resource and guide for those looking to learn or improve their understanding of Object-Oriented Programming (OOP) in C++. It includes a wide range of materials, including slides, code examples, exercises, and blog posts, all of which are designed to help you gain a deeper understanding of OOP concepts and techniques. Whether you are a beginner just starting out with C++ or an experienced programmer looking to expand your skills, this repository has something for you. With clear explanations, detailed examples, and plenty of opportunities to practice and apply your knowledge, this is the ultimate resource for learning OOP in C++.
 
 # How to get benefit from this repository 💻
+<!-- Comprehensive-Guide-and-Resource-of-OOP-In-CPP -->
 
 If you want to learn any topic, simply choose one from the available options and start gaining knowledge from the provided resources on about that topic you choosed.
 
