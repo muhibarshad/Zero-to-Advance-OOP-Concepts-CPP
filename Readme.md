@@ -23,7 +23,7 @@ If you want to learn any topic, simply choose one from the available options and
 ## Every Topic contain these provided resources in depth
 
 <div align="center">
-  <img src="OOP.png">
+  <img src="benefit.png">
 </div>
 
 # Table of Content 📄
