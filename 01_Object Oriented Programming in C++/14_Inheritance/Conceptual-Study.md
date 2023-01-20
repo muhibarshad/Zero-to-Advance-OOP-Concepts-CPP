@@ -77,10 +77,10 @@ c1.print();
 
 ## Constructors/Destructors In Inheritance
 
-- Chain of constructor calls: When a derived class object is created, the derived class constructor calls the base class constructor.
-- The base class constructor can be invoked implicitly by the system's default constructor or explicitly by the programmer using a parametrized or copy constructor.
+- Chain of `constructor` calls: When a derived class object is created, the derived class `constructor` calls the base class` constructor`.
+- The base class constructor can be invoked implicitly by the system's `default constructor` or explicitly by the programmer using a parametrized or `copy constructor`.
 - The base class constructor at the top of the inheritance hierarchy is the last constructor called in the chain and the first constructor body to finish executing.
-- Each base class constructor initializes its own data members which are inherited by the derived class
+- Each base class `constructor` initializes its own data members which are inherited by the derived class
 
 ### Default constructor
 
