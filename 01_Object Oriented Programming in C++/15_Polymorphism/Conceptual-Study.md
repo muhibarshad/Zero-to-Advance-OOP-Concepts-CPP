@@ -29,7 +29,7 @@ A `base reference` is a reference variable of a base class type that can refer t
 - `Derived pointer` **can't** point to `base object` same in case of `references`
 - But if you really want to point derived pointer to base object,so for that that you have to do **Down Casting or Dynamic casting**.`Dynamic casting` will only work correctly in case of pointers for the references there is no way to do it.
 
-//inheritance-6(photo)
+//inheritance-6
 
 ### Summary
 

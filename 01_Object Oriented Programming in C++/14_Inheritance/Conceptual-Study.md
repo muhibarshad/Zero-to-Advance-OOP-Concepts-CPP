@@ -4,7 +4,8 @@
 
 In C++, `inheritance` allows a new class `(derived class)` to inherit properties and methods of an existing class `(base class)`. This enables code reuse and `abstraction`, making it useful for creating complex systems. The `derived class` can access and use the properties and methods of the base class as if they were its own.
 
-// inheritance 1(photo)
+
+// inheritance-1
 
 ## why wee need it👀?
 
@@ -84,16 +85,16 @@ c1.print();
 
 ### Default constructor
 
-//Inheritance-2(photo)
+//Inheritance-2
 
 ### parametrize constructor constructor
 
-//Inheritance-3(photo)
+//Inheritance-3
 
 ### Copy constructor
 
-//Inheritance-4(photo)
+//Inheritance-4
 
 ### calling Sequence
 
-//Inheritance-5(photo)
+//Inheritance-5
