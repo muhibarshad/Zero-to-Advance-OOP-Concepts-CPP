@@ -10,14 +10,14 @@
 **Secondly**,we make a array at heap by the `new` keyword.
 
 <p align="center">
-<img src="/Some%20extra%20concepts/codeSnaps/heap.png" style="height: 40vh; padding-left: 50vh;">
+<img src="/04_Material/CodeSnaps/heap.png" style="height: 40vh; padding-left: 50vh;">
 
  </p>
 
 **Thirdly**,perform your tasks.
 
 <p align="center">
-<img src="/Some%20extra%20concepts/codeSnaps/tasks.png" style="height: 50vh; padding-left: 50vh;">
+<img src="/04_Material/CodeSnaps/tasks.png" style="height: 50vh; padding-left: 50vh;">
 
  </p>
 
@@ -56,21 +56,21 @@ int main()
 **Firstly**, we create our array, the size we want to change dynamically.
 
 <p align="center">
-<img src="/Some%20extra%20concepts/codeSnaps/temp1.png" style="height: 40vh; padding-left: 50vh;">
+<img src="/04_Material/CodeSnaps/temp1.png" style="height: 40vh; padding-left: 50vh;">
 
  </p>
 
 **Secondly**, we create a temporary(temp) dyanmic 1D-Array, the size of which is that we want after change meaning that `size+increaseNum` or `size+decreaseNum` .
 
 <p align="center">
-<img src="/Some%20extra%20concepts/codeSnaps/temp2.png" style="height: 40vh; padding-left: 50vh;">
+<img src="/04_Material/CodeSnaps/temp2.png" style="height: 40vh; padding-left: 50vh;">
 
  </p>
 
 **Thirdly**, copy the array to tempArray.
 
 <p align="center">
-<img src="/Some%20extra%20concepts/codeSnaps/temp3.png" style="height: 50vh; padding-left: 50vh;">
+<img src="/04_Material/CodeSnaps/temp3.png" style="height: 50vh; padding-left: 50vh;">
 
  </p>
 
@@ -79,7 +79,7 @@ int main()
 > Both our array and tempArray pointers in the stack point to the same changed tempArray values in the heap.
 
 <p align="center">
-<img src="/Some%20extra%20concepts/codeSnaps/temp4.png" style="height: 50vh; padding-left: 50vh;">
+<img src="/04_Material/CodeSnaps/temp4.png" style="height: 50vh; padding-left: 50vh;">
 
  </p>
 

@@ -3,18 +3,18 @@
 **Firtsly**, In Two Dimensional Dynamic arrays, make an array of pointers (every element of array contains the address of first element of each row of matrix) which is stored to the pointer in stack, beacuse this pointer stores the address of first pointer of array, this pointer is the Double Pointer.
 
    <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/2d-1.png" style="height: 40vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/2d-1.png" style="height: 40vh; padding-left: 50vh;">
  </p>
   **Secondly**, Make a new array on heap (column) from the every element(single-pointer) of the pointers array, that conatains the address of the first element of its column on the stack.
 
    <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/2d-2.png" style="height: 50vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/2d-2.png" style="height: 50vh; padding-left: 50vh;">
  </p>
 
 **Thirdly**, our 2D-array is allocated.Now perform all the tasks on it.
 
    <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/2d-3.png" style="height: 70vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/2d-3.png" style="height: 70vh; padding-left: 50vh;">
  </p>
 
 **At Last**, Deallocate all the columns on the heap. Then delete the pointers array.
@@ -61,19 +61,19 @@ You can understand the one example of how to increase the size of columns and th
 **Firstly**: Make the new 2D-Dynamic array.
 
    <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/temp2-1.png" style="height: 50vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/temp2-1.png" style="height: 50vh; padding-left: 50vh;">
  </p>
 
 **Secondly**: Make the `temp` 2D-Dyanmic array.
 
    <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/temp2-2.png" style="height: 60vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/temp2-2.png" style="height: 60vh; padding-left: 50vh;">
  </p>
 
 **Thirdly**: Copy the pervious 2d-array to temp array. Delete the previous 2D-Array and give pointer of temp array to previous array.
 
    <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/temp2-3.png" style="height: 70vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/temp2-3.png" style="height: 70vh; padding-left: 50vh;">
  </p>
 
 **At Last**: Add new elements in the array.Finally, dellocate the array.
