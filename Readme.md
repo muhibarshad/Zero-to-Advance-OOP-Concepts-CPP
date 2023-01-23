@@ -12,6 +12,11 @@
 </a>
 
 </div>
+<div align="center">
+  <a href="https://github.com/muhib7353">Muhib Arshad</a><br>
+   <a href="https://github.com/haiderali780">Haider Ali</a><br>
+    <a href="https://github.com/WaleedAdnan08">Waleed Adnan</a>
+</div>
 <br>
 
 > This repository is a comprehensive resource and guide for those looking to learn or improve their understanding of Object-Oriented Programming (OOP) in C++. It includes a wide range of materials, including slides, code examples, exercises, and blog posts, all of which are designed to help you gain a deeper understanding of OOP concepts and techniques. Whether you are a beginner just starting out with C++ or an experienced programmer looking to expand your skills, this repository has something for you. With clear explanations, detailed examples, and plenty of opportunities to practice and apply your knowledge, this is the ultimate resource for learning OOP in C++.
