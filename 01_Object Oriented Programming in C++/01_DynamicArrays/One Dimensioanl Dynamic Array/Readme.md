@@ -3,7 +3,7 @@
 **Firstly**, `allocating`, we make a pointer of our array at the stack that containes the address of the first element of our array.
 
 <p align="center">
-<img src="/Some%20extra%20concepts/codeSnaps/ptr.png" style="height: 40vh; padding-left: 50vh;">
+<img src="/04_Material/CodeSnaps/ptr.png" style="height: 40vh; padding-left: 50vh;">
 
  </p>
 
