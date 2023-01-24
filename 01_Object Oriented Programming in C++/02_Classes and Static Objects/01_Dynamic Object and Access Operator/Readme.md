@@ -4,7 +4,7 @@ Dynamic Objects means the pointer of that objects is on the stack and the whole 
 
 ### Understand by excample:
 
-[How we make the dynamic objects of class and how to access their data members of taht dynamic object🙄❓](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/6_DyanmicObjects_and_acessOperaters.cpp)
+[How we make the dynamic objects of class and how to access their data members of that dynamic object🙄❓](/01_Object%20Oriented%20Programming%20in%20C%2B%2B/02_Classes%20and%20Static%20Objects/01_Dynamic%20Object%20and%20Access%20Operator/)
 
 ```cpp
 #include <iostream>

@@ -17,7 +17,7 @@ We don't need to pass the two objects as the arguments beacuse L.H.S object is a
 In `Dyanmic` the copy of argumentative objects will not be made only the address of these objects will pass and dereferencing these adress and perform operations.
 
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/f-1.png" style="height: 50vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/f-1.png" style="height: 50vh; padding-left: 50vh;">
  </p>
 
 ## 2.By passing object as a reference
@@ -26,7 +26,7 @@ In `static` When passing object as an argument to the function which recieveing 
 In `Dyanmic` the copy of argumentative objects will not be made only the address of these objects will pass ,so we will not have to use the refernce operator `&` , beacause already we pass the address `refernce` of the objects on the heap to function parameters As a result ,dereferencing these adresses and mutating the data memebers and member functions will mutate the original argumentative objects data members and member functions respectively.
 
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/f-2.png" style="height: 70vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/f-2.png" style="height: 70vh; padding-left: 50vh;">
  </p>
 
 ## 3.By return object as a object
@@ -37,11 +37,11 @@ In `Dyanmic`,the returing object returns the only address of the making object n
 > When an object is returned at compile-time it can be stored an anonymous varaible of same returning dataType and then assign it the varible on which the functions call this process is called the `RETURN_VALUE_OPTIMIZATION(RVO)`. And you when you run the program its destructor will be showed in the screen .
 
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/RVO.png" style="height: 50vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/RVO.png" style="height: 50vh; padding-left: 50vh;">
  </p>
 
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/RVO-result.png" style="height: 50vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/RVO-result.png" style="height: 50vh; padding-left: 50vh;">
  </p>
 ### Let understand by 😮 [dynamic-example](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/6_DyanmicObjects_and_acessOperaters.cpp):
 
