@@ -3,24 +3,24 @@
 You are already aware that we previously discussed member functions. But what exactly are they? Member functions are functions that are associated with a specific class and operate on the data members of that class. :
 
 - [Getters](/01_Object%20Oriented%20Programming%20in%20C%2B%2B/04_Settters%20and%20Getters/Readme.md)
-- [Setters]()
-- [Mutators](#setters)
-- [Accessers](#getters)
-- [Functionaliters](#functionaliters)
-- [Constructors](#constructors-and-destructors)
-- [Destructors](#constructors-and-destructors)
-- [Iterators](#setters)
-- [Operators](#operator-overloading)\
+- [Setters](/01_Object%20Oriented%20Programming%20in%20C%2B%2B/04_Settters%20and%20Getters/Readme.md)
+- [Mutators](/01_Object%20Oriented%20Programming%20in%20C%2B%2B/04_Settters%20and%20Getters/)
+- [Accessers](/01_Object%20Oriented%20Programming%20in%20C%2B%2B/04_Settters%20and%20Getters/)
+- [Functionaliters](/01_Object%20Oriented%20Programming%20in%20C%2B%2B/06_Member%20Functions/)
+- [Constructors](/01_Object%20Oriented%20Programming%20in%20C%2B%2B/07_Constructors%20and%20Destructors)
+- [Destructors](/01_Object%20Oriented%20Programming%20in%20C%2B%2B/07_Constructors%20and%20Destructors/05_Destructor/Readme.md)
+- [Iterators](/01_Object%20Oriented%20Programming%20in%20C%2B%2B/04_Settters%20and%20Getters/Readme.md)
+- [Operators](/01_Object%20Oriented%20Programming%20in%20C%2B%2B/11_Operators%20Overloading/)
   In all of the above, we have discussed the use of `getters` and `setters`. `Mutators` and `Accessors` are similar to `getters` and `setters` because using the `setters` we can have full access to the data members of the class to change them directly, and the same applies to `getters` for directly accessing and retrieving them.
-Now, we will discuss about "Functionalities" (It may not make sense, but it is a straightforward concept to understand). Other topics will be discussed in the coming points..
+  Now, we will discuss about "Functionalities" (It may not make sense, but it is a straightforward concept to understand). Other topics will be discussed in the coming points..
 
 ## Functionaliters :
 
->Functions that perform specific operations on the data and provide some outcome are known asfunctionalities. >These functions can perform mathematical and other operations on the data members and return results or assist other functions in performing their intended tasks.
+> Functions that perform specific operations on the data and provide some outcome are known asfunctionalities. >These functions can perform mathematical and other operations on the data members and return results or assist other functions in performing their intended tasks.
 
 ### Let understand by example 🙂 :
 
-[Write a C++ program in to find distance between two points and take third point and find from where the distance from third point is closest](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/11_MemberFunctions.cpp)
+[Write a C++ program in to find distance between two points and take third point and find from where the distance from third point is closest](/01_Object%20Oriented%20Programming%20in%20C%2B%2B/06_Member%20Functions/Code/11_MemberFunctions.cpp)
 
 ```cpp
 /*Write a c++ program in to find distance between two points and take third point and find from where the distance from third point is closest*/
@@ -113,11 +113,3 @@ int main()
     return 0;
 }
 ```
-
-# Now its Time for Boosted Material 3
-
-## Go deep 🧐, learn deep 😎
-
-- See basic concept based questions on `setters`, `getters`, `this->pointer`, `object operators` and `object functions` click [here](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/)
-- To get slides on these topics click [here](/Some%20extra%20concepts/Slides/memberFunctions.pdf)
-- To read about them more briefy visit [here](https://learncpp.com)

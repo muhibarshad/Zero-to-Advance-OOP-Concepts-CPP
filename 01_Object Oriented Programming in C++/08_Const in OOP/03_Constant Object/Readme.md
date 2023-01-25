@@ -9,7 +9,7 @@
 > const objects give their `refrence` to only const member functions/behaviours.
 
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/const_obj.png" style="height: 70vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/const_obj.png" style="height: 70vh; padding-left: 50vh;">
 </p>
 
 ```cpp

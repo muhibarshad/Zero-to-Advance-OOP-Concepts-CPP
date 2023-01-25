@@ -14,7 +14,7 @@
 > It makes sense because static data members belong to the class and its memory is allocated only once. Imagine if it were defined inside the class, memory would be allocated every time an object of the class is created, which is not allowed.
 
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/staticdatamember.png" style="height: 70vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/staticdatamember.png" style="height: 70vh; padding-left: 50vh;">
 </p>
 
 ##### Best Practice 👀
@@ -22,13 +22,13 @@
 > It is best practice to access `static data members` by the **class name** with the scope `resolution (::) operator` rather than by accessing the object with the `memory access/dot operator (.)` .
 
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/staticdatamember_define.png" style="height: 70vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/staticdatamember_define.png" style="height: 70vh; padding-left: 50vh;">
 </p>
 
 ##### Tips 😎
 
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/staticdatamember_const.png" style="height: 70vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/staticdatamember_const.png" style="height: 70vh; padding-left: 50vh;">
 </p>
 
 ### Example code

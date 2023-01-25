@@ -56,7 +56,7 @@ Point p2 = -p1;
 member friend to avoid conflict.
 
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/uniaryFriend.png" style="height: 70vh; padding-left: 0vh;">
+    <img src="/04_Material/CodeSnaps/uniaryFriend.png" style="height: 70vh; padding-left: 0vh;">
  </p>
 
 ### Binary operator Addition +
@@ -72,7 +72,7 @@ Must define non-member function.\
 > Non-member function takes two arguments
 
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/binaryFriend.png" style="height: 70vh; padding-left: 0vh;">
+    <img src="/04_Material/CodeSnaps/binaryFriend.png" style="height: 70vh; padding-left: 0vh;">
  </p>
   
 Example Code:
@@ -119,7 +119,7 @@ Point p3 = a + p1;
 - For cascading return `ostream` object by reference from function.
 
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/stream.png" style="height: 60vh; padding-left: 0vh;">
+    <img src="/04_Material/CodeSnaps/stream.png" style="height: 60vh; padding-left: 0vh;">
  </p>
 
  **Code Example here**:
@@ -161,7 +161,7 @@ int main()
 # Summary of Operator Overloading
 
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/summary.png" style="height: 80vh; padding-left: 0vh;">
+    <img src="/04_Material/CodeSnaps/summary.png" style="height: 80vh; padding-left: 0vh;">
  </p>
 
  # Imporatnt Tip:

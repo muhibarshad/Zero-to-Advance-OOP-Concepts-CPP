@@ -10,13 +10,13 @@ It has two sub - Divisions
 #### 1) deep copy in copy constructor
 
 <p align = "center">
-<img src = "/Some%20extra%20concepts/codeSnaps/deepcopy2.png" style = "height: 70vh; padding-left: 50vh;">
+<img src = "/04_Material/CodeSnaps/deepcopy2.png" style = "height: 70vh; padding-left: 50vh;">
 < / p>
 
 #### 2) deep copy in assignment operator
 
 <p align = "center">
-<img src = "/Some%20extra%20concepts/codeSnaps/deepcopy3.png" style = "height: 70vh; padding-left: 50vh;">
+<img src = "/04_Material/CodeSnaps/deepcopy3.png" style = "height: 70vh; padding-left: 50vh;">
 < / p>
 
 ### code example

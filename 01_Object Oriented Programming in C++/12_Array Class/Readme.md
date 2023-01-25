@@ -7,7 +7,7 @@ Every object is the same as a simple array, in that each index contains an objec
 Basic syntax for the decalaration and initailzation of objects with the default values by calling different constructors :
 
   <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/arrays.png" style="height: 50vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/arrays.png" style="height: 50vh; padding-left: 50vh;">
  </p>
 
 - On `0` index initilize the object with the default construtor.
@@ -17,7 +17,7 @@ Basic syntax for the decalaration and initailzation of objects with the default 
 Accessing of these objects is same as the simple arrays `dot(.) operator` for the static arrays and `spread(->) operator` for the dynamic arrays.
 
   <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/dot.png" style="height: 70vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/dot.png" style="height: 70vh; padding-left: 50vh;">
  </p>
 
 # # Array Class
@@ -38,18 +38,18 @@ If you come from a background in other high-level programming languages, like `J
 1.  Every Constructor has ist own allocted heap memory of size `X`
 
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/array_3.png" style="height: 70vh; padding-left: 0vh;">
+    <img src="/04_Material/CodeSnaps/array_3.png" style="height: 70vh; padding-left: 0vh;">
  </p>
 2. Destrutor always delete the heap allocated memory
 
  <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/array_2.png" style="height: 30vh; padding-left: 0vh;">
+    <img src="/04_Material/CodeSnaps/array_2.png" style="height: 30vh; padding-left: 0vh;">
  </p>
 
 3. When overloading the assignment operator, it is essential to always write it in such a way that it deallocates the previous memory and reallocates with new memory. The most important point to understand is that, in the assignment `operator`, firstly we check if there is no self-assignment `&obj!=this`, then there is a chance that the left-hand object has a size different from the size of the right-hand object. If we copy them, then `array index out of bounds` issues will be created. To resolve these problems, we can `delete` the left-hand memory equal to its size to the right-hand object size, then copy them.
 
  <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/array_4.png" style="height: 50vh; padding-left: 0vh;">
+    <img src="/04_Material/CodeSnaps/array_4.png" style="height: 50vh; padding-left: 0vh;">
  </p>
 
 4.  Overload subscript operator `[]` for the `l-value_r-value` and `const-r-value` to get more abstraction
@@ -57,7 +57,7 @@ If you come from a background in other high-level programming languages, like `J
     There is another interesting fact here that when we are re-assigning the array element with new element in short terms over-writing the variable, then we will return the reference alias `int &` of the original array element to overrite the image of that index value.
 
   <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/array_5.png" style="height: 80vh; padding-left: 0vh;">
+    <img src="/04_Material/CodeSnaps/array_5.png" style="height: 80vh; padding-left: 0vh;">
  </p>
 
 ## `Default` Array class blueprint

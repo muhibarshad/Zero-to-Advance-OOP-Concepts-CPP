@@ -9,8 +9,8 @@ In daily life, we see that everything is connected to one another. For example, 
 
 It means to keep the object of one class in another class. It is called container-ship or possession. In a "has-a" relationship, we can say that a parent class has a child class. The child class can be totally dependent or independent on the creation or destruction of the main class. This relationship is further divided into two more subtypes.
 
-1. Composition (Strong RelationShip)
-1. Aggregation (Week RelationShip)
+1. [Composition (Strong RelationShip)](/01_Object%20Oriented%20Programming%20in%20C%2B%2B/13_Object%20RelationShips/02_Composition/)
+1. [Aggregation (Week RelationShip)](/01_Object%20Oriented%20Programming%20in%20C%2B%2B/13_Object%20RelationShips/01_Aggregation/)
 
 ## Important Points
 

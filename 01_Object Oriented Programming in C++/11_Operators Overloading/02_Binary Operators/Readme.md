@@ -35,7 +35,7 @@ p1 + 3;
 ##### Syntax:
 
  <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/additionOperator-2.png" style="height: 50vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/additionOperator-2.png" style="height: 50vh; padding-left: 50vh;">
  </p>
 
 - Can be called in both ways.
@@ -64,7 +64,7 @@ We will follow the original definition of the += operator. Here, the += operator
 ### Syntax:
 
  <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/arithematicAssignment.png" style="height: 50vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/arithematicAssignment.png" style="height: 50vh; padding-left: 50vh;">
  </p>
 
 #### Relating + and += :😢
@@ -92,7 +92,7 @@ Now, coming back to the coding portion. If we implement the same logic with the 
 be like this :
 
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/relate+and+=.png" style="height: 70vh; padding-left: 0vh;">
+    <img src="/04_Material/CodeSnaps/relate+and+=.png" style="height: 70vh; padding-left: 0vh;">
  </p>
 
 #### Note :
@@ -158,7 +158,7 @@ int main()
 #### Syntax:
 
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/==.png" style="height: 40vh; padding-left: 0vh;">
+    <img src="/04_Material/CodeSnaps/==.png" style="height: 40vh; padding-left: 0vh;">
  </p>
 
 ### Logical Operator !=
@@ -167,7 +167,7 @@ If logical operatot `==` is defined then relate it with the `!=` as
 `!(*this==obj)`
 
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/!=.png" style="height: 40vh; padding-left: 0vh;">
+    <img src="/04_Material/CodeSnaps/!=.png" style="height: 40vh; padding-left: 0vh;">
  </p>
 
 Other Logical operators like `<=,>=,<,>` are work in the same way sa above.

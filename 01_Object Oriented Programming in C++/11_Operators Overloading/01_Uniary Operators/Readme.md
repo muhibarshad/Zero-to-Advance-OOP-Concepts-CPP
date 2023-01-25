@@ -9,7 +9,7 @@ Member function takes no argument work on single operand must be the class objec
 Converting object to their negative form.
 
  <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/uniaryNon-static.png" style="height: 70vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/uniaryNon-static.png" style="height: 70vh; padding-left: 50vh;">
  </p>
 
 #### Pre increment --
@@ -17,7 +17,7 @@ Converting object to their negative form.
 Pre-increment operator (++), increments the object by 1 first. In cascading, we have two options: we can return the updated object or just return the non-updated object. The best practice here is to return the non-updated object because we may use this object without incrementing it elsewhere..
 
  <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/preIncrement.png" style="height: 50vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/preIncrement.png" style="height: 50vh; padding-left: 50vh;">
  </p>
 
 #### Post increment --
@@ -25,7 +25,7 @@ Pre-increment operator (++), increments the object by 1 first. In cascading, we 
 Post-increment operator (++), same as to increment the object by 1 after. The cascading strategy is the same as above for [pre-increment](#pre-increment). To distinguish between post and pre, in post we use 'int' as a parameter in the parameter list. That's easy.
 
  <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/postIncrement-2.png" style="height: 50vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/postIncrement-2.png" style="height: 50vh; padding-left: 50vh;">
  </p>
 
 ##### Now Understand by example:

@@ -5,7 +5,7 @@
 > It is case where one `object(part)` is a** part** of another `object(whole)`.It is also known as `part-whole relationship`.It is** strong relationship** because ownership is involved.
 
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/composition.png" style="height: 70vh; padding-left: 0vh;">
+    <img src="/04_Material/CodeSnaps/composition.png" style="height: 70vh; padding-left: 0vh;">
  </p>
 
 ### To qualify for composition 😎 ?
@@ -40,7 +40,7 @@ The creation and destruction of `class B` (a data member of `class A`) does not 
 ## why there is a need of composition ? 👀
 
 <p align = "center">
-<img src = "/Some%20extra%20concepts/codeSnaps/composition1.png" style = "height: 70vh; padding-left: 50vh;">
+<img src = "/04_Material/CodeSnaps/composition1.png" style = "height: 70vh; padding-left: 50vh;">
 </p>
 
 ### Note
@@ -57,7 +57,7 @@ Single `class` **person** controls every thing.
 - For example student, doctor teacher, and patient
 
 <p align = "center">
-<img src = "/Some%20extra%20concepts/codeSnaps/composition2.png" style = "height: 70vh; padding-left: 50vh;">
+<img src = "/04_Material/CodeSnaps/composition2.png" style = "height: 70vh; padding-left: 50vh;">
 </p>
 
 ### Note
@@ -79,7 +79,7 @@ In the above picture :
 ### calling sequence 👀
 
 <p align = "center">
-<img src = "/Some%20extra%20concepts/codeSnaps/composition3.png" style = "height: 70vh; padding-left: 50vh;">
+<img src = "/04_Material/CodeSnaps/composition3.png" style = "height: 70vh; padding-left: 50vh;">
 </p>
 
 -`Default constructor`: in **same order** as defined objects in `class`

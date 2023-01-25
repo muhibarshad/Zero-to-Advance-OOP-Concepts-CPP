@@ -9,7 +9,7 @@ Constructors are `overloaded` like `function-overloading`. When there are more t
 ### Syntax:
 
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/cons-2.png" style="height: 50vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/cons-2.png" style="height: 50vh; padding-left: 50vh;">
 </p>
 
 ### Example:

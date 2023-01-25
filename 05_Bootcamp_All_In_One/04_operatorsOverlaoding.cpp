@@ -8,7 +8,7 @@ class Algebra
 
 public:
   Algebra(int x = 0, int y = 0) : x(x), y(y) {}
-  Algebra operator+=(const Algebra &obj)
+  Algebra& operator+=(const Algebra &obj)
   {
     x += obj.x;
     y += obj.y;

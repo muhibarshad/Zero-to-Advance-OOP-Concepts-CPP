@@ -1,4 +1,4 @@
-Assignment Operator =
+# Assignment Operator =
 
 When we don't overload the `assignment operator` then,by `default` our compiler gives the overloaded assignment operator.
 
@@ -20,7 +20,7 @@ private:
 ```
 
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/=.png" style="height: 50vh; padding-left: 0vh;">
+    <img src="/04_Material/CodeSnaps/=.png" style="height: 50vh; padding-left: 0vh;">
  </p>
 
 For `Pointers`,Check L.H.S AND R.H.S objects as;
@@ -35,7 +35,7 @@ For `Pointers`,Check L.H.S AND R.H.S objects as;
 ### Syntax:
 
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/pointer=.png" style="height: 80vh; padding-left: 0vh;">
+    <img src="/04_Material/CodeSnaps/pointer=.png" style="height: 80vh; padding-left: 0vh;">
  </p>
 
 ### Subscript Operator []

@@ -7,7 +7,7 @@ As we have studied earlier, the C++ compiler provides a default copy constructor
 > Because C++ does not have detailed information about your class, the default copy constructor and `default assignment operators` it provides use a copying method known as a **memberwise copy** (also known as a `shallow copy`).
 
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/shallowcopy1.png" style="height: 70vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/shallowcopy1.png" style="height: 70vh; padding-left: 50vh;">
 </p>
 
 ### Example code

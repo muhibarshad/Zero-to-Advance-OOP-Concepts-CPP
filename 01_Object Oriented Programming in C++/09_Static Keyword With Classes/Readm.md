@@ -6,5 +6,5 @@
 
 Static keyword has two uses with class which are discussed below:
 
-- `static data member`
-- `static function`
+- [`static data member`](/01_Object%20Oriented%20Programming%20in%20C%2B%2B/09_Static%20Keyword%20With%20Classes/01_Static%20%20Data%20Members/)
+- [`static function`](/01_Object%20Oriented%20Programming%20in%20C%2B%2B/09_Static%20Keyword%20With%20Classes/02_Static%20Member%20Functions/)

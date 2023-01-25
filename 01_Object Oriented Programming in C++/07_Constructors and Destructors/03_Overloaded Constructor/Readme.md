@@ -5,7 +5,7 @@ Overloaded Constrcutor is the sum of the deafult constructor and the parameteriz
 ### Basic Syntax:
 
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/over.png" style="height: 50vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/over.png" style="height: 50vh; padding-left: 50vh;">
 </p>
 
 Example:

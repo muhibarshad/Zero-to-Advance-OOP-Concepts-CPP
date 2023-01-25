@@ -15,13 +15,13 @@
 1.  Initializing at the time of declaration. But keep in mind that some compilers do not allow initialization of 'const' in this way.
 
  <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/constdatamember.png" style="height: 70vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/constdatamember.png" style="height: 70vh; padding-left: 50vh;">
  </p>
 
 2)Initializing in `Initializer list` of `constructors`
 
  <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/connst_In_initializerlist.png" style="height: 70vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/connst_In_initializerlist.png" style="height: 70vh; padding-left: 50vh;">
 </p>
 
 ### Example Code

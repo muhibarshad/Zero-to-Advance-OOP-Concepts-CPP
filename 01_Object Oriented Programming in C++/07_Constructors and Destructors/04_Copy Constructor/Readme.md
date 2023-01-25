@@ -11,7 +11,7 @@
 ### Syntax:
 
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/cons-3.png" style="height: 50vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/cons-3.png" style="height: 50vh; padding-left: 50vh;">
 </p>
 ### Example:
 

@@ -7,7 +7,7 @@
 ### Synatx:
 
    <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/des.png" style="height: 50vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/des.png" style="height: 50vh; padding-left: 50vh;">
 </p>
 
 ### Example:

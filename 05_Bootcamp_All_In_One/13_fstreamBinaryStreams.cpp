@@ -15,7 +15,7 @@ public:
     {
         cout << "Cons of Student\n";
     }
-    void input(Student *arr,const int& size)
+    void input(Student *arr, const int &size)
     {
         file.open("student.txt", ios::binary | ios ::app);
         if (!file)
@@ -64,9 +64,5 @@ public:
 };
 int main()
 {
-    Student st;
-    // st.input(3);
-    st.output(3);
-
     return 0;
 }

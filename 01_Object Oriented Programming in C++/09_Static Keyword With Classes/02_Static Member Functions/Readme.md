@@ -12,7 +12,7 @@
 
 > You can call a `static function` by the **object name** with the `memory access operator (.)`, but it is not considered good programming practice. It is better to access the `static member function` of a class by the **class** name with the `scope resolution operator (::)`.
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/staticFunctions.png" style="height: 70vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/staticFunctions.png" style="height: 70vh; padding-left: 50vh;">
 </p>
 
 ## Example code

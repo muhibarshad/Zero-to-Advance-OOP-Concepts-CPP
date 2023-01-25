@@ -20,7 +20,7 @@ When we want to use the same class as a data member in multiple classes or want 
 In order to use the pointer or a reference & of a used object or the pointer `*` address of the used object in the parent class, we use `aggregation`. This reference refers to the used class object in the parent class. The reference or alias `&` actually have just a different name for the original object, we are actually using the `same address value`. When the reference variable is destroyed, it doesn't mean that the actual class is also destroyed, only this reference variable having the address of the referred class is destroyed. And with a `pointer`, we pass the address of the `aggregated object`, we use its address and manipulate it.
 
   <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/aggregation.png" style="height: 70vh; padding-left: 0vh;">
+    <img src="/04_Material/CodeSnaps/aggregation.png" style="height: 70vh; padding-left: 0vh;">
  </p>
 
 ## Aggregation by `refernce & `

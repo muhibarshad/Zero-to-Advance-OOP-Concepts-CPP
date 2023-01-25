@@ -9,7 +9,7 @@
 > `constructors` are also _special member functions_ of class but it is not allowed to make constructors const functions.
 
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/const_functionn.png" style="height: 70vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/const_functionn.png" style="height: 70vh; padding-left: 50vh;">
 </p>
 
 ### Example code
