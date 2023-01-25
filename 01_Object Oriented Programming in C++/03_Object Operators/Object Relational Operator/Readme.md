@@ -3,12 +3,12 @@
 Relational operators can be applied only on the varaibles that are made in functions. In objects you cannot apply directly these operaters on the object data members. It cannot be possible by `Member-Wise` or `Agreement-Wise`.
 
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/relational.png" style="height: 50vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/relational.png" style="height: 50vh; padding-left: 50vh;">
 </p>
 
 ### Example :
 
-[Can we compare the reational operaters (==,!=,<=,>=) to compare two object data members ?](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/4_RelationalOpearter.cpp)
+[Can we compare the reational operaters (==,!=,<=,>=) to compare two object data members ?](/01_Object%20Oriented%20Programming%20in%20C%2B%2B/03_Object%20Operators/Object%20Relational%20Operator/Code/4_RelationalOpearter.cpp)
 
 ```cpp
 #include<iostream>

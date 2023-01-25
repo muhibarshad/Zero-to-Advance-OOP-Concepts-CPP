@@ -5,17 +5,17 @@ n C++, '**this'** is a pointer that refers to the instance of the class. A singl
 1.When naming local variables within member functions of a class, it's important to ensure that the variable names do not conflict with the names of the class`data members`.
 
 <p align="center">
-<img src="/Some%20extra%20concepts/codeSnaps/this1.png" style="height: 50vh; padding-left: 50vh;">
+<img src="/04_Material/CodeSnaps/this1.png" style="height: 50vh; padding-left: 50vh;">
 
  </p>
  
 2.Returning the entire object from a member function is useful for function chaining, where the function call updates the previous function's value and returns a reference to the object. This allows for multiple function calls to be chained together and executed in a single statement.
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/this2.png" style="height: 70vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/this2.png" style="height: 70vh; padding-left: 50vh;">
  </p>
  
   ### Lets now understand by example 😍:
-  [What is a this key Word in C++? Write a C++ program in which the setter function parameter name is same as the class data member name.What is the *this Pointer* in the C++ 😧?](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/9_thisPointer.cpp)
+  [What is a this key Word in C++? Write a C++ program in which the setter function parameter name is same as the class data member name.What is the *this Pointer* in the C++ 😧?](/01_Object%20Oriented%20Programming%20in%20C%2B%2B/05_This%20KeyWord/Code/9_thisPointer.cpp)
 
 ```cpp
 #include<iostream>
@@ -103,7 +103,7 @@ int main()
 Having a class with more than 1000 member functions can make the class size unwieldy and difficult to understand. Additionally, when sharing the class with a colleague, it may be overwhelming to try and navigate through all of the functionality offered by the class. To address these issues, one solution is to use function prototypes inside the class, and implement the functions outside the class. This allows for clear visibility of the class' functionalities without cluttering the class with implementation details.
 
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/s-1.png" style="height: 70vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/s-1.png" style="height: 70vh; padding-left: 50vh;">
  </p>
 
 But the error should become :
@@ -123,10 +123,10 @@ How to resolve this error :
 _Means that this function has scope to that class_
 
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/s-2.png" style="height: 50vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/s-2.png" style="height: 50vh; padding-left: 50vh;">
 </p>
 
-### Understand by complete [Scope-Resolution(::) Example](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/10_scopeResolutionOperter.cpp) 😎:
+### Understand by complete [Scope-Resolution(::) Example](/01_Object%20Oriented%20Programming%20in%20C%2B%2B/05_This%20KeyWord/Code/9_thisPointer.cpp) 😎:
 
 ```cpp
 #include <iostream>

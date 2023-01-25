@@ -7,17 +7,17 @@ In generally, the assignment operator can be used to copy one thing into another
 1.Member wise data Assignment
 
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/assignment-1.png" style="height: 50vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/assignment-1.png" style="height: 50vh; padding-left: 50vh;">
 
  </p>
  
  2.Aggregate Wise data Assignment
         <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/assignment-2.png" style="height: 50vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/assignment-2.png" style="height: 50vh; padding-left: 50vh;">
  </p>
  
   ### Lets now understand by example 😍:
-  [In C++ how the class data members of one object to be copied to the another object data memebers](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/3_AssignmentOperater.cpp)
+  [In C++ how the class data members of one object to be copied to the another object data memebers](/01_Object%20Oriented%20Programming%20in%20C%2B%2B/03_Object%20Operators/Assignment%20Operator/Code/3_AssignmentOperater.cpp)
 
 ```cpp
 #include <iostream>

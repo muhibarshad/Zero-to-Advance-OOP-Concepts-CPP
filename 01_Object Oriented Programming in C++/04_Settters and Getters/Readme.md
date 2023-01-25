@@ -10,7 +10,7 @@
 
 - **_Void setVariableName (varaibleDataType parameterName){ variableName = ParameterName;}_**
    <p align="center">
-   <img src="/Some%20extra%20concepts/codeSnaps/setters.png" style="height: 60vh; padding-left: 50vh;">
+   <img src="/04_Material/CodeSnaps/setters.png" style="height: 60vh; padding-left: 50vh;">
 </p>
 
 ## Getters
@@ -21,7 +21,7 @@
 
 - **_returnType getVariableName (){ return variableName;}_**
      <p align="center">
-     <img src="/Some%20extra%20concepts/codeSnaps/getters.png" style="height: 60vh; padding-left: 50vh;">
+     <img src="/04_Material/CodeSnaps/getters.png" style="height: 60vh; padding-left: 50vh;">
   </p>
 
   ## SetData and getData
@@ -70,5 +70,5 @@ int main()
 
 ### Practice exapmles:
 
-- [Getters and Setters in C++ ](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/2_gettersAndSetters.cpp)
-- [getData and setData in C++ ](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/1_getData_and_putData.cpp)
+- [Getters and Setters in C++ ](/01_Object%20Oriented%20Programming%20in%20C%2B%2B/04_Settters%20and%20Getters/Code/2_gettersAndSetters.cpp)
+- [getData and setData in C++ ](/01_Object%20Oriented%20Programming%20in%20C%2B%2B/04_Settters%20and%20Getters/Code/1_getData_and_putData.cpp)

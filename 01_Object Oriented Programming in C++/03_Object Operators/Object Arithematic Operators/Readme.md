@@ -3,19 +3,19 @@
 Arithematic operators (+, -, /, \*, %) will be applicable only in member wise
 
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/arithematic-1.png" style="height: 50vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/arithematic-1.png" style="height: 50vh; padding-left: 50vh;">
 </p>
  
   Cannot be applicable directly on the objects agreement wise.
 <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/arithematic-2.png" style="height: 60vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/arithematic-2.png" style="height: 60vh; padding-left: 50vh;">
 </p>
 
 > Use `Operator_Overloading` to apply these arithematic_operators on the objects directly.We will discuss this in later section [go_here](#).
 
 ### Example :
 
-[Can we compare the use the arithematic operaters (+,-,\*,/,%) to perform arithematic calculations between two object data members ?](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/5_ArithematicOpearter.cpp)
+[Can we compare the use the arithematic operaters (+,-,\*,/,%) to perform arithematic calculations between two object data members ?](/01_Object%20Oriented%20Programming%20in%20C%2B%2B/03_Object%20Operators/Object%20Arithematic%20Operators/Code/5_ArithematicOpearter.cpp)
 
 ```cpp
 

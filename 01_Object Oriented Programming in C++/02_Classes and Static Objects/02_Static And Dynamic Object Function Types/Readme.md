@@ -43,9 +43,10 @@ In `Dyanmic`,the returing object returns the only address of the making object n
 <p align="center">
     <img src="/04_Material/CodeSnaps/RVO-result.png" style="height: 50vh; padding-left: 50vh;">
  </p>
-### Let understand by 😮 [dynamic-example](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/6_DyanmicObjects_and_acessOperaters.cpp):
 
-For static click [here](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/7_staticObjectAndFunctions.cpp)
+### Let understand by 😮 [dynamic-example](/Object%20Oriented%20Programming/Step1_Classes%20and%20objects/Basic%20Concepts%20building%20programs/6_DyanmicObjects_and_acessOperaters.cpp):
+ 
+For static click [here](/01_Object%20Oriented%20Programming%20in%20C%2B%2B/02_Classes%20and%20Static%20Objects/02_Static%20And%20Dynamic%20Object%20Function%20Types/)
 
 ```cpp
 /*Dynamic Objects when we pass to functions they always should be pass as by refernce

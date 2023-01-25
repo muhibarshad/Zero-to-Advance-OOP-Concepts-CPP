@@ -5,19 +5,19 @@
 ## Basic Syntx of class:
 
   <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/class1.png" style="height: 40vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/class1.png" style="height: 40vh; padding-left: 50vh;">
  </p>
 
 ## Basic Syntx of object:
 
   <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/obj.png" style="height: 40vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/obj.png" style="height: 40vh; padding-left: 50vh;">
  </p>
 
 we cannot access the dataMemebers of the class outside the class .Their members are by `default-private`.So when we want to access them .The error should come as
 
   <p align="center">
-    <img src="/Some%20extra%20concepts/codeSnaps/error1.png" style="height: 40vh; padding-left: 50vh;">
+    <img src="/04_Material/CodeSnaps/error1.png" style="height: 40vh; padding-left: 50vh;">
 
 > so when we want to access them outside the class,we use the `access-identifiers`.
 
@@ -35,7 +35,7 @@ There are there Access specifiers.
 Result:
 
 <p align="center">
-<img src="/Some%20extra%20concepts/codeSnaps/result_class.png" style="height: 60vh; padding-left: 50vh;">
+<img src="/04_Material/CodeSnaps/result_class.png" style="height: 60vh; padding-left: 50vh;">
 
 ### Note:
 

@@ -2,8 +2,8 @@
 
 You are already aware that we previously discussed member functions. But what exactly are they? Member functions are functions that are associated with a specific class and operate on the data members of that class. :
 
-- [Getters](#getters)
-- [Setters](#setters)
+- [Getters](/01_Object%20Oriented%20Programming%20in%20C%2B%2B/04_Settters%20and%20Getters/Readme.md)
+- [Setters]()
 - [Mutators](#setters)
 - [Accessers](#getters)
 - [Functionaliters](#functionaliters)
