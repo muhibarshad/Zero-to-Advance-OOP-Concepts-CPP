@@ -17,7 +17,7 @@ In this example, the template keyword is followed by the type parameter "typenam
 When the function is called, the compiler will automatically generate a version of the function for the specific types passed as arguments. For example, the following call to the max() function will generate a `version` of the function that takes two integers and returns an integer:
 
  <p align="center">
-    <img src="/04_Material/CodeSnaps/Template2.png" style="height: 60vh; padding-left: 60vh;">
+    <img src="/04_Material/CodeSnaps/Template2.png" style="height: 50vh; padding-left: 50vh;">
  </p>
 
 Templates can also be used to create **generic classes**. For example, the following is a simple template for a stack class:
