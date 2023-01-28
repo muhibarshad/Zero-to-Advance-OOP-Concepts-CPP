@@ -7,7 +7,7 @@
 Templates in C++ are defined using the keyword **"template"** followed by **angle brackets** (< and >) that enclose the type(s) that the template will work with. For example, the following is a simple template for a function that finds the maximum of two values:
 
 <p align="center">
-    <img src="/04_Material/CodeSnaps/Template1.png" style="height: 40vh; padding-left: 40vh;">
+    <img src="/04_Material/CodeSnaps/Template1.png" style="height: 60vh; padding-left: 60vh;">
  </p>
 
 In this example, the template keyword is followed by the type parameter "typename T", which represents the type that the `function` will work with. The function itself takes two arguments of type T and returns the maximum of the two.
@@ -17,7 +17,7 @@ In this example, the template keyword is followed by the type parameter "typenam
 When the function is called, the compiler will automatically generate a version of the function for the specific types passed as arguments. For example, the following call to the max() function will generate a `version` of the function that takes two integers and returns an integer:
 
  <p align="center">
-    <img src="/04_Material/CodeSnaps/Template2.png" style="height: 30vh; padding-left: 40vh;">
+    <img src="/04_Material/CodeSnaps/Template2.png" style="height: 60vh; padding-left: 60vh;">
  </p>
 
 Templates can also be used to create **generic classes**. For example, the following is a simple template for a stack class:
@@ -31,19 +31,19 @@ In this example, the `Stack class` is defined with a single type parameter "type
 When an object of the Stack class is created, the compiler will automatically generate a version of the class for the specific type passed as the **template argument**. For example, the following code creates a stack of integers:
 
 <p align="center">
-    <img src="/04_Material/CodeSnaps/Template4.png" style="height: 40vh; padding-left: 40vh;">
+    <img src="/04_Material/CodeSnaps/Template4.png" style="height: 50vh; padding-left: 50vh;">
  </p>
 
 Templates can also have `multiple type parameters`, for example:
 
  <p align="center">
-    <img src="/04_Material/CodeSnaps/Template5.png" style="height: 30vh; padding-left: 30vh;">
+    <img src="/04_Material/CodeSnaps/Template5.png" style="height: 50vh; padding-left: 50vh;">
  </p>
 
 C++ also allows for `non-type template parameters`, for example:
 
  <p align="center">
-    <img src="/04_Material/CodeSnaps/Template6.png" style="height: 30vh; padding-left: 30vh;">
+    <img src="/04_Material/CodeSnaps/Template6.png" style="height: 50vh; padding-left: 50vh;">
  </p>
 
 # Conclusions
