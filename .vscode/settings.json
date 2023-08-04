@@ -52,6 +52,7 @@
         "random": "cpp",
         "functional": "cpp",
         "numeric": "cpp",
-        "sstream": "cpp"
+        "sstream": "cpp",
+        "image_processing_in_C.C": "cpp"
     }
 }
